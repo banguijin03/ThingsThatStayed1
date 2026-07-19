@@ -28,7 +28,7 @@ public struct UIClaim
 	}
 }
 
-public class UI_ScreenBase : UIBase, IOpenable
+public class UI_ScreenBase : OpenableUIBase
 {
 	[SerializeField] UIClaim[] requiredUI;
 

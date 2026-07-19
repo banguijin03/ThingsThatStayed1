@@ -876,13 +876,14 @@ GameObject:
   - component: {fileID: 9057860259347375220}
   - component: {fileID: 4895160224294891217}
   - component: {fileID: 3294717820724249889}
+  - component: {fileID: 988560829746405563}
   m_Layer: 5
   m_Name: InsideOptionWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9057860259347375220
 RectTransform:
   m_ObjectHideFlags: 0
@@ -942,6 +943,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.3
+--- !u!114 &988560829746405563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294161261491273933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be1f8654f4d25e40b9d09ce31149aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_IndieOptionWindow
+  requiredUI: []
 --- !u!1 &6302983961078332388
 GameObject:
   m_ObjectHideFlags: 0

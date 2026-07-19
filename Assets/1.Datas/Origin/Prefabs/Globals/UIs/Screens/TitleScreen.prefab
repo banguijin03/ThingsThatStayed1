@@ -1592,18 +1592,18 @@ PrefabInstance:
     - target: {fileID: 7142555291592302381, guid: 480664350ebc5774ea6a874284025fda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 9071830454822748274}
+      objectReference: {fileID: 7130110447123774506}
     - target: {fileID: 7142555291592302381, guid: 480664350ebc5774ea6a874284025fda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7142555291592302381, guid: 480664350ebc5774ea6a874284025fda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Create
+      value: Open
       objectReference: {fileID: 0}
     - target: {fileID: 7142555291592302381, guid: 480664350ebc5774ea6a874284025fda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI_TitleScreen, Assembly-CSharp
+      value: UI_Button_OpenScreen, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7142555291592302381, guid: 480664350ebc5774ea6a874284025fda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1620,13 +1620,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9219745177116735322, guid: 480664350ebc5774ea6a874284025fda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7130110447123774506}
   m_SourcePrefab: {fileID: 100100000, guid: 480664350ebc5774ea6a874284025fda, type: 3}
 --- !u!224 &1369935966078156786 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4547671111007554477, guid: 480664350ebc5774ea6a874284025fda, type: 3}
   m_PrefabInstance: {fileID: 3179100739212932191}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6047615376531784453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9219745177116735322, guid: 480664350ebc5774ea6a874284025fda, type: 3}
+  m_PrefabInstance: {fileID: 3179100739212932191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7130110447123774506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047615376531784453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37fe6a2e23762044f962caaa27b42722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_Button_OpenScreen
+  wantType: 12
+  ChangeType: 0
 --- !u!1001 &3933554399888306308
 PrefabInstance:
   m_ObjectHideFlags: 0

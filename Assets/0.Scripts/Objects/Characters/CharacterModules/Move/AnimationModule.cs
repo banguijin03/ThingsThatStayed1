@@ -42,7 +42,7 @@ public class AnimationModule : CharacterModule
         anim.SetFloat("MoveSpeed", moveDelta.magnitude / Time.fixedDeltaTime);
     }
 
-    /*//곡괭이
+    //곡괭이
     public void PlayPickaxe()
     {
         if (!anim) return;
@@ -118,5 +118,5 @@ public class AnimationModule : CharacterModule
         if (!anim) return;
         anim.SetTrigger("DeathOn");
     }
-    //낚시와 잠*/
+    //낚시와 잠
 }

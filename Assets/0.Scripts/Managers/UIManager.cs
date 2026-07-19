@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public enum UIType
 {
 	None, Loading, Title, Option, Movable, Info, Inside, GameQuit, 
-	InventoryWindow, StatShow, InsideOption,
-	CharacterCustomization,
+	InventoryWindow, StatShow, InsideOption, InsideSetting,
+	CharacterCustomization, 
 	ItemHoverInfo, ItemClickInfo, ActionHoverInfo, ActionClickInfo, ItemCursorSlot,
     _Length
 }
@@ -33,7 +33,7 @@ public class UIManager : ManagerBase
 		new(UIType.InsideOption,					"InsideOptionWindow"),
 		new(UIType.StatShow,						"StatShowPage"),
 		new(UIType.InventoryWindow,					"InventoryWindow"),
-		new(UIType.CharacterCustomization,			"CharacterCustomizationScreen"),
+		new(UIType.CharacterCustomization,          "CharacterCustomizationScreen"),
 	};
 
 	Canvas _mainCanvas;
@@ -154,7 +154,8 @@ public class UIManager : ManagerBase
     protected UIBase CreateUI(UIType wantType, string wantName, Transform parent)
 	{
 		GameObject instance = ObjectManager.CreateObject(wantName, parent);
-		UIBase result = instance?.GetComponent<UIBase>();
+
+        UIBase result = instance?.GetComponent<UIBase>();
 		return SetUI(wantType, result);
 	}
     protected UIBase CreateUI(UIType wantType, string wantName)
@@ -196,9 +197,10 @@ public class UIManager : ManagerBase
 
 	protected UIBase SetUI(UIBase wantUI)
 	{
-		wantUI?.Registration(this);
+        wantUI?.Registration(this);
 		return wantUI;
 	}
+
     protected UIBase SetUI(UIType wantType, UIBase wantUI)
     {
         if (wantUI == null) return null;

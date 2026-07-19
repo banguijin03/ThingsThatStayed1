@@ -10,7 +10,10 @@ public class UI_InventoryWindow : OpenableUIBase
 
     public override void Registration(UIManager manager)
     {
+        Debug.Log("UI_InventoryWindow Registration");
         base.Registration(manager);
+        InputManager.OnInventory -= (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
+        InputManager.OnInventory += (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
         targetInventory?.Initialize();
         ConnectInventory(targetInventory);
     }
@@ -18,12 +21,13 @@ public class UI_InventoryWindow : OpenableUIBase
     public override void Unregistration(UIManager manager)
     {
         base.Unregistration(manager);
+        InputManager.OnInventory -= (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
         DisconnectInventory();
     }
 
     public void ConnectInventory(Inventory newInventory)
     {
-        if (!newInventory) return;
+        if (!newInventory) return; 
         targetInventory = newInventory; 
 
         if (!layout) return;
@@ -36,7 +40,6 @@ public class UI_InventoryWindow : OpenableUIBase
         foreach (ItemSlot currentSlot in newInventory.GetAllSlot())
         {
             if (currentSlot is null) continue; 
-                                            
             GameObject instance = ObjectManager.CreateObject(itemSlotPrefabName, layout.transform);
             if (!instance) continue; 
             if (instance.TryGetComponent(out UI_ItemSlotInfo createdSlot)) 
@@ -49,19 +52,12 @@ public class UI_InventoryWindow : OpenableUIBase
     public void DisconnectInventory()
     {
         if (!layout) return;
-
         while (layout.transform.childCount > 0)
         {
             Transform targetChild = layout.transform.GetChild(0);
             targetChild.SetParent(null);
             ObjectManager.DestroyObject(targetChild.gameObject);
         }
-    }
-
-    private void Start()
-    {
-        targetInventory.Initialize();
-        ConnectInventory(targetInventory);
     }
 
     public void ClaimSort()
