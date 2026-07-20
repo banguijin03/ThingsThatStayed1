@@ -15,11 +15,11 @@ public class UI_MovableScreen : UI_ScreenBase
 	{
 		base.Registration(manager);
 
-        //InputManager.OnInventory -= (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
-        //InputManager.OnInventory += (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
-        //
-        //InputManager.OnCancel -= (value) => UIManager.ClaimToggleUI(UIType.InsideOption);
-        //InputManager.OnCancel += (value) => UIManager.ClaimToggleUI(UIType.InsideOption);
+        InputManager.OnInventory -= (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
+        InputManager.OnInventory += (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
+        
+        InputManager.OnCancel -= (value) => UIManager.ClaimToggleUI(UIType.InsideOption);
+        InputManager.OnCancel += (value) => UIManager.ClaimToggleUI(UIType.InsideOption);
 
 
         InputManager.OnMouseMove -= MouseMove;

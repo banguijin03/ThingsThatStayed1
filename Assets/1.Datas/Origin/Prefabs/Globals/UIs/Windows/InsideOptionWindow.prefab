@@ -56,7 +56,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225939231137298777}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
@@ -105,11 +105,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 224092782875681785}
+  m_Father: {fileID: 1407283317193805606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3830757629770115078
@@ -380,13 +380,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5851166643601058986}
+  - {fileID: 2500092626969848828}
   m_Father: {fileID: 5707833662305712560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.24743061}
-  m_AnchoredPosition: {x: -0.0803833, y: 0.047180176}
-  m_SizeDelta: {x: -51.942596, y: -8.299194}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4103126341724443496
 CanvasRenderer:
@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 7680240125415459134}
   - component: {fileID: 9024220156231696551}
   - component: {fileID: 3802022555858292225}
+  - component: {fileID: 2375213260104888871}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -504,10 +505,10 @@ RectTransform:
   - {fileID: 9046552747397382845}
   m_Father: {fileID: 5707833662305712560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.726}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.08041382, y: -8.850403}
-  m_SizeDelta: {x: -51.942596, y: -22.299202}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7680240125415459134
 CanvasRenderer:
@@ -590,7 +591,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9024220156231696551}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2375213260104888871}
+        m_TargetAssemblyTypeName: UI_ButtonOpenUI, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2375213260104888871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069829252198372435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918c0cc007a62584fbf7e6b1f8f6d910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_ButtonOpenUI
+  wantType: 11
+  wantToggle: 0
 --- !u!1 &3951967037830628551
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,11 +648,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1407283317193805606}
+  m_Father: {fileID: 224092782875681785}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9195109605704134911
@@ -968,6 +995,7 @@ GameObject:
   - component: {fileID: 3576136741739815264}
   - component: {fileID: 6519341589797011548}
   - component: {fileID: 4302625650499489228}
+  - component: {fileID: 1411631514404319920}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -990,10 +1018,10 @@ RectTransform:
   - {fileID: 5972512273080166457}
   m_Father: {fileID: 5707833662305712560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.4826459}
-  m_AnchorMax: {x: 1, y: 0.726}
-  m_AnchoredPosition: {x: -0.08041382, y: 0.4487915}
-  m_SizeDelta: {x: -51.942596, y: -6.2991943}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3576136741739815264
 CanvasRenderer:
@@ -1076,7 +1104,45 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6519341589797011548}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411631514404319920}
+        m_TargetAssemblyTypeName: UI_Button_OpenScreen, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 988560829746405563}
+        m_TargetAssemblyTypeName: UI_IndieOptionWindow, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1411631514404319920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6302983961078332388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37fe6a2e23762044f962caaa27b42722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_Button_OpenScreen
+  wantType: 2
+  ChangeType: 2
 --- !u!1 &6948334421009025773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1292,7 @@ GameObject:
   - component: {fileID: 1877432053532567595}
   - component: {fileID: 6805265491137154751}
   - component: {fileID: 8960039976443672498}
+  - component: {fileID: 3297333703259246891}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -1245,13 +1312,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2500092626969848828}
+  - {fileID: 5851166643601058986}
   m_Father: {fileID: 5707833662305712560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.24743061}
-  m_AnchorMax: {x: 1, y: 0.4826459}
-  m_AnchoredPosition: {x: -0.0803833, y: -0.25201416}
-  m_SizeDelta: {x: -51.942596, y: -2.2991943}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1877432053532567595
 CanvasRenderer:
@@ -1334,4 +1401,30 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6805265491137154751}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3297333703259246891}
+        m_TargetAssemblyTypeName: UI_ButtonOpenUI, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3297333703259246891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029877461296978928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918c0cc007a62584fbf7e6b1f8f6d910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_ButtonOpenUI
+  wantType: 8
+  wantToggle: 0

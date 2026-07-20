@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public enum UIType
 {
 	None, Loading, Title, Option, Movable, Info, Inside, GameQuit, 
+	naga,
 	InventoryWindow, StatShow, InsideOption, InsideSetting,
 	CharacterCustomization, 
 	ItemHoverInfo, ItemClickInfo, ActionHoverInfo, ActionClickInfo, ItemCursorSlot,
@@ -31,6 +32,7 @@ public class UIManager : ManagerBase
 		new(UIType.Option,							"OptionScreen"),
 		new(UIType.Inside,							"InsideScreen"),
 		new(UIType.InsideOption,					"InsideOptionWindow"),
+		new(UIType.naga,							"nagaWindow"),
 		new(UIType.StatShow,						"StatShowPage"),
 		new(UIType.InventoryWindow,					"InventoryWindow"),
 		new(UIType.CharacterCustomization,          "CharacterCustomizationScreen"),
@@ -74,17 +76,17 @@ public class UIManager : ManagerBase
 	{
 		GameObject instance = new GameObject(wantName);
 		RectTransform result = instance.AddComponent<RectTransform>();
-		//¸ÞÀÎ Äµ¹ö½º¿¡ ³Ö±â
+		//ï¿½ï¿½ï¿½ï¿½ Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
 		result.SetParent(MainCanvas.transform);
-		//Äµ¹ö½ºÁß ¸Ç À§·Î ¿Ã·ÁÁÖ±â
+		//Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ö±ï¿½
 		result.SetAsFirstSibling();
-        //anchor¸¦ stretch¸¦ -stretch·Î
+        //anchorï¿½ï¿½ stretchï¿½ï¿½ -stretchï¿½ï¿½
         result.anchorMin = Vector3.zero;
 		result.anchorMax = Vector3.one;
-		//¿©¹éÀ» 0 0 0 0 
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0 0 0 0 
 		result.offsetMin = Vector3.zero;
 		result.offsetMax = Vector3.zero;
-		//Å©±â¸¦ 1·Î
+		//Å©ï¿½â¸¦ 1ï¿½ï¿½
 		result.localScale = Vector3.one;
 		return result;
 	}
@@ -272,7 +274,7 @@ public class UIManager : ManagerBase
 	protected void ScreenChangeEffectStart(ScreenChangeType wantType, System.Action endFunction = null)
 	{
 		if (currentScreenChanger) return;
-		//½ºÅ©¸° Ã¼ÀÎÀú¸¦ °¡Á®¿È
+		//ï¿½ï¿½Å©ï¿½ï¿½ Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if(screenChangerDictionary.TryGetValue(wantType, out UI_ScreenChanger result))
 		{
 			if (!result)

@@ -1647,7 +1647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fe6a2e23762044f962caaa27b42722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_Button_OpenScreen
-  wantType: 12
+  wantType: 13
   ChangeType: 0
 --- !u!1001 &3933554399888306308
 PrefabInstance:
@@ -1784,7 +1784,7 @@ PrefabInstance:
     - target: {fileID: 7142555291592302381, guid: 480664350ebc5774ea6a874284025fda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4846919173075649734}
+      objectReference: {fileID: 4691650757018682420}
     - target: {fileID: 7142555291592302381, guid: 480664350ebc5774ea6a874284025fda, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Open
@@ -1811,7 +1811,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9219745177116735322, guid: 480664350ebc5774ea6a874284025fda, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4846919173075649734}
+      addedObject: {fileID: 4691650757018682420}
   m_SourcePrefab: {fileID: 100100000, guid: 480664350ebc5774ea6a874284025fda, type: 3}
 --- !u!224 &687458809616874281 stripped
 RectTransform:
@@ -1823,7 +1823,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9219745177116735322, guid: 480664350ebc5774ea6a874284025fda, type: 3}
   m_PrefabInstance: {fileID: 3933554399888306308}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4846919173075649734
+--- !u!114 &4691650757018682420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
