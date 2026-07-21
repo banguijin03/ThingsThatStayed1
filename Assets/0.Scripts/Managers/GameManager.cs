@@ -137,26 +137,26 @@ public class GameManager : MonoBehaviour
 
     void DeleteManagers()
     {
-        //À¯ÀúÀÔ·Â	InputManager
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½	InputManager
         Input?.Disconnect();
-        //¿ÀºêÁ§Æ®	ObjectManager
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®	ObjectManager
         ObjectM?.Disconnect();
-        //¿Àµð¿À		AudioManager
+        //ï¿½ï¿½ï¿½ï¿½ï¿½		AudioManager
         Audio?.Disconnect();
-        //¾ð¾î		LanguageManager
+        //ï¿½ï¿½ï¿½		LanguageManager
         Language?.Disconnect();
-        //¼¼ÆÃ		SettingManager
+        //ï¿½ï¿½ï¿½ï¿½		SettingManager
         Setting?.Disconnect();
 
-        //¼¼ÀÌºê		SaveManager
+        //ï¿½ï¿½ï¿½Ìºï¿½		SaveManager
         Save?.Disconnect();
-        //Ä«¸Þ¶ó		CameraManager
+        //Ä«ï¿½Þ¶ï¿½		CameraManager
         Camera?.Disconnect();
         //UI		UIManager
         UI?.Disconnect();
-        //µ¥ÀÌÅÍÆÄÀÏ DataManager
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DataManager
         Data?.Disconnect();
-        //µ¥ÀÌÅÍº£ÀÌ½º DBManager
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ DBManager
         DB?.Disconnect();
     }
     ManagerType CreateManager<ManagerType>(ref ManagerType targetVariable) where ManagerType : ManagerBase
@@ -210,37 +210,37 @@ public class GameManager : MonoBehaviour
     {
         if (isLoading) return;
 
-        //ÃÊ±âÈ­
-        //¸Å´ÏÀú¸¦ ÃÊ±âÈ­ÇÑ´Ù
+        //ï¿½Ê±ï¿½È­
+        //ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Ñ´ï¿½
         InvokeInitializeEvent(ref OnInitializeManager);
-        //Ä³¸¯ÅÍ¸¦ ÃÊ±âÈ­ÇÑ´Ù
+        //Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ê±ï¿½È­ï¿½Ñ´ï¿½
         InvokeInitializeEvent(ref OnInitializeCharacter);
-        //ÄÁÆ®·Ñ·¯¸¦ ÃÊ±âÈ­ÇÑ´Ù => Ä³¸¯ÅÍ°¡ ÀÖ´Â »óÅÂ¿¡¼­ µ¹¾Æ°¡¾ß ÇÏ´Ï±î!
+        //ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Ñ´ï¿½ => Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½Ï´Ï±ï¿½!
         InvokeInitializeEvent(ref OnInitializeController);
-        //¿ÀºêÁ§Æ®¸¦ ÃÊ±âÈ­ÇÑ´Ù
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Ñ´ï¿½
         InvokeInitializeEvent(ref OnInitializeObject);
 
         if (isPlaying)
         {
-            //ÇÁ·¹ÀÓ »çÀÌ¿¡ ¸î ÃÊ°¡ Áö³µÀ»±î?
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¿ï¿½ ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
             float deltaTime = Time.deltaTime;
-            //¸Å´ÏÀú°¡ ¾÷µ¥ÀÌÆ® ÇÏ´Â °æ¿ì
+            //ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
             OnUpdateManager?.Invoke(deltaTime);
-            //ÄÁÆ®·Ñ·¯¸¦ ¾÷µ¥ÀÌÆ®ÇÑ´Ù => ¸ÕÀú ÆÇ´ÜÇÏ°í
+            //ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ñ´ï¿½ => ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½Ï°ï¿½
             OnUpdateController?.Invoke(deltaTime);
-            //Ä³¸¯ÅÍ¸¦ ¾÷µ¥ÀÌÆ®ÇÑ´Ù => Ä³¸¯ÅÍ°¡ ¼öÇàÇÏ°í
+            //Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ñ´ï¿½ => Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
             OnUpdateCharacter?.Invoke(deltaTime);
-            //¿ÀºêÁ§Æ®¸¦ ¾÷µ¥ÀÌÆ®ÇÑ´Ù => ¿ÀºêÁ§Æ® ÁøÇà
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ñ´ï¿½ => ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
             OnUpdateObject?.Invoke(deltaTime);
         }
 
-        //¿ÀºêÁ§Æ®¸¦ Á¦°ÅÇÑ´Ù
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
         InvokeDestroyEvent(ref OnDestroyObject);
-        //ÄÁÆ®·Ñ·¯¸¦ Á¦°ÅÇÑ´Ù
+        //ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
         InvokeDestroyEvent(ref OnDestroyController);
-        //Ä³¸¯ÅÍ¸¦ Á¦°ÅÇÑ´Ù
+        //Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
         InvokeDestroyEvent(ref OnDestroyCharacter);
-        //¸Å´ÏÀú¸¦ Á¦°ÅÇÑ´Ù
+        //ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
         InvokeDestroyEvent(ref OnDestroyManager);
     }
 

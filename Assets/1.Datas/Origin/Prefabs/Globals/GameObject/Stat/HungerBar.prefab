@@ -299,8 +299,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.07349987, y: 0.053499304}
-  m_SizeDelta: {x: 100, y: 20}
+  m_AnchoredPosition: {x: 0.012000005, y: 0.09276299}
+  m_SizeDelta: {x: 100, y: 24.493584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3069961465306656501
 MonoBehaviour:
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_HungerBar
   hungerBar: {fileID: 3069961465306656501}
-  targetCharacter: {fileID: 1087700727429469347, guid: 35563466696c2a14288a8b3b0a2c6a20, type: 3}
+  targetCharacter: {fileID: 0}
 --- !u!1 &5930346327289647317
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.000019073486, y: -0.00000011920929}
+  m_AnchoredPosition: {x: 0.000019073486, y: -0.00000023841858}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9087067458633389917

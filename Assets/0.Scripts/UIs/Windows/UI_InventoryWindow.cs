@@ -10,11 +10,8 @@ public class UI_InventoryWindow : OpenableUIBase
 
     public override void Registration(UIManager manager)
     {
-        Debug.Log("UI_InventoryWindow Registration");
         base.Registration(manager);
-        InputManager.OnInventory -= (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
-        InputManager.OnInventory += (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
-        targetInventory?.Initialize();
+        targetInventory.Initialize();
         ConnectInventory(targetInventory);
     }
 
@@ -36,7 +33,6 @@ public class UI_InventoryWindow : OpenableUIBase
         {
             asGridLayout.constraintCount = targetInventory.columns;
         }
-
         foreach (ItemSlot currentSlot in newInventory.GetAllSlot())
         {
             if (currentSlot is null) continue; 

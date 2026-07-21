@@ -374,8 +374,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0735, y: 0.0035}
-  m_SizeDelta: {x: 100, y: 20}
+  m_AnchoredPosition: {x: 0.012000131, y: 0.031528994}
+  m_SizeDelta: {x: 100, y: 24.493584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5345024682574335248
 MonoBehaviour:
@@ -441,4 +441,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_ThirstBar
   thirstBar: {fileID: 5345024682574335248}
-  targetCharacter: {fileID: 1087700727429469347, guid: 35563466696c2a14288a8b3b0a2c6a20, type: 3}
+  targetCharacter: {fileID: 0}

@@ -11,15 +11,38 @@ public class CharacterSkinCollect : MonoBehaviour
     [SerializeField] Image clothesRenderer;
     [SerializeField] Image beardRenderer;
 
+    public string genderName;
     public int gender = 0;    //2
-        string genderName;
     public int skinColor = 0; //4
     public int hairStyle = 0; //6
-    int hairCategory;
+    public int hairCategory;
     public int hairColor = 0; //4
     public int eyeColor = 0;  //4
     public int clothes = 0;   //6
     public int beard = 0;     //5
+
+    public int direction = 0;
+
+    public void SampleCharacterDirection(int type)
+    {
+        switch ((Direction)type)
+        {
+            case Direction.Right:
+                direction++;
+
+                if (direction > 1)
+                    direction = 0;
+                break;
+
+            case Direction.Left:
+                direction--;
+
+                if (direction < 0)
+                    direction = 1;
+                break;
+
+        }
+    }
     
     //성별은 눈모양이 달라짐
     //피부색은 독립적
@@ -142,6 +165,7 @@ public class CharacterSkinCollect : MonoBehaviour
 
         RefreshCharacter();
     }
+
     public void RefreshCharacter()
     {
         UpdateGender();
@@ -162,7 +186,7 @@ public class CharacterSkinCollect : MonoBehaviour
         Sprite[] sprites = Resources.LoadAll<Sprite>($"Skins/{skinColor + 1}");
 
         if (sprites.Length > 0)
-            skinRenderer.sprite = sprites[0];
+            skinRenderer.sprite = sprites[0+direction*4];
     }
 
     public void UpdateHair()
@@ -170,10 +194,10 @@ public class CharacterSkinCollect : MonoBehaviour
         int hairCategory = hairStyle + 1;
 
         Sprite[] sprites = Resources.LoadAll<Sprite>(
-            $"Hair's/{hairCategory}/{hairColor + 1}");
+            $"Hair's/{hairCategory}/{hairColor + 1 }");
 
         if (sprites.Length > 0)
-            hairRenderer.sprite = sprites[0];
+            hairRenderer.sprite = sprites[0+direction * 4];
     }
 
     public void UpdateEyeColor()
@@ -182,7 +206,7 @@ public class CharacterSkinCollect : MonoBehaviour
             $"{genderName}/{eyeColor + 1}");
 
         if (sprites.Length > 0)
-            eyeRenderer.sprite = sprites[0];
+            eyeRenderer.sprite = sprites[0 + direction * 4];
     }
 
     public void UpdateClothes()
@@ -191,7 +215,7 @@ public class CharacterSkinCollect : MonoBehaviour
             $"Clothers/{clothes + 1}");
 
         if (sprites.Length > 0)
-            clothesRenderer.sprite = sprites[0];
+            clothesRenderer.sprite = sprites[0 + direction * 4];
     }
 
     public void UpdateBeardOn()
@@ -208,7 +232,7 @@ public class CharacterSkinCollect : MonoBehaviour
         }
 
         if (sprites.Length > 0)
-            beardRenderer.sprite = sprites[0];
+            beardRenderer.sprite = sprites[0 + direction * 4];
     }
 }
 

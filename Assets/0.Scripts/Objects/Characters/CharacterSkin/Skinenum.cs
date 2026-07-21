@@ -10,3 +10,8 @@ public enum Skin
     Clothes,
     Beard,
 }
+public enum Direction
+{
+    Right,
+    Left,
+}
