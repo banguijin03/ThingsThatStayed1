@@ -212,7 +212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.324, y: 1}
-  m_AnchoredPosition: {x: 4.699997, y: -0.000015258789}
+  m_AnchoredPosition: {x: 4.700012, y: -0.000015258789}
   m_SizeDelta: {x: -14.428398, y: -40.8453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2434105967425414857
@@ -299,12 +299,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5699173523988357819}
         m_TargetAssemblyTypeName: CharacterSkinCollect, Assembly-CSharp
-        m_MethodName: TurnMinus
-        m_Mode: 1
+        m_MethodName: SampleCharacterDirection
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -719,8 +719,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5699173523988357819}
         m_TargetAssemblyTypeName: CharacterSkinCollect, Assembly-CSharp
-        m_MethodName: TurnPlus
-        m_Mode: 1
+        m_MethodName: SampleCharacterDirection
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2570,9 +2570,11 @@ MonoBehaviour:
   hairRenderer: {fileID: 6024917304164153246}
   clothesRenderer: {fileID: 8769106748117087295}
   beardRenderer: {fileID: 709622548148634216}
+  genderName: 
   gender: 0
   skinColor: 0
   hairStyle: 0
+  hairCategory: 0
   hairColor: 0
   eyeColor: 0
   clothes: 0
