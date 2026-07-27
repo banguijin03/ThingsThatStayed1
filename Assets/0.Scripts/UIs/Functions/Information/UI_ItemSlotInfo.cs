@@ -26,8 +26,8 @@ public class UI_ItemSlotInfo : UIBase
     public void DisconnectSlot()
     {
         if (_connectedSlot is null) return;
-        _connectedSlot.OnItemSlotChanged -= VisualUpdate;
-        _connectedSlot = null;
+        _connectedSlot.OnItemSlotChanged -= VisualUpdate; 
+        _connectedSlot = null; 
     }
 
     protected virtual void VisualUpdate(ItemSlot targetSlot)
@@ -39,7 +39,7 @@ public class UI_ItemSlotInfo : UIBase
             if (targetItem)
             {
                 iconImage.sprite = targetItem.icon ?? noneIcon;
-                iconImage.enabled = true;
+                iconImage.enabled = true; 
             }
             else
             {
@@ -55,9 +55,6 @@ public class UI_ItemSlotInfo : UIBase
             }
             else
             {
-                //bool isMax = targetSlot.GetMax(); 
-                //if(isMax) amountText.color = Color.yellow;
-                //else	    amountText.color = Color.white;
                 amountText.SetText($"{targetStack}");
             }
         }

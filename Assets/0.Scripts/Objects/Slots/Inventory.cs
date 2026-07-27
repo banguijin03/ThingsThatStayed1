@@ -23,16 +23,16 @@ public class Inventory : MonoBehaviour
     }
 
     readonly string[] itemList = { "Aloe", "HpBook", "EggFried", "Cobalt_Boots", "Cobalt_Axe" };
-    public void HealPotionPlus(int amount) 
+    public void ItemPlus(int amount) 
     {
         int index = Random.Range(0, itemList.Length);
         ItemContainer potion = DataManager.LoadDataFile<ItemContainer>(itemList[index]);
         AddItem(potion, amount);
     }
 
-    public void HealPotionMinus(int amount)
+    public void ItemMinus(int amount)
     {
-        ItemContainer potion = DataManager.LoadDataFile<ItemContainer>("LesserHealPotion");
+        ItemContainer potion = DataManager.LoadDataFile<ItemContainer>("Aloe");
         RemoveItem(potion, amount);
     }
 
@@ -325,7 +325,7 @@ public class Inventory : MonoBehaviour
     public int RemoveItem(System.Predicate<ItemSlot> condition)
     {
         return default;
-    }
+    } 
     public int RemoveItem(ItemContainer wantItem)
     {
         int result = 0;

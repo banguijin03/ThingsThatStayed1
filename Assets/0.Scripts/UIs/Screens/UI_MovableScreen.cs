@@ -11,37 +11,56 @@ public class UI_MovableScreen : UI_ScreenBase
 
 	UI_DraggableWindow currentDragTarget = null;
 
-	public override void Registration(UIManager manager)
-	{
-		base.Registration(manager);
+    public override void Registration(UIManager manager)
+    {
+        base.Registration(manager);
 
-        InputManager.OnInventory -= (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
-        InputManager.OnInventory += (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
-        
-        InputManager.OnCancel -= (value) => UIManager.ClaimToggleUI(UIType.InsideOption);
-        InputManager.OnCancel += (value) => UIManager.ClaimToggleUI(UIType.InsideOption);
+        InputManager.OnInventory -= Inventory;
+        InputManager.OnInventory += Inventory;
 
+        InputManager.OnCancel -= Cancel;
+        InputManager.OnCancel += Cancel;
 
         InputManager.OnMouseMove -= MouseMove;
-		InputManager.OnMouseMove += MouseMove;
+        InputManager.OnMouseMove += MouseMove;
 
-		InputManager.OnMouseLeftButton -= MouseLeft;
-		InputManager.OnMouseLeftButton += MouseLeft;
+        InputManager.OnMouseLeftButton -= MouseLeft;
+        InputManager.OnMouseLeftButton += MouseLeft;
 
-		UIManager.OnPopUp -= PopUp;
-		UIManager.OnPopUp += PopUp;
-	}
+        UIManager.OnPopUp -= PopUp;
+        UIManager.OnPopUp += PopUp;
+    }
 
+    public override void Unregistration(UIManager manager)
+    {
+        base.Unregistration(manager);
 
-	public override void Unregistration(UIManager manager)
-	{
-		base.Unregistration(manager);
-        InputManager.OnInventory -= (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
-        InputManager.OnCancel -= (value) => UIManager.ClaimToggleUI(UIType.InsideOption);
+        InputManager.OnInventory -= Inventory;
+        InputManager.OnCancel -= Cancel;
         InputManager.OnMouseMove -= MouseMove;
-		InputManager.OnMouseLeftButton -= MouseLeft;
-		UIManager.OnPopUp -= PopUp;
-	}
+        InputManager.OnMouseLeftButton -= MouseLeft;
+        UIManager.OnPopUp -= PopUp;
+    }
+
+    void Inventory(bool value)
+    {
+        if (!value) return;
+
+        if (UIManager.CurrentScreen == UIType.Inside)
+        {
+            UIManager.ClaimToggleUI(UIType.InventoryWindow);
+        }
+    }
+
+    void Cancel(bool value)
+    {
+        if (!value) return;
+
+        if (UIManager.CurrentScreen == UIType.Inside)
+        {
+            UIManager.ClaimToggleUI(UIType.InsideOption);
+        }
+    }
 
     protected override GameObject OnSetChild(GameObject newChild)
 	{
