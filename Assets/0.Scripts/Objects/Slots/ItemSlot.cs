@@ -94,6 +94,12 @@ public class ItemSlot
     public void LeftClick(ItemSlot wantSlot)
     {
         if (wantSlot is null) return;
+        if (wantSlot is UI_TrashCanSlot)
+        {
+            Clear();
+            NoticeChanged();
+            return;
+        }
         if (InputManager.IsShift)
         {
             if (wantSlot.GetIsEmpty())

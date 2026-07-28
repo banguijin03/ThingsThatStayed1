@@ -39,13 +39,13 @@ public class InputManager : ManagerBase
     static ISelectable _cursorHoverSelectable;
     public static ISelectable CursorHoverSelectable => _cursorHoverSelectable;
 
-    public static GameObject CursorHoverObject { get; internal set; }
+    static GameObject _cursorHoverObject;
+    public static GameObject CursorHoverObject => _cursorHoverObject;
 
     PlayerInput targetInput;
     Dictionary<string, InputAction> actionDictionary = new();
     List<RaycastResult> cursorHitList = new();
 
-    GameObject cursorHoverObject;
     Vector2 cursorScreenPosition;
     Vector3 cursorWorldPosition;
 
@@ -104,18 +104,18 @@ public class InputManager : ManagerBase
             firstObject = nearest.gameObject;
             worldPosition = nearest.worldPosition;
         }
-        GameObject lastHoverObject = cursorHoverObject;
+        GameObject lastHoverObject = _cursorHoverObject;
         ISelectable lastHoverSelectable = _cursorHoverSelectable;
 
         cursorScreenPosition = screenPosition;
         cursorWorldPosition = worldPosition;
-        cursorHoverObject = firstObject;
 
-        _cursorHoverSelectable = cursorHoverObject?.GetComponent<ISelectable>();
+        _cursorHoverObject = firstObject;
+        _cursorHoverSelectable = _cursorHoverObject?.GetComponent<ISelectable>();
 
-        if (lastHoverObject != firstObject)
+        if (lastHoverObject != _cursorHoverObject)
         {
-            OnMouseHover?.Invoke(firstObject, lastHoverObject);
+            OnMouseHover?.Invoke(_cursorHoverObject, lastHoverObject);
         }
     }
 
