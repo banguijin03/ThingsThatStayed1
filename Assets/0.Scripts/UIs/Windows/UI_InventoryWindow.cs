@@ -7,6 +7,7 @@ public class UI_InventoryWindow : OpenableUIBase
     [SerializeField] Inventory targetInventory;
     [SerializeField] LayoutGroup layout;
     [SerializeField] string itemSlotPrefabName;
+    [SerializeField] UI_TrashCanSlot trashCan;
 
     public override void Registration(UIManager manager)
     {
@@ -42,6 +43,10 @@ public class UI_InventoryWindow : OpenableUIBase
             {
                 createdSlot.ConnectSlot(currentSlot);
             }
+        }
+        if (trashCan)
+        {
+            trashCan.ConnectSlot(new TrashCanSlot());
         }
     }
 

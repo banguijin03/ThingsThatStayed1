@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3875914449095783009}
   - component: {fileID: 8193273231580965231}
   - component: {fileID: 1310672927850164807}
+  - component: {fileID: 2537553853838379036}
   m_Layer: 5
   m_Name: Trashcan
   m_TagString: Untagged
@@ -75,3 +76,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2537553853838379036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621980494177803330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f4197cd8931b341abd14af616660c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_TrashCanSlot
+  iconImage: {fileID: 1310672927850164807}
+  amountText: {fileID: 0}
+  noneIcon: {fileID: 0}

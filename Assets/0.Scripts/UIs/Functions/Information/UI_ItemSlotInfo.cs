@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UI_ItemSlotInfo : UIBase
 {
-    [SerializeField] Image iconImage;
+    [SerializeField] public Image iconImage;
     [SerializeField] TextMeshProUGUI amountText;
 
     [SerializeField] Sprite noneIcon;

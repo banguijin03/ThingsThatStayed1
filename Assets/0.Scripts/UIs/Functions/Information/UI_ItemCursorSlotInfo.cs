@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class UI_ItemCursorSlotInfo : UI_ItemSlotInfo
 {
-
     public override void Registration(UIManager manager)
     {
         base.Registration(manager);

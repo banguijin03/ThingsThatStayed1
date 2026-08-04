@@ -1756,7 +1756,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7656206411116498009}
   - {fileID: 9184617637872508052}
   - {fileID: 7620349747596898830}
   - {fileID: 6609828486804747323}
@@ -1765,6 +1764,7 @@ Transform:
   - {fileID: 2777206263026632174}
   - {fileID: 6329316096409942616}
   - {fileID: 1076505751391097113}
+  - {fileID: 7656206411116498009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &1356944223282361156
@@ -27732,7 +27732,6 @@ GameObject:
   - component: {fileID: 1076505751391097113}
   - component: {fileID: 4216767627758574632}
   - component: {fileID: 6892822850782467280}
-  - component: {fileID: 5775894551514752886}
   m_Layer: 0
   m_Name: Maple Tree Animation_8
   m_TagString: Untagged
@@ -27841,43 +27840,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &5775894551514752886
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6094976462624890284}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.000010251999, y: 0.0000009536743}
-  m_Size: {x: 0.31999996, y: 0.47999993}
-  m_Direction: 0
 --- !u!1 &6140914840698311095
 GameObject:
   m_ObjectHideFlags: 0
@@ -28800,11 +28762,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4054081685567594823, guid: 7ac7d38ff104816409c9c3e76b0b6c6e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 723.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4054081685567594823, guid: 7ac7d38ff104816409c9c3e76b0b6c6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 712.68
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4054081685567594823, guid: 7ac7d38ff104816409c9c3e76b0b6c6e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28847,8 +28809,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac7d38ff104816409c9c3e76b0b6c6e, type: 3}
---- !u!4 &7656206411116498009 stripped
-Transform:
+--- !u!224 &7656206411116498009 stripped
+RectTransform:
   m_CorrespondingSourceObject: {fileID: 4054081685567594823, guid: 7ac7d38ff104816409c9c3e76b0b6c6e, type: 3}
   m_PrefabInstance: {fileID: 5909482451683945758}
   m_PrefabAsset: {fileID: 0}
