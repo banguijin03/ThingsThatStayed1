@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class UI_InsideScreen : UI_ScreenBase
 {
-    [SerializeField] UI_QuickSlotBackgorund quickSlot;
+    [SerializeField] UI_QuickSlotBackground quickSlot;
 
     public override void Registration(UIManager manager)
     {

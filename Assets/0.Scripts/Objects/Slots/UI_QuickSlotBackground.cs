@@ -1,11 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_QuickSlotBackgorund : UIBase
+public class UI_QuickSlotBackground : UIBase
 {
     [SerializeField] LayoutGroup layout;
     [SerializeField] string itemSlotPrefabName;
-
     Inventory inventory;
 
     public override void Registration(UIManager manager)
