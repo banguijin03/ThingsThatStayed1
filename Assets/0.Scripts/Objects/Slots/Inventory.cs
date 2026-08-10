@@ -10,9 +10,15 @@ public class Inventory : MonoBehaviour
 
     ItemSlot[,] slots;
 
+    private void Awake()
+    {
+        Initialize();
+    }
+
     public void Initialize()
     {
         slots = new ItemSlot[rows, columns];
+
         for (int row = 0; row < rows; row++)
         {
             for (int column = 0; column < columns; column++)
@@ -183,6 +189,7 @@ public class Inventory : MonoBehaviour
         int width = slots.GetLength(1); 
         return slots[index / width, index % width];
     }
+
     public IEnumerable<ItemSlot> GetAllSlot()
     {
         int height = slots.GetLength(0);
@@ -440,5 +447,4 @@ public class Inventory : MonoBehaviour
     {
         return default;
     }
-
 }

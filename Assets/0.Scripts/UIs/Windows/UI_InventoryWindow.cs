@@ -12,7 +12,14 @@ public class UI_InventoryWindow : OpenableUIBase
     public override void Registration(UIManager manager)
     {
         base.Registration(manager);
-        targetInventory.Initialize();
+
+        targetInventory = FindAnyObjectByType<Inventory>(FindObjectsInactive.Include);
+
+        if (targetInventory == null)
+        {
+            Debug.LogError("InventoryWindow : Inventory를 찾지 못했습니다.");
+            return;
+        }
         ConnectInventory(targetInventory);
     }
 

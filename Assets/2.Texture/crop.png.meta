@@ -587,7 +587,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crop_0
+      name: AloeSeed
       rect:
         serializedVersion: 2
         x: 0
@@ -719,7 +719,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crop_6
+      name: Aloe
       rect:
         serializedVersion: 2
         x: 144
@@ -741,7 +741,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crop_7
+      name: BellPeperSeed
       rect:
         serializedVersion: 2
         x: 0
@@ -917,7 +917,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crop_15
+      name: YellowBellPeper
       rect:
         serializedVersion: 2
         x: 128
@@ -939,7 +939,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crop_16
+      name: GreenBellPeper
       rect:
         serializedVersion: 2
         x: 144
@@ -961,7 +961,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crop_17
+      name: RedBellPeper
       rect:
         serializedVersion: 2
         x: 160
@@ -1137,7 +1137,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crop_25
+      name: Blueberry
       rect:
         serializedVersion: 2
         x: 144
@@ -1313,7 +1313,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crop_33
+      name: Cabbage
       rect:
         serializedVersion: 2
         x: 144
@@ -1467,7 +1467,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crop_40
+      name: Carrot
       rect:
         serializedVersion: 2
         x: 144
@@ -1775,7 +1775,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crop_54
+      name: Beat
       rect:
         serializedVersion: 2
         x: 144
@@ -1907,7 +1907,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crop_60
+      name: Pumpkin
       rect:
         serializedVersion: 2
         x: 144
@@ -4276,7 +4276,18 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      crop_0: 5280897896942094492
+      Aloe: 4435601965534480499
+      AloeSeed: 5280897896942094492
+      Beat: -4414602578660473351
+      BellPeperSeed: 4860843895636873928
+      Blueberry: 8087870267325538719
+      Cabbage: 907119131532068567
+      Carrot: -6910115891009953467
+      GreenBellPeper: -5397089257521571943
+      Pumpkin: -9144078997697021818
+      RedBellPeper: 6297227474277822665
+      YellowBellPeper: -3032191757962071237
+      c: -5397089257521571943
       crop_1: -2913474531639732576
       crop_10: 3153987916873166292
       crop_100: 7952342757665834925
@@ -4333,7 +4344,6 @@ TextureImporter:
       crop_147: 2439223355780735894
       crop_148: -6103414762284212080
       crop_149: 9174573803022781608
-      crop_15: -3032191757962071237
       crop_150: 8599073881420475810
       crop_151: -4393823316272629183
       crop_152: -6081925557061653783
@@ -4344,7 +4354,6 @@ TextureImporter:
       crop_157: 7483698337565445643
       crop_158: 7988920095561174925
       crop_159: -231352946
-      crop_16: -5397089257521571943
       crop_160: -1769479616
       crop_161: 936215205
       crop_162: -49621213
@@ -4352,7 +4361,6 @@ TextureImporter:
       crop_164: 1330835763
       crop_165: 1957013121
       crop_166: -1856706142
-      crop_17: 6297227474277822665
       crop_18: -1629566397683622600
       crop_19: 2255599772135710464
       crop_2: 326829952823555030
@@ -4361,7 +4369,6 @@ TextureImporter:
       crop_22: 3408687232787955973
       crop_23: -7993955928855174001
       crop_24: 4296307637960624536
-      crop_25: 8087870267325538719
       crop_26: 1573522990522218177
       crop_27: 30984711220073545
       crop_28: 1998637376291292093
@@ -4370,7 +4377,6 @@ TextureImporter:
       crop_30: -8087506442696347757
       crop_31: 3357397304798981880
       crop_32: -6877858712636295146
-      crop_33: 907119131532068567
       crop_34: 1127707569736030737
       crop_35: 1690098819073222882
       crop_36: -4260306459841043076
@@ -4378,7 +4384,6 @@ TextureImporter:
       crop_38: -7767740623806963393
       crop_39: 1989441033549142196
       crop_4: 4658332263883619252
-      crop_40: -6910115891009953467
       crop_41: 7333006547888147814
       crop_42: 4488985885455675009
       crop_43: -4162754898494867325
@@ -4393,14 +4398,11 @@ TextureImporter:
       crop_51: -6999035315589521393
       crop_52: 5163223131944656872
       crop_53: 5318421736053322828
-      crop_54: -4414602578660473351
       crop_55: 8669762737723481530
       crop_56: 4745635114682588245
       crop_57: -8733531409491985001
       crop_58: 6966682203539167488
       crop_59: -6176389786168622852
-      crop_6: 4435601965534480499
-      crop_60: -9144078997697021818
       crop_61: 2325412523285275843
       crop_62: 1282189457253255954
       crop_63: 6583841798869968555
@@ -4410,7 +4412,6 @@ TextureImporter:
       crop_67: -6868296806267120888
       crop_68: -6950870297628904973
       crop_69: -6630158636584560641
-      crop_7: 4860843895636873928
       crop_70: -7919565939003454694
       crop_71: -342682342635622653
       crop_72: 8144934164003710267
