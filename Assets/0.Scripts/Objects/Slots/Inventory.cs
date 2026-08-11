@@ -29,13 +29,9 @@ public class Inventory : MonoBehaviour
     }
 
     readonly string[] itemList = 
-        {   "Aloe", "Bean", "Bellpepper", "Bellpepper1", "Bellpepper2", "Cabbagge", "Carrot", "ChillPpeper" , "Corn", "Cucumber", "Eggplant", "Onion", "Parsnip", "Potato", "Pumpkin", "Sunflower", "Tomato", //crop
-            "Apple", "Apricot", "Banana", "Blackberry", "Cherry", "Coconut1", "Coconut2", "Grape", "Mango", "Melon", "Orange", "Peach", "Pineapple", "Strawberry", "Watermelon", //fruit
-            "Amethyst", "Diamond", "Emerald", "RoseQuartz", "Ruby", "Sapphire", "Topaz", //Gem
-            "Bread","EggFried",
-            "CalmHetb", "PoisonHerb",
-            "HpBook", 
-            "Cobalt_Boots", "Cobalt_Axe" 
+        {  
+            "Apple", "Apricot", "Banana", "Cherry", "Coconut1", "Coconut2", "Mango", "Orange", "Peach",
+            "Cobalt Boots", "Cobalt Axe" 
         };
     public void ItemPlus(int amount) 
     {

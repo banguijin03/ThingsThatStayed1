@@ -17,7 +17,6 @@ public class UI_InventoryWindow : OpenableUIBase
 
         if (targetInventory == null)
         {
-            Debug.LogError("InventoryWindow : Inventory를 찾지 못했습니다.");
             return;
         }
         ConnectInventory(targetInventory);
