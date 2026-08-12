@@ -31,7 +31,8 @@ public class Inventory : MonoBehaviour
     readonly string[] itemList = 
         {  
             "Apple", "Apricot", "Banana", "Cherry", "Coconut1", "Coconut2", "Mango", "Orange", "Peach",
-            "Cobalt Boots", "Cobalt Axe" 
+            "Cobalt Boots", "Cobalt Axe",
+            "Book",
         };
     public void ItemPlus(int amount) 
     {
