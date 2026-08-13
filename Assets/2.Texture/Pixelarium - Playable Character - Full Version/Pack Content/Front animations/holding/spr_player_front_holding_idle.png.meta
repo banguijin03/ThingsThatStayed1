@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: 3b5dabb414b304d40a336a0f54200451
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1411310697292347177
+    second: spr_player_front_holding_idle_0
+  - first:
+      213: 2233634420598011860
+    second: spr_player_front_holding_idle_1
+  - first:
+      213: 9217071583730847783
+    second: spr_player_front_holding_idle_2
+  - first:
+      213: -3041879351066365886
+    second: spr_player_front_holding_idle_3
+  - first:
+      213: -1112382619535523400
+    second: spr_player_front_holding_idle_4
+  - first:
+      213: 260735426891846500
+    second: spr_player_front_holding_idle_5
+  - first:
+      213: -726347882132823557
+    second: spr_player_front_holding_idle_6
+  - first:
+      213: 1059845781596073138
+    second: spr_player_front_holding_idle_7
+  - first:
+      213: -8257106295728819580
+    second: spr_player_front_holding_idle_8
+  - first:
+      213: -8905761531730621877
+    second: spr_player_front_holding_idle_9
+  - first:
+      213: 2251521442012751094
+    second: spr_player_front_holding_idle_10
+  - first:
+      213: 8735110161099018414
+    second: spr_player_front_holding_idle_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 17
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 927b1db0a9bf59310800000000000000
+      internalID: 1411310697292347177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 17
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d774d5dba67ffe10800000000000000
+      internalID: 2233634420598011860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_2
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 17
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 720df9175cd99ef70800000000000000
+      internalID: 9217071583730847783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_3
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 17
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 240f716c8d219c5d0800000000000000
+      internalID: -3041879351066365886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_4
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 17
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b14444b6e50090f0800000000000000
+      internalID: -1112382619535523400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_5
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 17
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4639f344d715e9300800000000000000
+      internalID: 260735426891846500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_6
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 17
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf1ad16137e7be5f0800000000000000
+      internalID: -726347882132823557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_7
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 17
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bceab08f1455be00800000000000000
+      internalID: 1059845781596073138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_8
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 17
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4823172729dd86d80800000000000000
+      internalID: -8257106295728819580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_9
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 17
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a8bd65211686480800000000000000
+      internalID: -8905761531730621877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_10
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 17
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f4685b82d20f3f10800000000000000
+      internalID: 2251521442012751094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_front_holding_idle_11
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 17
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea056323968593970800000000000000
+      internalID: 8735110161099018414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spr_player_front_holding_idle_0: 1411310697292347177
+      spr_player_front_holding_idle_1: 2233634420598011860
+      spr_player_front_holding_idle_10: 2251521442012751094
+      spr_player_front_holding_idle_11: 8735110161099018414
+      spr_player_front_holding_idle_2: 9217071583730847783
+      spr_player_front_holding_idle_3: -3041879351066365886
+      spr_player_front_holding_idle_4: -1112382619535523400
+      spr_player_front_holding_idle_5: 260735426891846500
+      spr_player_front_holding_idle_6: -726347882132823557
+      spr_player_front_holding_idle_7: 1059845781596073138
+      spr_player_front_holding_idle_8: -8257106295728819580
+      spr_player_front_holding_idle_9: -8905761531730621877
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 170fbda21e141604d94a02830922168f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3992753828582371509
+    second: spr_player_left_dodgeroll_0
+  - first:
+      213: 4149586780273450702
+    second: spr_player_left_dodgeroll_1
+  - first:
+      213: -4978118286193855127
+    second: spr_player_left_dodgeroll_2
+  - first:
+      213: 5879447715225042353
+    second: spr_player_left_dodgeroll_3
+  - first:
+      213: -2093071416409553114
+    second: spr_player_left_dodgeroll_4
+  - first:
+      213: -6691321318969531005
+    second: spr_player_left_dodgeroll_5
+  - first:
+      213: -583024422817381739
+    second: spr_player_left_dodgeroll_6
+  - first:
+      213: -1165663702072915238
+    second: spr_player_left_dodgeroll_7
+  - first:
+      213: 8304048447062849026
+    second: spr_player_left_dodgeroll_8
+  - first:
+      213: -2296961524723482408
+    second: spr_player_left_dodgeroll_9
+  - first:
+      213: 6444452500855080785
+    second: spr_player_left_dodgeroll_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 25
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0bb3cd37c196730800000000000000
+      internalID: 3992753828582371509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 17
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece1bd2f03b469930800000000000000
+      internalID: 4149586780273450702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 27
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 965f98d3bcb2aeab0800000000000000
+      internalID: -4978118286193855127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_3
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 17
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd787ddb8ef79150800000000000000
+      internalID: 5879447715225042353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_4
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 25
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6278267e2aae3f2e0800000000000000
+      internalID: -2093071416409553114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_5
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 17
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 385a2d866b6a323a0800000000000000
+      internalID: -6691321318969531005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_6
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 24
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 592c79e506ea8e7f0800000000000000
+      internalID: -583024422817381739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_7
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 17
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada8066f90bb2dfe0800000000000000
+      internalID: -1165663702072915238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_8
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 17
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 206b0dcd018ed3370800000000000000
+      internalID: 8304048447062849026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_9
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 17
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d00e10c9ad8f10e0800000000000000
+      internalID: -2296961524723482408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_left_dodgeroll_10
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 17
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1574855c76b4f6950800000000000000
+      internalID: 6444452500855080785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spr_player_left_dodgeroll_0: 3992753828582371509
+      spr_player_left_dodgeroll_1: 4149586780273450702
+      spr_player_left_dodgeroll_10: 6444452500855080785
+      spr_player_left_dodgeroll_2: -4978118286193855127
+      spr_player_left_dodgeroll_3: 5879447715225042353
+      spr_player_left_dodgeroll_4: -2093071416409553114
+      spr_player_left_dodgeroll_5: -6691321318969531005
+      spr_player_left_dodgeroll_6: -583024422817381739
+      spr_player_left_dodgeroll_7: -1165663702072915238
+      spr_player_left_dodgeroll_8: 8304048447062849026
+      spr_player_left_dodgeroll_9: -2296961524723482408
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

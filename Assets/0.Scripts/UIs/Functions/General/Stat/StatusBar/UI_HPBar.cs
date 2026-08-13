@@ -10,18 +10,18 @@ public class UI_HPBar : UIBase
 
     void Start()
     {
-        statModule = targetCharacter.GetModule<StatModule>();
+        if (targetCharacter == null)
+            targetCharacter = FindAnyObjectByType<CharacterBase>();
 
         hpBar.minValue = 0f;
         hpBar.maxValue = 1f;
         hpBar.interactable = false;
 
-        statModule = targetCharacter.GetComponent<StatModule>();
+        statModule= targetCharacter.GetModule<StatModule>();
 
         if (statModule != null)
         {
             statModule.HP.OnValueChanged += RefreshHPBar;
-
             RefreshHPBar(statModule.HP.Current, statModule.HP.Max);
         }
     }

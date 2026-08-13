@@ -10,6 +10,9 @@ public class UI_HungerBar : UIBase
 
     void Start()
     {
+        if (targetCharacter == null)
+            targetCharacter = FindAnyObjectByType<CharacterBase>();
+
         hungerBar.minValue = 0f;
         hungerBar.maxValue = 1f;
         hungerBar.interactable = false;

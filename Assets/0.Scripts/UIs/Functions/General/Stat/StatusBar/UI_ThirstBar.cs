@@ -10,6 +10,9 @@ public class UI_ThirstBar : UIBase
 
     void Start()
     {
+        if (targetCharacter == null)
+            targetCharacter = FindAnyObjectByType<CharacterBase>();
+
         thirstBar.minValue = 0f;
         thirstBar.maxValue = 1f;
         thirstBar.interactable = false;

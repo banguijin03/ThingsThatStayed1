@@ -10,6 +10,9 @@ public class UI_FeelingBar : UIBase
 
     void Start()
     {
+        if (targetCharacter == null)
+            targetCharacter = FindAnyObjectByType<CharacterBase>();
+
         feelingBar.minValue = 0f;
         feelingBar.maxValue = 1f;
         feelingBar.interactable = false;
