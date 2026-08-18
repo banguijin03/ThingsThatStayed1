@@ -460,7 +460,7 @@ TextureImporter:
       name: Resource_11
       rect:
         serializedVersion: 2
-        x: 64
+        x: 80
         y: 80
         width: 16
         height: 16
@@ -482,8 +482,8 @@ TextureImporter:
       name: Resource_12
       rect:
         serializedVersion: 2
-        x: 80
-        y: 80
+        x: 0
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -504,8 +504,8 @@ TextureImporter:
       name: Resource_13
       rect:
         serializedVersion: 2
-        x: 96
-        y: 80
+        x: 16
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -526,7 +526,7 @@ TextureImporter:
       name: Resource_14
       rect:
         serializedVersion: 2
-        x: 0
+        x: 32
         y: 64
         width: 16
         height: 16
@@ -548,7 +548,7 @@ TextureImporter:
       name: Resource_15
       rect:
         serializedVersion: 2
-        x: 16
+        x: 48
         y: 64
         width: 16
         height: 16
@@ -570,7 +570,7 @@ TextureImporter:
       name: Resource_16
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 64
         width: 16
         height: 16
@@ -592,7 +592,7 @@ TextureImporter:
       name: Resource_17
       rect:
         serializedVersion: 2
-        x: 48
+        x: 80
         y: 64
         width: 16
         height: 16
@@ -614,7 +614,7 @@ TextureImporter:
       name: Resource_18
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 64
         width: 16
         height: 16
@@ -636,8 +636,8 @@ TextureImporter:
       name: Resource_19
       rect:
         serializedVersion: 2
-        x: 80
-        y: 64
+        x: 0
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -658,8 +658,8 @@ TextureImporter:
       name: Resource_20
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
+        x: 16
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -680,7 +680,7 @@ TextureImporter:
       name: Resource_21
       rect:
         serializedVersion: 2
-        x: 0
+        x: 32
         y: 48
         width: 16
         height: 16
@@ -702,7 +702,7 @@ TextureImporter:
       name: Resource_22
       rect:
         serializedVersion: 2
-        x: 16
+        x: 48
         y: 48
         width: 16
         height: 16
@@ -724,7 +724,7 @@ TextureImporter:
       name: Resource_23
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 48
         width: 16
         height: 16
@@ -746,7 +746,7 @@ TextureImporter:
       name: Resource_24
       rect:
         serializedVersion: 2
-        x: 48
+        x: 80
         y: 48
         width: 16
         height: 16
@@ -768,7 +768,7 @@ TextureImporter:
       name: Resource_25
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 48
         width: 16
         height: 16
@@ -790,8 +790,8 @@ TextureImporter:
       name: Resource_26
       rect:
         serializedVersion: 2
-        x: 80
-        y: 48
+        x: 0
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -812,8 +812,8 @@ TextureImporter:
       name: Resource_27
       rect:
         serializedVersion: 2
-        x: 96
-        y: 48
+        x: 16
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -834,7 +834,7 @@ TextureImporter:
       name: Resource_28
       rect:
         serializedVersion: 2
-        x: 0
+        x: 32
         y: 32
         width: 16
         height: 16
@@ -856,7 +856,7 @@ TextureImporter:
       name: Resource_29
       rect:
         serializedVersion: 2
-        x: 16
+        x: 48
         y: 32
         width: 16
         height: 16
@@ -870,50 +870,6 @@ TextureImporter:
       bones: []
       spriteID: 200820f49a3ef05d0800000000000000
       internalID: -3094004102665699326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resource_30
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f8a04a0ec1a1c49a0800000000000000
-      internalID: -6247589871739467121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resource_31
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2394a71d9354ca550800000000000000
-      internalID: 6173385303848012082
       vertices: []
       indices: 
       edges: []
@@ -958,8 +914,6 @@ TextureImporter:
       Resource_28: 3271153026760063083
       Resource_29: -3094004102665699326
       Resource_3: 6392244393456207660
-      Resource_30: -6247589871739467121
-      Resource_31: 6173385303848012082
       Resource_4: 8839126622966745359
       Resource_5: 3748355922590288299
       Resource_6: 6816302659731821839

@@ -19,6 +19,7 @@ public class InputManager : ManagerBase
     public static event MouseButtonEvent OnMouseRightButton;
     public static event MouseMoveEvent OnMouseMove;
     public static event MouseHoverEvent OnMouseHover;
+    public static event AxisEvent OnMouseWheel;
 
     public static event ButtonEvent OnCancel;
     public static event ButtonEvent OnShowStatus;
@@ -148,6 +149,8 @@ public class InputManager : ManagerBase
 
         InitializeAction("MouseRightButton", (context) => OnMouseRightButton?.Invoke(true, cursorScreenPosition, cursorWorldPosition)
                                            , (context) => OnMouseRightButton?.Invoke(false, cursorScreenPosition, cursorWorldPosition));
+
+        InitializeAction("MouseWheel",       (context) => OnMouseWheel?.Invoke(GetVector2Value(context).y ));
 
         InitializeAction("ShowStatusButton", (context) => OnShowStatus?.Invoke(true)
                                            , (context) => OnShowStatus?.Invoke(false));
