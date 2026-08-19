@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: d81ace9ffe719e8458f86b542f454826
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 194481356829302134
+    second: spr_crate_destruction_animated_outline_0
+  - first:
+      213: 8097179743902176082
+    second: spr_crate_destruction_animated_outline_1
+  - first:
+      213: 4893629800307370440
+    second: spr_crate_destruction_animated_outline_2
+  - first:
+      213: 4019237509363852104
+    second: spr_crate_destruction_animated_outline_3
+  - first:
+      213: 2982530648755363307
+    second: spr_crate_destruction_animated_outline_4
+  - first:
+      213: -3847059528048194299
+    second: spr_crate_destruction_animated_outline_5
+  - first:
+      213: -2614461669470240975
+    second: spr_crate_destruction_animated_outline_6
+  - first:
+      213: 5555096238240094812
+    second: spr_crate_destruction_animated_outline_7
+  - first:
+      213: 5291169336129113243
+    second: spr_crate_destruction_animated_outline_8
+  - first:
+      213: -5362769028200264774
+    second: spr_crate_destruction_animated_outline_9
+  - first:
+      213: -5746610316839630583
+    second: spr_crate_destruction_animated_outline_10
+  - first:
+      213: 3111091219223826618
+    second: spr_crate_destruction_animated_outline_11
+  - first:
+      213: 4714581458225401147
+    second: spr_crate_destruction_animated_outline_12
+  - first:
+      213: -7682470932471580836
+    second: spr_crate_destruction_animated_outline_13
+  - first:
+      213: -8095770206831578541
+    second: spr_crate_destruction_animated_outline_14
+  - first:
+      213: 1613794844371243624
+    second: spr_crate_destruction_animated_outline_15
+  - first:
+      213: 4669417332017367887
+    second: spr_crate_destruction_animated_outline_16
+  - first:
+      213: -4916991802044923807
+    second: spr_crate_destruction_animated_outline_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 18
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67d1f3d73cfe2b200800000000000000
+      internalID: 194481356829302134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 7
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25317cd8316fe5070800000000000000
+      internalID: 8097179743902176082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 21
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c92695306aa9e340800000000000000
+      internalID: 4893629800307370440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_3
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 4
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 843ee8d483337c730800000000000000
+      internalID: 4019237509363852104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 18
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed57caa2d3146920800000000000000
+      internalID: 2982530648755363307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_5
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 7
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50dc7e8edbf7c9ac0800000000000000
+      internalID: -3847059528048194299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_6
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 11
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ff950b6f097bbd0800000000000000
+      internalID: -2614461669470240975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_7
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 3
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5ad865b89aa71d40800000000000000
+      internalID: 5555096238240094812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_8
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 12
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c4a663a720e6940800000000000000
+      internalID: 5291169336129113243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_9
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 6
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb08a56bfd9395b0800000000000000
+      internalID: -5362769028200264774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_10
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 11
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 909cd2a1d50ff30b0800000000000000
+      internalID: -5746610316839630583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_11
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 5
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab05ca90bf0dc2b20800000000000000
+      internalID: 3111091219223826618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_12
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 11
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d0b2a7bde8d6140800000000000000
+      internalID: 4714581458225401147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_13
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 4
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5774c0f361626590800000000000000
+      internalID: -7682470932471580836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 352fc9ed3eb06af80800000000000000
+      internalID: -8095770206831578541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_15
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 2
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 862da175cd9556610800000000000000
+      internalID: 1613794844371243624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_16
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 2
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4b82f6e25a1dc040800000000000000
+      internalID: 4669417332017367887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_crate_destruction_animated_outline_17
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 2
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 160ca93e10653cbb0800000000000000
+      internalID: -4916991802044923807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spr_crate_destruction_animated_outline_0: 194481356829302134
+      spr_crate_destruction_animated_outline_1: 8097179743902176082
+      spr_crate_destruction_animated_outline_10: -5746610316839630583
+      spr_crate_destruction_animated_outline_11: 3111091219223826618
+      spr_crate_destruction_animated_outline_12: 4714581458225401147
+      spr_crate_destruction_animated_outline_13: -7682470932471580836
+      spr_crate_destruction_animated_outline_14: -8095770206831578541
+      spr_crate_destruction_animated_outline_15: 1613794844371243624
+      spr_crate_destruction_animated_outline_16: 4669417332017367887
+      spr_crate_destruction_animated_outline_17: -4916991802044923807
+      spr_crate_destruction_animated_outline_2: 4893629800307370440
+      spr_crate_destruction_animated_outline_3: 4019237509363852104
+      spr_crate_destruction_animated_outline_4: 2982530648755363307
+      spr_crate_destruction_animated_outline_5: -3847059528048194299
+      spr_crate_destruction_animated_outline_6: -2614461669470240975
+      spr_crate_destruction_animated_outline_7: 5555096238240094812
+      spr_crate_destruction_animated_outline_8: 5291169336129113243
+      spr_crate_destruction_animated_outline_9: -5362769028200264774
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

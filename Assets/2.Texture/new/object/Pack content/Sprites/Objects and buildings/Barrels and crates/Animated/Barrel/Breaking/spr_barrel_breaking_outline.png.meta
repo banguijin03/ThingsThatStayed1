@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 9c9820d70b8bce14aa855b1a0f8c84a1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1377250509467921272
+    second: spr_barrel_breaking_outline_0
+  - first:
+      213: -453624928646369604
+    second: spr_barrel_breaking_outline_1
+  - first:
+      213: -3436767888770630216
+    second: spr_barrel_breaking_outline_2
+  - first:
+      213: 5946028906105444816
+    second: spr_barrel_breaking_outline_3
+  - first:
+      213: 4081281639788710786
+    second: spr_barrel_breaking_outline_4
+  - first:
+      213: -4207700625649563580
+    second: spr_barrel_breaking_outline_5
+  - first:
+      213: 5760146984791107692
+    second: spr_barrel_breaking_outline_6
+  - first:
+      213: 8923693282313432305
+    second: spr_barrel_breaking_outline_7
+  - first:
+      213: -3702367476461693164
+    second: spr_barrel_breaking_outline_8
+  - first:
+      213: 729871976177069042
+    second: spr_barrel_breaking_outline_9
+  - first:
+      213: 4942294982390789687
+    second: spr_barrel_breaking_outline_10
+  - first:
+      213: 1997851992555389547
+    second: spr_barrel_breaking_outline_11
+  - first:
+      213: 6215473612727703012
+    second: spr_barrel_breaking_outline_12
+  - first:
+      213: -6011897277407182920
+    second: spr_barrel_breaking_outline_13
+  - first:
+      213: -4893003057894316995
+    second: spr_barrel_breaking_outline_14
+  - first:
+      213: 1956615268736322086
+    second: spr_barrel_breaking_outline_15
+  - first:
+      213: 4172282207359058983
+    second: spr_barrel_breaking_outline_16
+  - first:
+      213: -1209295974617026323
+    second: spr_barrel_breaking_outline_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 5
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87baf879a0afc1310800000000000000
+      internalID: 1377250509467921272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 5
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbe65c2e78664b9f0800000000000000
+      internalID: -453624928646369604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 21
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd7b5e50d52e40d0800000000000000
+      internalID: -3436767888770630216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_3
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 20
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d99e9469c9848250800000000000000
+      internalID: 5946028906105444816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_4
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 16
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b0eef1700a3a830800000000000000
+      internalID: 4081281639788710786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_5
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 14
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44808f6039e3b95c0800000000000000
+      internalID: -4207700625649563580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 5
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c68e2820a2720ff40800000000000000
+      internalID: 5760146984791107692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 3
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fce4d0b2c357db70800000000000000
+      internalID: 8923693282313432305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_8
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 3
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4179a89656c8e9cc0800000000000000
+      internalID: -3702367476461693164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_9
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 13
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fbeb8ff1b6012a00800000000000000
+      internalID: 729871976177069042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_10
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 3
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7363990e91f869440800000000000000
+      internalID: 4942294982390789687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_11
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 3
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b62021a5dcbc9bb10800000000000000
+      internalID: 1997851992555389547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_12
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 13
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e5d27dd15cc14650800000000000000
+      internalID: 6215473612727703012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_13
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 3
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bfb1025743719ca0800000000000000
+      internalID: -6011897277407182920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_14
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 13
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d342f41a4af881cb0800000000000000
+      internalID: -4893003057894316995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_15
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 4
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62a4227683b472b10800000000000000
+      internalID: 1956615268736322086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_16
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 4
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724c158df8ce6e930800000000000000
+      internalID: 4172282207359058983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_barrel_breaking_outline_17
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 4
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de074acd7b7b73fe0800000000000000
+      internalID: -1209295974617026323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spr_barrel_breaking_outline_0: 1377250509467921272
+      spr_barrel_breaking_outline_1: -453624928646369604
+      spr_barrel_breaking_outline_10: 4942294982390789687
+      spr_barrel_breaking_outline_11: 1997851992555389547
+      spr_barrel_breaking_outline_12: 6215473612727703012
+      spr_barrel_breaking_outline_13: -6011897277407182920
+      spr_barrel_breaking_outline_14: -4893003057894316995
+      spr_barrel_breaking_outline_15: 1956615268736322086
+      spr_barrel_breaking_outline_16: 4172282207359058983
+      spr_barrel_breaking_outline_17: -1209295974617026323
+      spr_barrel_breaking_outline_2: -3436767888770630216
+      spr_barrel_breaking_outline_3: 5946028906105444816
+      spr_barrel_breaking_outline_4: 4081281639788710786
+      spr_barrel_breaking_outline_5: -4207700625649563580
+      spr_barrel_breaking_outline_6: 5760146984791107692
+      spr_barrel_breaking_outline_7: 8923693282313432305
+      spr_barrel_breaking_outline_8: -3702367476461693164
+      spr_barrel_breaking_outline_9: 729871976177069042
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
