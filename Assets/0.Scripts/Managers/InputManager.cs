@@ -25,6 +25,7 @@ public class InputManager : ManagerBase
     public static event ButtonEvent OnShowStatus;
     public static event ButtonEvent OnShift;
     public static event ButtonEvent OnInventory;
+    public static event ButtonEvent OnRoll;
 
 
     public static bool IsShift { get; private set; } = false;
@@ -151,6 +152,8 @@ public class InputManager : ManagerBase
                                            , (context) => OnMouseRightButton?.Invoke(false, cursorScreenPosition, cursorWorldPosition));
 
         InitializeAction("MouseWheel",       (context) => OnMouseWheel?.Invoke(GetVector2Value(context).y ));
+
+        InitializeAction("SpaceBar",         (context) => OnRoll?.Invoke(true));
 
         InitializeAction("ShowStatusButton", (context) => OnShowStatus?.Invoke(true)
                                            , (context) => OnShowStatus?.Invoke(false));

@@ -6,7 +6,7 @@ public class UI_QuickSlotBackground : UIBase
     [SerializeField] LayoutGroup layout;
     [SerializeField] string itemSlotPrefabName;
     Inventory inventory;
-
+    ItemSlot currentStack;
 
     private ItemSlot currentSlot;
     public ItemSlot CurrentSlot => currentSlot;
@@ -26,13 +26,14 @@ public class UI_QuickSlotBackground : UIBase
         if (inventory != null)
         {
             ConnectInventory();
-
-            // 처음에는 0번 슬롯 선택
             SelectSlot(0);
         }
 
         InputManager.OnMouseWheel -= MouseWheel;
         InputManager.OnMouseWheel += MouseWheel;
+
+        InputManager.OnMouseLeftButton -= MouseLeftClick;
+        InputManager.OnMouseLeftButton += MouseLeftClick;
     }
 
     public override void Unregistration(UIManager manager)
@@ -40,6 +41,7 @@ public class UI_QuickSlotBackground : UIBase
         base.Unregistration(manager);
 
         InputManager.OnMouseWheel -= MouseWheel;
+        InputManager.OnMouseLeftButton -= MouseLeftClick;
     }
 
     void ConnectInventory()
@@ -110,6 +112,57 @@ public class UI_QuickSlotBackground : UIBase
                 slotInfos[i].SetCurrent(i == currentIndex);
         }
     }
+    void MouseLeftClick(bool value, Vector2 screenPosition, Vector3 worldPosition)
+    {
+        if (!value) return;
+
+        //Debug.Log("마우스 클릭 감지");
+
+        if (CurrentItem == null)
+        {
+            //Debug.Log("현재 아이템 없음");
+            return;
+        }
+
+        //Debug.Log($"현재 아이템 : {CurrentItem.name}");
+        //Debug.Log($"아이템 타입 : {CurrentItem.GetType()}");
+
+        GameObject target = InputManager.CursorHoverObject;
+
+        if (target == null)
+        {
+           // Debug.Log("마우스 아래 오브젝트 없음");
+            return;
+        }
+
+        //Debug.Log($"클릭 대상 : {target.name}");
+
+        CharacterBase character = target.GetComponentInParent<CharacterBase>();
+
+        if (character == null)
+        {
+            //Debug.Log("클릭 대상이 캐릭터가 아님");
+            return;
+        }
+
+        //Debug.Log($"캐릭터 확인 : {character.name}");
+
+        if (CurrentItem is Item_Consumable_Food food)
+        {
+            //Debug.Log($"음식 확인 : {food.name}");
+
+            food.OnUse(null, character);
+
+            //currentStack.MinusCurrent(1);
+
+
+           // Debug.Log("음식 사용 완료");
+        }
+        else
+        {
+            //Debug.Log("현재 아이템이 음식이 아님");
+        }
+    }
 
     void MouseWheel(float value)
     {
@@ -122,6 +175,4 @@ public class UI_QuickSlotBackground : UIBase
                 SelectSlot(currentIndex + 1);
             }
     }
-
-
 }

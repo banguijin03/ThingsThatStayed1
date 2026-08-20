@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class MovementModule : CharacterModule, IRunnable
 {
+    bool isShift = false;
     protected Vector3? targetDirection = null;
     protected Vector3? targetDestination = null;
     protected float targetTolerance;
+    public Vector3 CurrentDirection => targetDirection ?? Vector3.zero;
 
     public sealed override System.Type RegistrationType => typeof(MovementModule);
 
@@ -13,12 +15,18 @@ public class MovementModule : CharacterModule, IRunnable
         base.OnRegistration(newOwner);
         GameManager.OnPhysicsCharacter -= MovementUpdate;
         GameManager.OnPhysicsCharacter += MovementUpdate;
+
+        InputManager.OnShift -= ShiftMove;
+        InputManager.OnShift += ShiftMove;
     }
+
     public override void OnUnregistration(CharacterBase oldOwner)
     {
         base.OnUnregistration(oldOwner);
         GameManager.OnPhysicsCharacter -= MovementUpdate;
+        InputManager.OnShift -= ShiftMove;
     }
+
     public void MovementUpdate(float deltaTime)
     {
         Vector3 originPosition = transform.position;                
@@ -31,7 +39,11 @@ public class MovementModule : CharacterModule, IRunnable
         if (targetDirection is not null) UpdateToDirection(deltaTime);
         else if (targetDestination is not null) UpdateToDestination(deltaTime);
     }
-    public virtual float GetMoveSpeed() => 5.0f;
+
+    public virtual float GetMoveSpeed()
+    {
+        return isShift ? 7.0f : 5.0f;
+    }
     public virtual float GetMoveSpeed(float deltaTime) => GetMoveSpeed() * deltaTime;
     public virtual void Translate(Vector3 delta)
     {
@@ -74,6 +86,12 @@ public class MovementModule : CharacterModule, IRunnable
             Owner.LookAtNotify(targetDirection.Value);
         }
     }
+
+    public void ShiftMove(bool value)
+    {
+        isShift = value;
+    }
+
     public virtual void StopMovement()
     {
         targetDestination = null; 

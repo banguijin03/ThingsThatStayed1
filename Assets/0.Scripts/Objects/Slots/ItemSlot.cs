@@ -34,6 +34,12 @@ public class ItemSlot
         return removed; 
     }
 
+    public int MinusCurrent(int value)
+    {
+        currentStack-=value;
+        return currentStack;
+    }
+
     public int AddItem(ItemContainer wantItem, int amount)
     {
         if (amount <= 0) return 0;
