@@ -74,4 +74,38 @@ public class UI_InventoryWindow : OpenableUIBase
             targetInventory.SortByType();
         }
     }
+
+    public override void Toggle()
+    {
+        if (IsOpen)
+        {
+            ReturnCursorItem();
+        }
+
+        base.Toggle();
+    }
+
+    void ReturnCursorItem()
+    {
+        ItemSlot cursorSlot = Inventory.cursorSlot;
+
+        if (cursorSlot == null || cursorSlot.GetIsEmpty())
+            return;
+
+        foreach (ItemSlot slot in targetInventory.GetAllSlot())
+        {
+            if (slot == null) continue;
+
+            if (slot.Containable(cursorSlot.GetItem()))
+            {
+                cursorSlot.GiveItem(slot);
+
+                slot.NoticeChanged();
+                cursorSlot.NoticeChanged();
+
+                if (cursorSlot.GetIsEmpty())
+                    break;
+            }
+        }
+    }
 }

@@ -26,6 +26,7 @@ public class InputManager : ManagerBase
     public static event ButtonEvent OnShift;
     public static event ButtonEvent OnInventory;
     public static event ButtonEvent OnRoll;
+    public static event ButtonEvent OnInteraction;
 
 
     public static bool IsShift { get; private set; } = false;
@@ -157,6 +158,8 @@ public class InputManager : ManagerBase
 
         InitializeAction("ShowStatusButton", (context) => OnShowStatus?.Invoke(true)
                                            , (context) => OnShowStatus?.Invoke(false));
+
+        InitializeAction("Interaction"     , (context) =>OnInteraction?.Invoke(true));
 
         InitializeAction("Cancel", (context) => OnCancel?.Invoke(true));
         InitializeAction("Inventory", (context) => OnInventory?.Invoke(true));

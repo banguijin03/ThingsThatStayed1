@@ -7,7 +7,6 @@ public class Inventory : MonoBehaviour
 
     public int columns;
     public int rows;
-
     ItemSlot[,] slots;
 
     private void Awake()

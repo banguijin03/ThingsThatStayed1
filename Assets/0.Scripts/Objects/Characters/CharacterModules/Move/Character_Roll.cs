@@ -49,17 +49,13 @@ public class Character_Roll : CharacterModule
 
     void RollInput(bool value)
     {
-        if (!value)
-            return;
+        if (!value) return;
 
-        if (rollTimer > 0f)
-            return;
+        if (rollTimer > 0f) return;
 
-        if (rollCooldownTimer > 0f)
-            return;
+        if (rollCooldownTimer > 0f) return;
 
-        if (currentInputDirection == Vector3.zero)
-            return;
+        if (currentInputDirection == Vector3.zero) return;
 
         rollDirection = currentInputDirection.normalized;
         rollTimer = rollDuration;

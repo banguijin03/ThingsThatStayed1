@@ -71,7 +71,6 @@ public class CharacterBase : MonoBehaviour
                 module.OnUnregistration(this);
             }
         }
-
         moduleDictionary.Clear();
     }
 
@@ -82,7 +81,6 @@ public class CharacterBase : MonoBehaviour
             if (list.Count > 0)
                 return list[0] as T;
         }
-
         return null;
     }
 
@@ -97,7 +95,6 @@ public class CharacterBase : MonoBehaviour
                 result.Add(module as T);
             }
         }
-
         return result;
     }
 

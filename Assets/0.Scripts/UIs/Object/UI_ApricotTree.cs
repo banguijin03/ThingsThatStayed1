@@ -31,6 +31,6 @@ public class UI_ApricotTree : MonoBehaviour
             transform.position,
             Quaternion.identity
         );
-        item.GetComponent<WorldItem>().Initialize(apricot, 1);
+        item.GetComponent<WorldItem>().Initialize(apricot, 198);
     }
 }

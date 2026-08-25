@@ -107,7 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldItem
   pickupRange: 1.5
-  moveSpeed: 7
+  followLimit: 5
+  moveSpeed: 20
 --- !u!50 &8244907365003915823
 Rigidbody2D:
   serializedVersion: 5

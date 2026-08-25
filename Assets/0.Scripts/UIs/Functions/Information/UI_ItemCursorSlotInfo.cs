@@ -27,12 +27,17 @@ public class UI_ItemCursorSlotInfo : UI_ItemSlotInfo
     void LeftButton(bool value, Vector2 screenPosition, Vector3 worldPosition)
     {
         if (!value) return;
+
         GameObject currentHover = InputManager.CursorHoverObject;
         if (!currentHover) return;
 
         if (currentHover.TryGetComponent(out UI_ItemSlotInfo currentSlotInfo))
         {
-            ConnectedSlot?.LeftClick(currentSlotInfo.ConnectedSlot);
+            ItemSlot targetSlot = currentSlotInfo.ConnectedSlot;
+
+            if (targetSlot == null) return;
+
+            ConnectedSlot.LeftClick(targetSlot);
         }
     }
 
