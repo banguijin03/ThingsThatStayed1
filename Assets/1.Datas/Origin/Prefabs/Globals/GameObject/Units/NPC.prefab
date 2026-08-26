@@ -13,6 +13,13 @@ GameObject:
   - component: {fileID: 3077322701719137563}
   - component: {fileID: 8898464835426817422}
   - component: {fileID: 8409243951371872824}
+  - component: {fileID: 248184298640979997}
+  - component: {fileID: 8809256895671528765}
+  - component: {fileID: 3387859857749139130}
+  - component: {fileID: 3850077342940818404}
+  - component: {fileID: 5767721524979859486}
+  - component: {fileID: 6314498740795625853}
+  - component: {fileID: 2577350255158705776}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -27,7 +34,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390930887697430841}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,7 +55,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390930887697430841}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -123,6 +130,96 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.01, y: -0.01}
   m_Radius: 0.1
+--- !u!114 &248184298640979997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390930887697430841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d2eb426cdee2148aa41395ba7da5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCController
+--- !u!114 &8809256895671528765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390930887697430841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910d86b03b64f5843bc4eb8d6e9a5bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueModule
+--- !u!114 &3387859857749139130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390930887697430841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711c7aeff78f89e46a8b5799ab56baae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteractionModule
+  npcID: 
+  npcName: 
+--- !u!114 &3850077342940818404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390930887697430841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f178a8f7b485fdf4289dabe0cd4c3dfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcModule
+  npcID: 
+  npcName: 
+--- !u!114 &5767721524979859486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390930887697430841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c232488be2db594b9eb57f911e06f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScheduleModule
+--- !u!114 &6314498740795625853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390930887697430841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542165f1498421f4fa992a82430f0325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovementModule
+--- !u!114 &2577350255158705776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390930887697430841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6df6720089c774baca4b3844e70cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationModule
+  anim: {fileID: 0}
+  isRotationByMovement: 0
 --- !u!1 &1570949502662293473
 GameObject:
   m_ObjectHideFlags: 0
