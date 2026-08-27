@@ -11,7 +11,12 @@ public class CharacterBase : MonoBehaviour
     public void MovementNotify(Vector3 move) => OnMovement?.Invoke(move);
 
     public event LookAtEvent OnLookAt;
-    public void LookAtNotify(Vector3 direction) => OnLookAt?.Invoke(direction);
+
+    public void LookAtNotify(Vector3 direction)
+    {
+        _lookRotation = direction.normalized;
+        OnLookAt?.Invoke(direction);
+    }
 
     public event DamageEvent OnDamage;
     public void DamageNotify(GameObject damageCauser, ControllerBase instigator, float damage)
@@ -78,8 +83,7 @@ public class CharacterBase : MonoBehaviour
     {
         if (moduleDictionary.TryGetValue(typeof(T), out List<CharacterModule> list))
         {
-            if (list.Count > 0)
-                return list[0] as T;
+            if (list.Count > 0) return list[0] as T;
         }
         return null;
     }

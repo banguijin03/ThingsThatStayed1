@@ -5,48 +5,37 @@ using UnityEngine.TextCore.Text;
 public class NPCInteractionModule : NPCModule
 {
     [SerializeField] PlayerController playerCharacter;
-    NPCDialogueModule Dialogue;
+    [SerializeField] NPCDialogueModule Dialogue;
 
     public override void OnRegistration(CharacterBase newOwner)
     {
         base.OnRegistration(newOwner);
-        playerCharacter= FindAnyObjectByType<PlayerController>(FindObjectsInactive.Include);
-        InputManager.OnInteraction -= Interactionable;
-        InputManager.OnInteraction += Interactionable;
+        playerCharacter = FindAnyObjectByType<PlayerController>(FindObjectsInactive.Include);
+        //다이어로그를 어떤 모듈에서 불러올지
+        Dialogue = newOwner.GetModule<NPCDialogueModule>();
+
+        InputManager.OnInteraction -= InteractionNPC;
+        InputManager.OnInteraction += InteractionNPC;
     }
 
     public override void OnUnregistration(CharacterBase oldOwner)
     {
-        InputManager.OnInteraction -= Interactionable;
+        InputManager.OnInteraction -= InteractionNPC;
         base.OnUnregistration(oldOwner);
     }
 
-    public void Interactionable(bool value)
+    public void InteractionNPC(bool value)
     {
-        Debug.Log("함수는 실행됐어용");
-        if (!value)
-        {
-            Debug.Log("입력을 안하셨는데용?");
-            return;
-        }
-        if (playerCharacter == null)
-        {
-            Debug.Log("캐릭터가 없는데용?");
-            return;
-        }
-        if (!Owner)
-        {
-            Debug.Log("주인장이 없는데용?");
-            return;
-        }
+        if (!value)  return;
+        if (playerCharacter == null)  return;
+
+        if (!Owner) return;
 
         Vector2 npcPosition = Owner.transform.position;
         Vector2 playerPosition = playerCharacter.Character.transform.position;
         float distance = Vector2.Distance(npcPosition, playerPosition);
-
-        if (distance > 5)
+        if (distance > 2)
         {
-            Debug.Log("너무멀어");
             return;
         }
 
@@ -54,20 +43,23 @@ public class NPCInteractionModule : NPCModule
         Vector2 directionToNPC = (npcPosition - playerPosition).normalized;
         Vector2 playerDirection = playerCharacter.Character.LookRotation.normalized;
         float dot = Vector2.Dot(playerDirection, directionToNPC);
+
         if (dot > 0.7)
         {
-            Debug.Log("성공!");
-            CommandStart();
+            Debug.Log("대화는 준비중이야!");
         }
     }
-
-    public void CommandStart()
+    public void InteractionObject(bool value)
     {
-        Dialogue.Dialoogue();
-        CommandEnd();
+        //현재 들고있는것이 무엇인지 어떤 오브젝트를 클릭했는지 거리가 어느정도인지에 따라 실행할것
     }
-    public void CommandEnd()
+
+    public void CommendStart()
     {
-        InputManager.OnInteraction -= Interactionable;
+
+    }
+    public void CommendEnd()
+    {
+
     }
 }

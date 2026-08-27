@@ -41,6 +41,12 @@ public class GameManager : MonoBehaviour
     InputManager _input;
     public InputManager Input => _input;
 
+    DialogueManager _dialogue;
+    public DialogueManager Dialogue => _dialogue;
+
+    ScenarioManager _scenario;
+    public ScenarioManager Scenario => _scenario;
+
     IEnumerator initializing; 
 
     public static event InitializeEvent OnInitializeManager;
@@ -102,6 +108,8 @@ public class GameManager : MonoBehaviour
         totalLoadCount += CreateManager(ref _audio).LoadCount;
         totalLoadCount += CreateManager(ref _camera).LoadCount;
         totalLoadCount += CreateManager(ref _input).LoadCount;
+        totalLoadCount += CreateManager(ref _dialogue).LoadCount;
+        totalLoadCount += CreateManager(ref _scenario).LoadCount;
 
         yield return UI.Initialize(this);
         UIBase loadingUI = UIManager.ClaimOpenScreen(UIType.Loading); 
@@ -128,6 +136,10 @@ public class GameManager : MonoBehaviour
         loadingProgress?.AddCurrent(1);
         yield return Input.Connect(this);
         loadingProgress?.AddCurrent(1);
+        yield return Dialogue.Connect(this);
+        loadingProgress?.AddCurrent(1);
+        yield return Scenario.Connect(this);
+        loadingProgress?.AddCurrent(1);
         yield return null;
 
         loadingProgress.SetComplete(startScreen, ScreenChangeType.ScreenChanger);
@@ -137,27 +149,18 @@ public class GameManager : MonoBehaviour
 
     void DeleteManagers()
     {
-        //�����Է�	InputManager
         Input?.Disconnect();
-        //������Ʈ	ObjectManager
         ObjectM?.Disconnect();
-        //�����		AudioManager
         Audio?.Disconnect();
-        //���		LanguageManager
         Language?.Disconnect();
-        //����		SettingManager
         Setting?.Disconnect();
-
-        //���̺�		SaveManager
         Save?.Disconnect();
-        //ī�޶�		CameraManager
         Camera?.Disconnect();
-        //UI		UIManager
         UI?.Disconnect();
-        //���������� DataManager
         Data?.Disconnect();
-        //�����ͺ��̽� DBManager
         DB?.Disconnect();
+        Dialogue?.Disconnect();
+        Scenario?.Disconnect();
     }
     ManagerType CreateManager<ManagerType>(ref ManagerType targetVariable) where ManagerType : ManagerBase
     {
@@ -210,27 +213,17 @@ public class GameManager : MonoBehaviour
     {
         if (isLoading) return;
 
-        //�ʱ�ȭ
-        //�Ŵ����� �ʱ�ȭ�Ѵ�
         InvokeInitializeEvent(ref OnInitializeManager);
-        //ĳ���͸� �ʱ�ȭ�Ѵ�
         InvokeInitializeEvent(ref OnInitializeCharacter);
-        //��Ʈ�ѷ��� �ʱ�ȭ�Ѵ� => ĳ���Ͱ� �ִ� ���¿��� ���ư��� �ϴϱ�!
         InvokeInitializeEvent(ref OnInitializeController);
-        //������Ʈ�� �ʱ�ȭ�Ѵ�
         InvokeInitializeEvent(ref OnInitializeObject);
 
         if (isPlaying)
         {
-            //������ ���̿� �� �ʰ� ��������?
             float deltaTime = Time.deltaTime;
-            //�Ŵ����� ������Ʈ �ϴ� ���
             OnUpdateManager?.Invoke(deltaTime);
-            //��Ʈ�ѷ��� ������Ʈ�Ѵ� => ���� �Ǵ��ϰ�
             OnUpdateController?.Invoke(deltaTime);
-            //ĳ���͸� ������Ʈ�Ѵ� => ĳ���Ͱ� �����ϰ�
             OnUpdateCharacter?.Invoke(deltaTime);
-            //������Ʈ�� ������Ʈ�Ѵ� => ������Ʈ ����
             OnUpdateObject?.Invoke(deltaTime);
         }
 
