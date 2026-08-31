@@ -32,12 +32,13 @@ public class MovementModule : CharacterModule, IRunnable
     //실제 이동을 처리하고 이동 결과를 캐릭터에게 알림
     public void MovementUpdate(float deltaTime)
     {
-        //기존 좌표
-        Vector3 originPosition = transform.position;                
-        PhysicsUpdate(deltaTime);   
+        //기존좌표
+        Vector3 originPosition = transform.position;
+        PhysicsUpdate(deltaTime);
+
         //현재 좌표
         Vector3 positionDelta = transform.position - originPosition;
-        Owner.MovementNotify(positionDelta);                            
+        Owner.MovementNotify(positionDelta);
     }
 
     //방향 이동과 목적지 이동 중 알맞은 이동 방식을 실행

@@ -154,6 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910d86b03b64f5843bc4eb8d6e9a5bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueModule
+  npcID: 02
+  npcName: "\uB8E8\uC2DC\uC548"
+  dialogueData: {fileID: 11400000, guid: b6d35fd8e23f5c84a86fd69ddc176417, type: 2}
 --- !u!114 &3387859857749139130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,8 +169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711c7aeff78f89e46a8b5799ab56baae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteractionModule
-  npcID: 
-  npcName: 
+  npcID: 1
+  npcName: "\uC54C\uB9AC\uC544"
+  playerCharacter: {fileID: 0}
+  Dialogue: {fileID: 0}
 --- !u!114 &3850077342940818404
 MonoBehaviour:
   m_ObjectHideFlags: 0

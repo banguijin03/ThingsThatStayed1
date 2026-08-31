@@ -8,7 +8,7 @@ public enum UIType
 {
     None, Loading, Title, Option, Movable, Info, Inside, GameQuit,
     naga,
-    InventoryWindow, StatShow, InsideOption, InsideSetting,
+    InventoryWindow, StatShow, InsideOption, InsideSetting, Dialogue,
     CharacterCustomization,
     ItemHoverInfo, ItemClickInfo, ActionHoverInfo, ActionClickInfo, ItemCursorSlot,
     _Length
@@ -36,6 +36,7 @@ public class UIManager : ManagerBase
         new(UIType.StatShow,                        "StatShowPage"),
         new(UIType.InventoryWindow,                 "InventoryWindow"),
         new(UIType.CharacterCustomization,          "CharacterCustomizationScreen"),
+        new(UIType.Dialogue,                        "DialogueWindow"),
     };
 
     Canvas _mainCanvas;
@@ -64,7 +65,15 @@ public class UIManager : ManagerBase
 
     float _uiScale = 1.0f;
     public static float UIScale => GameManager.Instance?.UI?._uiScale ?? 1.0f;
+    public static bool ClaimIsOpenUI(UIType type)
+    {
+        UIBase ui = GameManager.Instance.UI.GetUI(type);
 
+        if (ui == null)
+            return false;
+
+        return ui.gameObject.activeSelf;
+    }
     public IEnumerator Initialize(GameManager newManager)
     {
         SetMainCanvas(GetComponentInChildren<Canvas>());
@@ -117,8 +126,10 @@ public class UIManager : ManagerBase
             }
             instance?.SetActive(false);
         }
+
         yield return null;
     }
+
     protected override void OnDisconnected()
     {
         UnSetAllUI();
@@ -143,6 +154,7 @@ public class UIManager : ManagerBase
             _raycaster = null;
         }
     }
+
     public UIBase ClaimOverlay(UIType wantType, string wantName)
     {
         return CreateUI(wantType, wantName, overlayTransform ?? MainCanvas?.transform);
@@ -225,27 +237,70 @@ public class UIManager : ManagerBase
     {
         UIBase result = GetUI(wantType);
 
-        if (result is IOpenable asOpenable) asOpenable.Open();
-        if (result) EventSystem.current.SetSelectedGameObject(result.gameObject);
+        if (result is IOpenable asOpenable)
+            asOpenable.Open();
+
+        if (result is OpenableUIBase window && window.PauseGame)
+            GameManager.Pause();
+
+        if (result)
+            EventSystem.current.SetSelectedGameObject(result.gameObject);
 
         return result;
     }
+
     public static UIBase ClaimOpenUI(UIType wantType) => GameManager.Instance?.UI?.OpenUI(wantType);
 
     protected UIBase CloseUI(UIType wantType)
     {
         UIBase result = GetUI(wantType);
-        if (result is IOpenable asOpenable) asOpenable.Close();
+
+        if (result is IOpenable asOpenable)
+            asOpenable.Close();
+
+        if (!HasPauseUI())
+            GameManager.Unpause();
+
         return result;
     }
-    public static UIBase ClaimCloseUI(UIType wantType) => GameManager.Instance?.UI?.CloseUI(wantType);
 
+    public static UIBase ClaimCloseUI(UIType wantType) => GameManager.Instance?.UI?.CloseUI(wantType);
+    bool HasPauseUI()
+    {
+        foreach (UIBase ui in uiDictionary.Values)
+        {
+            if (!ui) continue;
+            if (!ui.gameObject.activeSelf) continue;
+
+            if (ui is OpenableUIBase window && window.PauseGame)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
     protected UIBase ToggleUI(UIType wantType)
     {
         UIBase result = GetUI(wantType);
-        if (result is IOpenable asOpenable) asOpenable.Toggle();
+
+        if (result is OpenableUIBase window)
+        {
+            window.Toggle();
+
+            if (window.IsOpen && window.PauseGame)
+            {
+                GameManager.Pause();
+            }
+            else if (!HasPauseUI())
+            {
+                GameManager.Unpause();
+            }
+        }
+
         return result;
     }
+
     public static UIBase ClaimToggleUI(UIType wantType) => GameManager.Instance?.UI?.ToggleUI(wantType);
 
     protected UIBase OpenScreen(UIType wantType)
@@ -298,6 +353,7 @@ public class UIManager : ManagerBase
         currentScreenChanger.ChangeEnd(() => targetObject.SetActive(false));
         currentScreenChanger = null;
     }
+
 
     public static void ClaimScreenChangeEffectEnd() => GameManager.Instance?.UI?.ScreenChangeEffectEnd();
 

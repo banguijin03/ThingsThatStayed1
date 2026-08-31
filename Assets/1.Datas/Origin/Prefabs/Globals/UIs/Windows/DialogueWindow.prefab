@@ -33,9 +33,9 @@ RectTransform:
   m_Father: {fileID: 5624514611151420183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.005270834, y: 0.020592596}
-  m_AnchorMax: {x: 0.20500001, y: 0.45559266}
-  m_AnchoredPosition: {x: -3.138794, y: -29.281006}
-  m_SizeDelta: {x: 13.962402, y: -14.082794}
+  m_AnchorMax: {x: 0.005270834, y: 0.020592596}
+  m_AnchoredPosition: {x: 204, y: 205.74}
+  m_SizeDelta: {x: 342.764, y: 455.9675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8690507478624702779
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1415725901231622067, guid: 5ba01000106463f4bbb0bc657d343a34, type: 3}
+  m_Sprite: {fileID: -4466109041076268491, guid: 1cd48efe5a83418429baa177699a74db, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -140,13 +140,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB300\uCDA9 \uB300\uC0AC\uAC00 \uB098\uC62C\uB9CC\uD55C \uACF3\uC785\uB2C8\uB2E4.
-    \uADF8\uB798\uC11C \uC5B4\uB5A4\uC2DD\uC73C\uB85C \uB098\uC624\uB294\uC9C0 \uBCF4\uAE30
-    \uC704\uD574\uC11C \uC544\uBB34\uC18C\uB9AC\uB098 \uC801\uACE0 \uC788\uC2B5\uB2C8\uB2E4.
-    \uAC10\uC0AC\uD569\uB2C8\uB2E4. \uB354 \uC801\uC744 \uB0B4\uC6A9\uC774 \uC5C6\uC5B4\uC11C
-    \uC5B4\uB5BB\uAC8C \uD560\uC9C0 \uACE0\uBBFC\uC911\uC785\uB2C8\uB2E4. \uC0AC\uC2E4
-    \uC774\uAC70\uB77C\uB3C4 \uC801\uC5B4\uC57C \uC880 \uAE38\uC5B4\uC9C8 \uAC83
-    \uAC19\uC544\uC11C \uACC4\uC18D \uC801\uACE0 \uC788\uC2B5\uB2C8\uB2E4 \uAC10\uC0AC\uD569\uB2C8\uB2E4."
+  m_text: "\uC774\uACF3\uC740 \uCE90\uB9AD\uD130\uC758 \uB300\uC0AC\uAC00 \uD45C\uC2DC\uB420
+    \uACF5\uAC04\uC785\uB2C8\uB2E4. \uD604\uC7AC\uB294 \uB300\uD654\uCC3D\uC774 \uC5B4\uB5A4
+    \uD615\uD0DC\uB85C \uCD9C\uB825\uB418\uB294\uC9C0 \uD655\uC778\uD558\uAE30 \uC704\uD574
+    \uC784\uC2DC\uB85C \uC791\uC131\uB41C \uBB38\uC7A5\uC744 \uB123\uC5B4\uB450\uC5C8\uC2B5\uB2C8\uB2E4.
+    \uD654\uBA74\uC5D0 \uD14D\uC2A4\uD2B8\uAC00 \uC5B4\uB5BB\uAC8C \uD45C\uC2DC\uB418\uB294\uC9C0
+    \uD655\uC778\uD558\uAE30 \uC704\uD568\uC774\uC9C0\uC694."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d09660f93efbcef4abe42ff1aa50913b, type: 2}
   m_sharedMaterial: {fileID: -2416184209657988959, guid: d09660f93efbcef4abe42ff1aa50913b, type: 2}
@@ -283,7 +282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC04\uB2EC\uD504"
+  m_text: "\uB8E8\uC2DC\uC548"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d09660f93efbcef4abe42ff1aa50913b, type: 2}
   m_sharedMaterial: {fileID: -2416184209657988959, guid: d09660f93efbcef4abe42ff1aa50913b, type: 2}
@@ -443,8 +442,9 @@ GameObject:
   - component: {fileID: 5624514611151420183}
   - component: {fileID: 205056556908388845}
   - component: {fileID: 2089767389447466218}
+  - component: {fileID: 865134068391984067}
   m_Layer: 5
-  m_Name: Interactionwindow
+  m_Name: DialogueWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -509,3 +509,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &865134068391984067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929467458400426196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfc03341a31bf243b61d6c7d2816501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_DialogueWindow
+  pauseGame: 1
+  closeByCancel: 0
+  requiredUI: []
+  characterName: {fileID: 5345944718463194639}
+  characterDialoue: {fileID: 653542282911111227}
+  image: {fileID: 883112200140703483}

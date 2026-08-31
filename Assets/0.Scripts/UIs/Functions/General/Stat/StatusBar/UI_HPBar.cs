@@ -5,13 +5,13 @@ public class UI_HPBar : UIBase
 {
     [SerializeField] Slider hpBar;
     [SerializeField] CharacterBase targetCharacter;
+    UI_MovableScreen stop;
 
     StatModule statModule;
 
     void Start()
     {
-        if (targetCharacter == null)
-            targetCharacter = FindAnyObjectByType<CharacterBase>();
+        if (targetCharacter == null) targetCharacter = FindAnyObjectByType<CharacterBase>();
 
         hpBar.minValue = 0f;
         hpBar.maxValue = 1f;
@@ -36,6 +36,6 @@ public class UI_HPBar : UIBase
 
     void RefreshHPBar(int current, int max)
     {
-        hpBar.value = (float)current / max;
+        if(stop.stop=false) hpBar.value = (float)current / max;
     }
 }

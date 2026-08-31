@@ -161,13 +161,25 @@ public class InputManager : ManagerBase
 
         InitializeAction("Interaction"     , (context) =>OnInteraction?.Invoke(true));
 
-        InitializeAction("Cancel", (context) => OnCancel?.Invoke(true));
-        InitializeAction("Inventory", (context) => OnInventory?.Invoke(true));
-        InitializeAction("AnyKey", (context) => OnAnyKey?.Invoke());
+        InitializeAction("Cancel",          (context) => OnCancel?.Invoke(true));
+        InitializeAction("Inventory",       (context) => OnInventory?.Invoke(true));
+        InitializeAction("AnyKey",          (context) => OnAnyKey?.Invoke());
 
-        InitializeAction("Shift", (context) => OnShift?.Invoke(true)
-                                , (context) => OnShift?.Invoke(false));
+        InitializeAction("Shift",           (context) => OnShift?.Invoke(true)
+                                ,           (context) => OnShift?.Invoke(false));
 
+    }
+    void CancelInput()
+    {
+        UIBase inventory = UIManager.ClaimGetUI(UIType.InventoryWindow);
+
+        if (inventory != null && inventory.gameObject.activeSelf)
+        {
+            UIManager.ClaimCloseUI(UIType.InventoryWindow);
+            return;
+        }
+
+        OnCancel?.Invoke(true);
     }
 
     void InitializeAction(string actionName, Action<InputAction.CallbackContext> actionMethod, Action<InputAction.CallbackContext> cancelMethod = null)

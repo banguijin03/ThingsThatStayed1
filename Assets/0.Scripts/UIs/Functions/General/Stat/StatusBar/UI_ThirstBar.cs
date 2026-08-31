@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class UI_ThirstBar : UIBase
 {
     [SerializeField] Slider thirstBar;
     [SerializeField] CharacterBase targetCharacter;
-
+    UI_MovableScreen stop;
     StatModule statModule;
 
     void Start()
@@ -37,6 +38,6 @@ public class UI_ThirstBar : UIBase
 
     void RefreshThirstBar(int current, int max)
     {
-        thirstBar.value = (float)current / max;
+        if (stop.stop = false) thirstBar.value = (float)current / max;
     }
 }

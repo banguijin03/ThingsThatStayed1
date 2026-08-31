@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class UI_HungerBar : UIBase
 {
     [SerializeField] Slider hungerBar;
     [SerializeField] CharacterBase targetCharacter;
+    UI_MovableScreen stop;
 
     StatModule statModule;
 
@@ -37,6 +39,6 @@ public class UI_HungerBar : UIBase
 
     void RefreshHungerBar(int current, int max)
     {
-        hungerBar.value = (float)current / max;
+        if (stop.stop = false) hungerBar.value = (float)current / max;
     }
 }

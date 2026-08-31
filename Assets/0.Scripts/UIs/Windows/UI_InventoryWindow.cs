@@ -13,26 +13,41 @@ public class UI_InventoryWindow : OpenableUIBase
     {
         base.Registration(manager);
 
-        targetInventory = FindAnyObjectByType<Inventory>(FindObjectsInactive.Include);
+        targetInventory = FindAnyObjectByType<Inventory>(
+            FindObjectsInactive.Include
+        );
 
         if (targetInventory == null)
         {
             return;
         }
+
         ConnectInventory(targetInventory);
     }
 
     public override void Unregistration(UIManager manager)
     {
         base.Unregistration(manager);
-        InputManager.OnInventory -= (value) => UIManager.ClaimToggleUI(UIType.InventoryWindow);
+
         DisconnectInventory();
+    }
+
+    // ESC를 눌렀을 때 호출
+    void CloseInventory(bool value)
+    {
+        if (!value) return;
+
+        // 인벤토리가 열려있지 않으면 아무것도 하지 않음
+        if (!IsOpen) return;
+
+        UIManager.ClaimCloseUI(UIType.InventoryWindow);
     }
 
     public void ConnectInventory(Inventory newInventory)
     {
-        if (!newInventory) return; 
-        targetInventory = newInventory; 
+        if (!newInventory) return;
+
+        targetInventory = newInventory;
 
         if (!layout) return;
 
@@ -40,16 +55,26 @@ public class UI_InventoryWindow : OpenableUIBase
         {
             asGridLayout.constraintCount = targetInventory.columns;
         }
+
         foreach (ItemSlot currentSlot in newInventory.GetAllSlot())
         {
-            if (currentSlot is null) continue; 
-            GameObject instance = ObjectManager.CreateObject(itemSlotPrefabName, layout.transform);
-            if (!instance) continue; 
-            if (instance.TryGetComponent(out UI_ItemSlotInfo createdSlot)) 
+            if (currentSlot is null) continue;
+
+            GameObject instance =
+                ObjectManager.CreateObject(
+                    itemSlotPrefabName,
+                    layout.transform
+                );
+
+            if (!instance) continue;
+
+            if (instance.TryGetComponent(
+                out UI_ItemSlotInfo createdSlot))
             {
                 createdSlot.ConnectSlot(currentSlot);
             }
         }
+
         if (trashCan)
         {
             trashCan.ConnectSlot(new TrashCanSlot());
@@ -59,10 +84,13 @@ public class UI_InventoryWindow : OpenableUIBase
     public void DisconnectInventory()
     {
         if (!layout) return;
+
         while (layout.transform.childCount > 0)
         {
             Transform targetChild = layout.transform.GetChild(0);
+
             targetChild.SetParent(null);
+
             ObjectManager.DestroyObject(targetChild.gameObject);
         }
     }

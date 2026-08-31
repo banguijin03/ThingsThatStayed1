@@ -8,8 +8,11 @@ public class UI_MovableScreen : UI_ScreenBase
 	[SerializeField] List<UIBase> popUpList = new();
 	Vector3 popupPosition = Vector3.zero;
 	Vector3 popupShift = new(20.0f, -20.0f);
+    public bool stop = false;
 
-	UI_DraggableWindow currentDragTarget = null;
+    public bool IsStop => stop;
+
+    UI_DraggableWindow currentDragTarget = null;
 
     public override void Registration(UIManager manager)
     {
@@ -56,10 +59,32 @@ public class UI_MovableScreen : UI_ScreenBase
     {
         if (!value) return;
 
-        if (UIManager.CurrentScreen == UIType.Inside)
+        if (UIManager.CurrentScreen != UIType.Inside)
+            return;
+
+        UIBase inventory = UIManager.ClaimGetUI(UIType.InventoryWindow);
+
+        if (inventory != null && inventory.gameObject.activeSelf)
         {
-            UIManager.ClaimToggleUI(UIType.InsideOption);
+            stop = true;
+
+            UIManager.ClaimCloseUI(UIType.InventoryWindow);
+            return;
         }
+
+        UIBase option = UIManager.ClaimGetUI(UIType.InsideOption);
+
+        if (option != null && option.gameObject.activeSelf)
+        {
+            stop = true;
+
+            UIManager.ClaimCloseUI(UIType.InsideOption);
+            return;
+        }
+
+        stop = true;
+
+        UIManager.ClaimToggleUI(UIType.InsideOption);
     }
 
     protected override GameObject OnSetChild(GameObject newChild)

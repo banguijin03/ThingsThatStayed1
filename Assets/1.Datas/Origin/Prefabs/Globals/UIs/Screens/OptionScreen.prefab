@@ -197,6 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5badfad6344d0424fadb07b357b07bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_OptionScreen
+  pauseGame: 1
+  closeByCancel: 1
   requiredUI: []
 --- !u!95 &7376465447805741484
 Animator:
@@ -1119,7 +1121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1263271, y: 0.21715592}
   m_AnchorMax: {x: 0.86, y: 0.3606882}
-  m_AnchoredPosition: {x: -8.5, y: 3.0000305}
+  m_AnchoredPosition: {x: -8.5, y: 3.0000916}
   m_SizeDelta: {x: -92.6182, y: 0.81949997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5000724745847067470

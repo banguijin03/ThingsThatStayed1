@@ -12,9 +12,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b336d1482ee127547b90235fbb8d692a, type: 3}
   m_Name: SampleNpc
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  npcName: "\uC54C\uB9AC\uC544"
-  dialogues:
-  - "\uC548\uB155\uD558\uC2E0\uC9C0\uC694~"
-  - "\uBC18\uAC00\uC6B4 \uAC83 \uAC19\uC544\uC694"
-  - "\u314B\u314B\u314B\u314B\u314B\u314B"
-  - "\uC5B4\uD734..."
+  npcID: 
+  npcName: "\uB8E8\uC2DC\uC548"
+  npcPortrait: {fileID: -4466109041076268491, guid: 1cd48efe5a83418429baa177699a74db, type: 3}
+  dialogueList:
+  - dialogueID: first_meeting
+    dialogues:
+    - "\uC548\uB155\uD558\uC138\uC694"
+    - "\uBC18\uAC00\uC6CC\uC694"
+    - "\uC774\uACF3\uC740 \uCC98\uC74C\uC778\uAC00\uC694"
+    conditions: []
+    maxCount: 0
+    isRandom: 0
+    priority: 0
+    nextDialogueID: second_meeting
+    choices: []
+  - dialogueID: second_meeting
+    dialogues:
+    - "\uB610 \uB9CC\uB0AC\uB124\uC694"
+    - "\uC5EC\uAE34 \uBB34\uC2A8\uC77C\uC774\uC2DC\uC8E0?"
+    conditions: []
+    maxCount: 0
+    isRandom: 0
+    priority: 0
+    nextDialogueID: 
+    choices: []
+  - dialogueID: normal_01
+    dialogues:
+    - "(\uB8E8\uC2DC\uC548\uC740 \uB2F9\uC2E0\uC744 \uBB34\uC2DC\uD558\uB294\uB4EF\uD558\uB2E4.)"
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []
+  - dialogueID: normal_02
+    dialogues:
+    - "(\uB8E8\uC2DC\uC548\uC740 \uBC14\uC05C\uB4EF\uD558\uB2E4.)"
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []
+  - dialogueID: normal_03
+    dialogues:
+    - "(\uB8E8\uC2DC\uC548\uC740 \uB2F9\uC2E0\uC774 \uADFC\uCC98\uC5D0 \uC788\uB294\uC9C0
+      \uBAA8\uB974\uB294\uB4EF\uD558\uB2E4.)"
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []

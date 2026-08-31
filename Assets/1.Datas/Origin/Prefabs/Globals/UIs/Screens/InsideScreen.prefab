@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438303123a485444eb743ad490b222db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_GameScreen
+  pauseGame: 0
   requiredUI:
   - prefabName: ItrmHoverInfo
     uiType: 15
@@ -331,7 +332,6 @@ GameObject:
   - component: {fileID: 5608110546074080248}
   - component: {fileID: 4175539792705362478}
   - component: {fileID: 7248943197755798998}
-  - component: {fileID: 3788699755182876624}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -396,28 +396,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &3788699755182876624
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4099363316839886551}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6276337b13e0d7b46b269f028a0b850c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5168831261236795393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295397fcea0089847b7e5b6c41e5fa07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_ThirstBar
+  pauseGame: 0
   thirstBar: {fileID: 4495973765451428124}
   targetCharacter: {fileID: 0}
 --- !u!224 &2568330981953202207 stripped
@@ -1315,6 +1294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f08eceda1af9f45bc17db0c4d11c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_HungerBar
+  pauseGame: 0
   hungerBar: {fileID: 5374474875061038489}
   targetCharacter: {fileID: 0}
 --- !u!114 &5374474875061038489 stripped
@@ -1345,6 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aad19176c634344f9d6871480406558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_FeelingBar
+  pauseGame: 0
   feelingBar: {fileID: 4503539204418094902}
   targetCharacter: {fileID: 0}
 --- !u!1 &7453800352581952709 stripped
@@ -1364,6 +1345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60702907acf63824e84c9f5f867df56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_HPBar
+  pauseGame: 0
   hpBar: {fileID: 34515342780976394}
   targetCharacter: {fileID: 0}
 --- !u!1001 &7714743997199470372
