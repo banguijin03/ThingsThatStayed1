@@ -4,14 +4,13 @@ public class NPCInteractionModule : NPCModule
 {
     [SerializeField] PlayerController playerCharacter;
     [SerializeField] NPCDialogueModule Dialogue;
+    bool interactionLock;
 
     public override void OnRegistration(CharacterBase newOwner)
     {
         base.OnRegistration(newOwner);
 
-        playerCharacter = FindAnyObjectByType<PlayerController>(
-            FindObjectsInactive.Include
-        );
+        playerCharacter = FindAnyObjectByType<PlayerController>(FindObjectsInactive.Include);
 
         // 현재 NPC의 DialogueModule 가져오기
         Dialogue = newOwner.GetComponent<NPCDialogueModule>();
@@ -35,38 +34,40 @@ public class NPCInteractionModule : NPCModule
         if (playerCharacter == null) return;
         if (!Owner) return;
 
-        // 이미 대화 중이라면
-        // 다음 대사로 넘어감
+        Vector2 npcPosition = Owner.transform.position;
+        Vector2 playerPosition =
+            playerCharacter.Character.transform.position;
+
+        // 거리 확인
+        float distance = Vector2.Distance(
+            npcPosition,
+            playerPosition
+        );
+
+
+        // 멀리 있으면 여기서 끝
+        if (distance > 2f) return; 
+
+        // 가까운 NPC만 대화 상태 확인
         if (GameManager.Instance.Dialogue.IsDialogue)
         {
             GameManager.Instance.Dialogue.NextDialogue();
             return;
         }
 
-        // 대화 중이 아니라면
-        // NPC와 상호작용 가능한지 확인
-        Vector2 npcPosition = Owner.transform.position;
-        Vector2 playerPosition = playerCharacter.Character.transform.position;
-
-        // NPC와 플레이어의 거리 확인
-        float distance = Vector2.Distance(npcPosition, playerPosition);
-
-        if (distance > 2)
-        {
-            return;
-        }
-
-        // 플레이어가 NPC를 바라보고 있는 방향 확인
+        // 바라보는 방향 확인
         Vector2 directionToNPC =
             (npcPosition - playerPosition).normalized;
 
         Vector2 playerDirection =
             playerCharacter.Character.LookRotation.normalized;
 
-        float dot = Vector2.Dot(playerDirection, directionToNPC);
+        float dot = Vector2.Dot(
+            playerDirection,
+            directionToNPC
+        ); 
 
-        // 플레이어가 NPC를 바라보고 있다면 대화 시작
-        if (dot > 0.7)
+        if (dot > 0.5f)
         {
             Dialogue.StartDialogue();
         }

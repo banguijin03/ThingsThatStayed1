@@ -15,4 +15,41 @@ MonoBehaviour:
   npcID: 
   npcName: "\uB8E8\uCE58\uC544"
   npcPortrait: {fileID: 907022952863429744, guid: 3972a856b6d5798458df99079739f25d, type: 3}
-  dialogueList: []
+  dialogueList:
+  - dialogueID: normal_01
+    dialogues:
+    - "(\uB8E8\uCE58\uC544\uB294 \uB2F9\uC2E0\uC744 \uBB34\uC2DC\uD558\uB294\uB4EF\uD558\uB2E4.)"
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []
+  - dialogueID: normal_02
+    dialogues:
+    - "(\uB8E8\uCE58\uC544\uB294 \uBC14\uC05C\uB4EF\uD558\uB2E4.)"
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []
+  - dialogueID: normal_03
+    dialogues:
+    - "(\uB8E8\uCE58\uC544\uB294 \uB2F9\uC2E0\uC774 \uADFC\uCC98\uC5D0 \uC788\uB294\uC9C0
+      \uBAA8\uB974\uB294\uB4EF\uD558\uB2E4.)"
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []
+  - dialogueID: normal_04
+    dialogues:
+    - ...
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []

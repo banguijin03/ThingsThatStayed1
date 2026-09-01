@@ -5,24 +5,28 @@ public class UI_HPBar : UIBase
 {
     [SerializeField] Slider hpBar;
     [SerializeField] CharacterBase targetCharacter;
-    UI_MovableScreen stop;
 
     StatModule statModule;
 
     void Start()
     {
-        if (targetCharacter == null) targetCharacter = FindAnyObjectByType<CharacterBase>();
+        if (targetCharacter == null)
+            targetCharacter = FindAnyObjectByType<CharacterBase>();
 
         hpBar.minValue = 0f;
         hpBar.maxValue = 1f;
         hpBar.interactable = false;
 
-        statModule= targetCharacter.GetModule<StatModule>();
+        statModule = targetCharacter.GetModule<StatModule>();
 
         if (statModule != null)
         {
             statModule.HP.OnValueChanged += RefreshHPBar;
-            RefreshHPBar(statModule.HP.Current, statModule.HP.Max);
+
+            RefreshHPBar(
+                statModule.HP.Current,
+                statModule.HP.Max
+            );
         }
     }
 
@@ -36,6 +40,6 @@ public class UI_HPBar : UIBase
 
     void RefreshHPBar(int current, int max)
     {
-        if(stop.stop=false) hpBar.value = (float)current / max;
+        hpBar.value = (float)current / max;
     }
 }

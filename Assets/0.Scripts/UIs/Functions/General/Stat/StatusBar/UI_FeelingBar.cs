@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class UI_FeelingBar : UIBase
 {
     [SerializeField] Slider feelingBar;
     [SerializeField] CharacterBase targetCharacter;
-    UI_MovableScreen stop;
+
     StatModule statModule;
 
     void Start()
@@ -24,7 +23,10 @@ public class UI_FeelingBar : UIBase
         {
             statModule.Feeling.OnValueChanged += RefreshFeelingBar;
 
-            RefreshFeelingBar(statModule.Feeling.Current, statModule.Feeling.Max);
+            RefreshFeelingBar(
+                statModule.Feeling.Current,
+                statModule.Feeling.Max
+            );
         }
     }
 
@@ -38,6 +40,6 @@ public class UI_FeelingBar : UIBase
 
     void RefreshFeelingBar(int current, int max)
     {
-        if (stop.stop = false) feelingBar.value = (float)current / max;
+        feelingBar.value = (float)current / max;
     }
 }

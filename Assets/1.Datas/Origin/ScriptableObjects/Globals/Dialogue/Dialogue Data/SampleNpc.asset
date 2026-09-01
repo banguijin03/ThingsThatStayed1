@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   npcID: 
   npcName: "\uB8E8\uC2DC\uC548"
-  npcPortrait: {fileID: -4466109041076268491, guid: 1cd48efe5a83418429baa177699a74db, type: 3}
+  npcPortrait: {fileID: 7970306031493435404, guid: f27e689266290f7418666c1c49febe69, type: 3}
   dialogueList:
   - dialogueID: first_meeting
     dialogues:
@@ -40,6 +40,7 @@ MonoBehaviour:
   - dialogueID: normal_01
     dialogues:
     - "(\uB8E8\uC2DC\uC548\uC740 \uB2F9\uC2E0\uC744 \uBB34\uC2DC\uD558\uB294\uB4EF\uD558\uB2E4.)"
+    - ....
     conditions: []
     maxCount: 0
     isRandom: 1
@@ -59,6 +60,15 @@ MonoBehaviour:
     dialogues:
     - "(\uB8E8\uC2DC\uC548\uC740 \uB2F9\uC2E0\uC774 \uADFC\uCC98\uC5D0 \uC788\uB294\uC9C0
       \uBAA8\uB974\uB294\uB4EF\uD558\uB2E4.)"
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []
+  - dialogueID: normal_04
+    dialogues:
+    - ...
     conditions: []
     maxCount: 0
     isRandom: 1

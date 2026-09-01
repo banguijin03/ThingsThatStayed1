@@ -14,5 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   npcID: 
   npcName: "\uBCA0\uB85C\uB2C8\uCE74"
-  npcPortrait: {fileID: 0}
-  dialogueList: []
+  npcPortrait: {fileID: -6007857137893288414, guid: b48a79170fdd3804eb4b7d870d855479, type: 3}
+  dialogueList:
+  - dialogueID: normal_03
+    dialogues:
+    - "(\uBCA0\uB85C\uB2C8\uCE74\uB294 \uB2F9\uC2E0\uC744 \uBB34\uC2DC\uD558\uB294\uB4EF\uD558\uB2E4.)"
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []
+  - dialogueID: normal_02
+    dialogues:
+    - "(\uBCA0\uB85C\uB2C8\uCE74\uB294 \uBC14\uC05C\uB4EF\uD558\uB2E4.)"
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []
+  - dialogueID: normal_01
+    dialogues:
+    - "(\uBCA0\uB85C\uB2C8\uCE74\uB294 \uB2F9\uC2E0\uC774 \uADFC\uCC98\uC5D0 \uC788\uB294\uC9C0
+      \uBAA8\uB974\uB294\uB4EF\uD558\uB2E4.)"
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []
+  - dialogueID: normal_04
+    dialogues:
+    - ...
+    conditions: []
+    maxCount: 0
+    isRandom: 1
+    priority: 0
+    nextDialogueID: 
+    choices: []
