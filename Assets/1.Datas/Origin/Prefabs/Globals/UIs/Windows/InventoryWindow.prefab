@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.075618915, y: 0.13716143}
   m_AnchorMax: {x: 0.9457622, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
-  m_SizeDelta: {x: -209, y: -207}
+  m_AnchoredPosition: {x: -0.008926392, y: -21.854202}
+  m_SizeDelta: {x: -245.45, y: -242.331}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8061783177930632754
 CanvasRenderer:
@@ -4873,7 +4873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295397fcea0089847b7e5b6c41e5fa07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_ThirstBar
-  pauseGame: 0
   thirstBar: {fileID: 3789573876621791037}
   targetCharacter: {fileID: 0}
 --- !u!224 &2978891901612201534 stripped
@@ -4931,7 +4930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f08eceda1af9f45bc17db0c4d11c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_HungerBar
-  pauseGame: 0
   hungerBar: {fileID: 4640490341174547384}
   targetCharacter: {fileID: 0}
 --- !u!1 &7891039787011103460 stripped
@@ -4951,7 +4949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60702907acf63824e84c9f5f867df56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_HPBar
-  pauseGame: 0
   hpBar: {fileID: 759193572134335275}
   targetCharacter: {fileID: 0}
 --- !u!1 &7933420806157855872 stripped
@@ -4971,6 +4968,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aad19176c634344f9d6871480406558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_FeelingBar
-  pauseGame: 0
   feelingBar: {fileID: 3786511367275788567}
   targetCharacter: {fileID: 0}

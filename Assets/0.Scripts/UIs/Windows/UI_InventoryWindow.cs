@@ -32,17 +32,6 @@ public class UI_InventoryWindow : OpenableUIBase
         DisconnectInventory();
     }
 
-    // ESC를 눌렀을 때 호출
-    void CloseInventory(bool value)
-    {
-        if (!value) return;
-
-        // 인벤토리가 열려있지 않으면 아무것도 하지 않음
-        if (!IsOpen) return;
-
-        UIManager.ClaimCloseUI(UIType.InventoryWindow);
-    }
-
     public void ConnectInventory(Inventory newInventory)
     {
         if (!newInventory) return;

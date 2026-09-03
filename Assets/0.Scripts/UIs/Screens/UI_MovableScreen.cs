@@ -59,8 +59,7 @@ public class UI_MovableScreen : UI_ScreenBase
     {
         if (!value) return;
 
-        if (UIManager.CurrentScreen != UIType.Inside)
-            return;
+        if (UIManager.CurrentScreen != UIType.Inside) return;
 
         UIBase inventory = UIManager.ClaimGetUI(UIType.InventoryWindow);
 
@@ -68,7 +67,7 @@ public class UI_MovableScreen : UI_ScreenBase
         {
             stop = true;
 
-            UIManager.ClaimCloseUI(UIType.InventoryWindow);
+            UIManager.ClaimToggleUI(UIType.InventoryWindow);
             return;
         }
 

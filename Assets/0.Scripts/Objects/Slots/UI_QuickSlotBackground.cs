@@ -115,64 +115,17 @@ public class UI_QuickSlotBackground : UIBase
     void MouseLeftClick(bool value, Vector2 screenPosition, Vector3 worldPosition)
     {
         if (!value) return;
-
-        //Debug.Log("마우스 클릭 감지");
-
-        if (CurrentItem == null)
-        {
-            //Debug.Log("현재 아이템 없음");
-            return;
-        }
-
-        //Debug.Log($"현재 아이템 : {CurrentItem.name}");
-        //Debug.Log($"아이템 타입 : {CurrentItem.GetType()}");
-
+        if (CurrentItem == null)  return;
         GameObject target = InputManager.CursorHoverObject;
-
-        if (target == null)
-        {
-           // Debug.Log("마우스 아래 오브젝트 없음");
-            return;
-        }
-
-        //Debug.Log($"클릭 대상 : {target.name}");
-
+        if (target == null) return;
         CharacterBase character = target.GetComponentInParent<CharacterBase>();
-
-        if (character == null)
-        {
-            //Debug.Log("클릭 대상이 캐릭터가 아님");
-            return;
-        }
-
-        //Debug.Log($"캐릭터 확인 : {character.name}");
-
-        if (CurrentItem is Item_Consumable_Food food)
-        {
-            //Debug.Log($"음식 확인 : {food.name}");
-
-            food.OnUse(null, character);
-
-            //currentStack.MinusCurrent(1);
-
-
-           // Debug.Log("음식 사용 완료");
-        }
-        else
-        {
-            //Debug.Log("현재 아이템이 음식이 아님");
-        }
+        if (character == null) return;
+        if (CurrentItem is Item_Consumable_Food food) food.OnUse(null, character); 
     }
 
     void MouseWheel(float value)
     {
-            if (value > 0)
-            {
-                SelectSlot(currentIndex - 1);
-            }
-            else if (value < 0)
-            {
-                SelectSlot(currentIndex + 1);
-            }
+            if (value > 0) SelectSlot(currentIndex - 1);
+            else if (value < 0) SelectSlot(currentIndex + 1);
     }
 }

@@ -169,18 +169,6 @@ public class InputManager : ManagerBase
                                 ,           (context) => OnShift?.Invoke(false));
 
     }
-    void CancelInput()
-    {
-        UIBase inventory = UIManager.ClaimGetUI(UIType.InventoryWindow);
-
-        if (inventory != null && inventory.gameObject.activeSelf)
-        {
-            UIManager.ClaimCloseUI(UIType.InventoryWindow);
-            return;
-        }
-
-        OnCancel?.Invoke(true);
-    }
 
     void InitializeAction(string actionName, Action<InputAction.CallbackContext> actionMethod, Action<InputAction.CallbackContext> cancelMethod = null)
     {
