@@ -16,12 +16,13 @@ public class Dialogue
     [TextArea]
     public string[] dialogues;
 
+    // 비워두면 defaultPortrait 사용
+    public Sprite npcPortrait;
+
     public string[] conditions;
 
     public int maxCount;
-
     public bool isRandom;
-
     public int priority;
 
     public string nextDialogueID;
@@ -35,8 +36,8 @@ public class DialogueData : ScriptableObject
     public string npcID;
     public string npcName;
 
-    // 대화창에 표시할 NPC 이미지
-    public Sprite npcPortrait;
+    // 기본적으로 사용할 NPC 이미지
+    public Sprite defaultPortrait;
 
     public Dialogue[] dialogueList;
 }

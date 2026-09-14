@@ -25,27 +25,7 @@ public class Inventory : MonoBehaviour
                 slots[row, column] = new ItemSlot();
             }
         }
-    }
-
-    //readonly string[] itemList = 
-    //    {  
-    //        "Apple", "Apricot", "Banana", "Cherry", "Coconut1", "Coconut2", "Mango", "Orange", "Peach",
-    //        //"Cobalt Boots", "Cobalt Axe",
-    //        //"Book",
-    //        "shippart", "shippart 1", "shippart 2", "shippart 3", "shippart 4", "shippart 5",
-    //    };
-    //public void ItemPlus(int amount) 
-    //{
-    //    int index = Random.Range(0, itemList.Length);
-    //    ItemContainer potion = DataManager.LoadDataFile<ItemContainer>(itemList[index]);
-    //    AddItem(potion, amount);
-    //}
-    //
-    //public void ItemMinus(int amount)
-    //{
-    //    ItemContainer potion = DataManager.LoadDataFile<ItemContainer>("Aloe");
-    //    RemoveItem(potion, amount);
-    //}
+    } 
 
     public bool IsEmpty(ItemSlot target) => target?.GetIsEmpty() ?? false;
 

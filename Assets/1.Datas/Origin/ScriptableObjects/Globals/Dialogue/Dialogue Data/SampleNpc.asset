@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: SampleNpc
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   npcID: 
-  npcName: "\uB8E8\uC2DC\uC548"
-  npcPortrait: {fileID: 1643544271058080586, guid: 97425ed7402887641a686b977b563efe, type: 3}
+  npcName: "\uD3A0\uB9AD\uC2A4"
+  defaultPortrait: {fileID: -8868426585743915874, guid: 917a5e338084cb6438c3856b45972f70, type: 3}
   dialogueList:
   - dialogueID: first_meeting
     dialogues:
     - "\uC548\uB155\uD558\uC138\uC694"
     - "\uBC18\uAC00\uC6CC\uC694"
     - "\uC774\uACF3\uC740 \uCC98\uC74C\uC778\uAC00\uC694"
+    npcPortrait: {fileID: 0}
     conditions: []
     maxCount: 0
     isRandom: 0
@@ -31,6 +32,7 @@ MonoBehaviour:
     dialogues:
     - "\uB610 \uB9CC\uB0AC\uB124\uC694"
     - "\uC5EC\uAE34 \uBB34\uC2A8\uC77C\uC774\uC2DC\uC8E0?"
+    npcPortrait: {fileID: 0}
     conditions: []
     maxCount: 0
     isRandom: 0
@@ -41,6 +43,7 @@ MonoBehaviour:
     dialogues:
     - "(\uB8E8\uC2DC\uC548\uC740 \uB2F9\uC2E0\uC744 \uBB34\uC2DC\uD558\uB294\uB4EF\uD558\uB2E4.)"
     - ....
+    npcPortrait: {fileID: 0}
     conditions: []
     maxCount: 0
     isRandom: 1
@@ -50,6 +53,7 @@ MonoBehaviour:
   - dialogueID: normal_02
     dialogues:
     - "(\uB8E8\uC2DC\uC548\uC740 \uBC14\uC05C\uB4EF\uD558\uB2E4.)"
+    npcPortrait: {fileID: 0}
     conditions: []
     maxCount: 0
     isRandom: 1
@@ -60,6 +64,7 @@ MonoBehaviour:
     dialogues:
     - "(\uB8E8\uC2DC\uC548\uC740 \uB2F9\uC2E0\uC774 \uADFC\uCC98\uC5D0 \uC788\uB294\uC9C0
       \uBAA8\uB974\uB294\uB4EF\uD558\uB2E4.)"
+    npcPortrait: {fileID: 0}
     conditions: []
     maxCount: 0
     isRandom: 1
@@ -69,6 +74,7 @@ MonoBehaviour:
   - dialogueID: normal_04
     dialogues:
     - ...
+    npcPortrait: {fileID: 0}
     conditions: []
     maxCount: 0
     isRandom: 1

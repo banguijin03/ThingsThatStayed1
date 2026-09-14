@@ -149,11 +149,19 @@ public class DialogueManager : ManagerBase
 
         if (dialogueWindow == null) return;
 
+        Sprite portrait = currentDialogue.npcPortrait;
+
+        // 개별 이미지가 없으면 기본 이미지 사용
+        if (portrait == null)
+        {
+            portrait = currentDialogueData.defaultPortrait;
+        }
+
         dialogueWindow.SetDialogue(
-         currentDialogueData.npcName,
-         currentDialogueData.npcPortrait,
-         currentDialogue.dialogues[currentIndex]
-);
+            currentDialogueData.npcName,
+            portrait,
+            currentDialogue.dialogues[currentIndex]
+        );
     }
 
     public void EndDialogue()

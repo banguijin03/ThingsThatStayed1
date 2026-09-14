@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: SampleNpc02
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   npcID: 
-  npcName: "\uBCA0\uB85C\uB2C8\uCE74"
-  npcPortrait: {fileID: -5643105228771564274, guid: 67020e8a5c622b744b525e49a06b89e3, type: 3}
+  npcName: "\uBCA0\uB77C"
+  defaultPortrait: {fileID: 8591317829328555057, guid: 94b0539b25220b346810dd43af4b02ec, type: 3}
   dialogueList:
   - dialogueID: normal_02
     dialogues:
     - "(\uBCA0\uB85C\uB2C8\uCE74\uB294 \uBC14\uC05C\uB4EF\uD558\uB2E4.)"
+    npcPortrait: {fileID: 0}
     conditions: []
     maxCount: 0
     isRandom: 1
@@ -29,6 +30,7 @@ MonoBehaviour:
     dialogues:
     - "(\uBCA0\uB85C\uB2C8\uCE74\uB294 \uB2F9\uC2E0\uC774 \uADFC\uCC98\uC5D0 \uC788\uB294\uC9C0
       \uBAA8\uB974\uB294\uB4EF\uD558\uB2E4.)"
+    npcPortrait: {fileID: 0}
     conditions: []
     maxCount: 0
     isRandom: 1
@@ -38,6 +40,7 @@ MonoBehaviour:
   - dialogueID: normal_04
     dialogues:
     - ...
+    npcPortrait: {fileID: 0}
     conditions: []
     maxCount: 0
     isRandom: 1
