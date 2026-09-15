@@ -3650,6 +3650,7 @@ GameObject:
   - component: {fileID: 163566133059288856}
   - component: {fileID: 964805371548929454}
   - component: {fileID: 2904467082460407640}
+  - component: {fileID: 6027158668582084542}
   m_Layer: 5
   m_Name: InventoryWindow
   m_TagString: Untagged
@@ -3734,6 +3735,19 @@ MonoBehaviour:
   layout: {fileID: 8938469620507474033}
   itemSlotPrefabName: ItemSlot
   trashCan: {fileID: 4299912817981259810}
+--- !u!114 &6027158668582084542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755830612917006376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c74d5e90ed9f04babf5823e7aae459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_InputBlocker
+  allowedInput: 112
 --- !u!1 &7912997412927405573
 GameObject:
   m_ObjectHideFlags: 0

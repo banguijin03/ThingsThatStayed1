@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 4913761287538036737}
   - component: {fileID: 3385991540028265833}
   - component: {fileID: 7376465447805741484}
+  - component: {fileID: 2404766808173980095}
   m_Layer: 5
   m_Name: OptionScreen
   m_TagString: Untagged
@@ -222,6 +223,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2404766808173980095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143895199300145642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c74d5e90ed9f04babf5823e7aae459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_InputBlocker
+  allowedInput: 96
 --- !u!1 &440426080699261952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1263271, y: 0.21715592}
   m_AnchorMax: {x: 0.86, y: 0.3606882}
-  m_AnchoredPosition: {x: -8.5, y: 3.0000916}
+  m_AnchoredPosition: {x: -8.5, y: 3.0001144}
   m_SizeDelta: {x: -92.6182, y: 0.81949997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5000724745847067470

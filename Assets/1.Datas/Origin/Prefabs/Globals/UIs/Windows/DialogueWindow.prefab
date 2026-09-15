@@ -443,6 +443,7 @@ GameObject:
   - component: {fileID: 205056556908388845}
   - component: {fileID: 2089767389447466218}
   - component: {fileID: 865134068391984067}
+  - component: {fileID: 2190273103813515222}
   m_Layer: 5
   m_Name: DialogueWindow
   m_TagString: Untagged
@@ -523,7 +524,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI_DialogueWindow
   pauseGame: 1
   closeByCancel: 0
+  blockMove: 0
+  blockInteraction: 0
+  blockShift: 0
+  blockRoll: 0
+  blockInventory: 0
   requiredUI: []
   characterName: {fileID: 5345944718463194639}
   characterDialoue: {fileID: 653542282911111227}
   image: {fileID: 883112200140703483}
+--- !u!114 &2190273103813515222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929467458400426196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c74d5e90ed9f04babf5823e7aae459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_InputBlocker
+  allowedInput: 66

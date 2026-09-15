@@ -5,12 +5,9 @@ using UnityEngine;
 
 public class UI_MovableScreen : UI_ScreenBase
 {
-	[SerializeField] List<UIBase> popUpList = new();
-	Vector3 popupPosition = Vector3.zero;
-	Vector3 popupShift = new(20.0f, -20.0f);
-    public bool stop = false;
-
-    public bool IsStop => stop;
+    [SerializeField] List<UIBase> popUpList = new();
+    Vector3 popupPosition = Vector3.zero;
+    Vector3 popupShift = new(20.0f, -20.0f);
 
     UI_DraggableWindow currentDragTarget = null;
 
@@ -65,8 +62,6 @@ public class UI_MovableScreen : UI_ScreenBase
 
         if (inventory != null && inventory.gameObject.activeSelf)
         {
-            stop = true;
-
             UIManager.ClaimToggleUI(UIType.InventoryWindow);
             return;
         }
@@ -75,116 +70,133 @@ public class UI_MovableScreen : UI_ScreenBase
 
         if (option != null && option.gameObject.activeSelf)
         {
-            stop = true;
-
             UIManager.ClaimCloseUI(UIType.InsideOption);
             return;
         }
-
-        stop = true;
 
         UIManager.ClaimToggleUI(UIType.InsideOption);
     }
 
     protected override GameObject OnSetChild(GameObject newChild)
-	{
-		UIManager.ClaimSetUI(newChild);
+    {
+        UIManager.ClaimSetUI(newChild);
 
-		if(newChild)
-		{
-			UI_DraggableWindow asDraggable = newChild.GetComponentInChildren<UI_DraggableWindow>();
-			if (asDraggable)
-			{
-				asDraggable.OnDragStart -= SetDragTarget;
-				asDraggable.OnDragStart += SetDragTarget;
-			}
-		}
+        if (newChild)
+        {
+            UI_DraggableWindow asDraggable =
+                newChild.GetComponentInChildren<UI_DraggableWindow>();
 
-		return base.OnSetChild(newChild);
-	}
+            if (asDraggable)
+            {
+                asDraggable.OnDragStart -= SetDragTarget;
+                asDraggable.OnDragStart += SetDragTarget;
+            }
+        }
 
-	protected override void OnUnsetChild(GameObject oldChild)
-	{
-		UIManager.ClaimUnsetUI(oldChild);
+        return base.OnSetChild(newChild);
+    }
 
-		if (oldChild)
-		{
-			UI_DraggableWindow asDraggable = oldChild.GetComponentInChildren<UI_DraggableWindow>();
-			if (asDraggable)
-			{
-				asDraggable.OnDragStart -= SetDragTarget;
-			}
-		}
+    protected override void OnUnsetChild(GameObject oldChild)
+    {
+        UIManager.ClaimUnsetUI(oldChild);
 
-		base.OnUnsetChild(oldChild);
-	}
+        if (oldChild)
+        {
+            UI_DraggableWindow asDraggable =
+                oldChild.GetComponentInChildren<UI_DraggableWindow>();
 
-	void SetDragTarget(UI_DraggableWindow dragTarget, Vector2 startPosition)
-	{
-		currentDragTarget = dragTarget;
-		if (currentDragTarget)
-		{
-			currentDragTarget.SetMouseStartPosition(startPosition);
-		}
-	}
+            if (asDraggable)
+            {
+                asDraggable.OnDragStart -= SetDragTarget;
+            }
+        }
 
+        base.OnUnsetChild(oldChild);
+    }
 
-	void MouseLeft(bool value, Vector2 screenPosition, Vector3 worldPosition)
-	{
-		if (!value) currentDragTarget = null;
-	}
+    void SetDragTarget(UI_DraggableWindow dragTarget, Vector2 startPosition)
+    {
+        currentDragTarget = dragTarget;
 
-	void MouseMove(Vector2 screenPosition, Vector3 worldPosition)
-	{
-		if(currentDragTarget)
-		{
-			currentDragTarget.SetMouseCurrentPosition(screenPosition);
-		}
-	}
+        if (currentDragTarget)
+        {
+            currentDragTarget.SetMouseStartPosition(startPosition);
+        }
+    }
 
-	void PopUp(string title, string context, string confirm)
-	{
-		GameObject newChild = SetChild(ObjectManager.CreateObject("PopUp"));
-		if(newChild)
-		{
-			newChild.transform.localPosition = GetNextPopUpPosition();
+    void MouseLeft(bool value, Vector2 screenPosition, Vector3 worldPosition)
+    {
+        if (!value)
+            currentDragTarget = null;
+    }
 
-			if (newChild.TryGetComponent(out UIBase newUI))
-			{
-				if(!popUpList.Contains(newUI)) popUpList.Add(newUI);
-			}
+    void MouseMove(Vector2 screenPosition, Vector3 worldPosition)
+    {
+        if (currentDragTarget)
+        {
+            currentDragTarget.SetMouseCurrentPosition(screenPosition);
+        }
+    }
 
-			if(newChild.TryGetComponent(out ISystemMessagePossible target))
-			{
-				target.SetSystemMessage(title, context, confirm);
-			}
+    void PopUp(string title, string context, string confirm)
+    {
+        GameObject newChild =
+            SetChild(ObjectManager.CreateObject("PopUp"));
 
-			if(newChild.TryGetComponent(out IConfirmable confirmTarget))
-			{
-				confirmTarget.SetConfirmAction(() => 
-				{
-					if(newUI) popUpList.Remove(newUI);
-					UnsetChild(newChild); 
-					ObjectManager.DestroyObject(newChild);
-				});
-			}
-			
-		}
-	}
+        if (newChild)
+        {
+            newChild.transform.localPosition =
+                GetNextPopUpPosition();
 
-	public Vector3 GetNextPopUpPosition()
-	{
-		Vector3 bestScore = Vector3.zero;
+            if (newChild.TryGetComponent(out UIBase newUI))
+            {
+                if (!popUpList.Contains(newUI))
+                    popUpList.Add(newUI);
+            }
 
-		if (popUpList.Count == 0) return bestScore;
-		foreach (UIBase currentPopup in popUpList)
-		{
-			Vector3 currentScore = currentPopup.transform.localPosition;
-			if (bestScore.x < currentScore.x) bestScore.x = currentScore.x;
-			if (bestScore.y > currentScore.y) bestScore.y = currentScore.y;
-		}
+            if (newChild.TryGetComponent(
+                out ISystemMessagePossible target))
+            {
+                target.SetSystemMessage(
+                    title,
+                    context,
+                    confirm);
+            }
 
-		return bestScore + popupShift;
-	}
+            if (newChild.TryGetComponent(
+                out IConfirmable confirmTarget))
+            {
+                confirmTarget.SetConfirmAction(() =>
+                {
+                    if (newUI)
+                        popUpList.Remove(newUI);
 
+                    UnsetChild(newChild);
+                    ObjectManager.DestroyObject(newChild);
+                });
+            }
+        }
+    }
+
+    public Vector3 GetNextPopUpPosition()
+    {
+        Vector3 bestScore = Vector3.zero;
+
+        if (popUpList.Count == 0)
+            return bestScore;
+
+        foreach (UIBase currentPopup in popUpList)
+        {
+            Vector3 currentScore =
+                currentPopup.transform.localPosition;
+
+            if (bestScore.x < currentScore.x)
+                bestScore.x = currentScore.x;
+
+            if (bestScore.y > currentScore.y)
+                bestScore.y = currentScore.y;
+        }
+
+        return bestScore + popupShift;
+    }
 }

@@ -30,6 +30,13 @@ public class InputManager : ManagerBase
 
 
     public static bool IsShift { get; private set; } = false;
+    public static bool IsInputLocked { get; private set; }
+
+    public static void SetInputLocked(bool value)
+    {
+        IsInputLocked = value;
+    }
+
     void ShiftInput(bool value)
     {
         IsShift = value;
@@ -139,35 +146,27 @@ public class InputManager : ManagerBase
 
     void InitializeAllActions()
     {
-        if (actionDictionary == null || actionDictionary.Count == 0) return;
+        InitializeAction("Move", (context) => { if (IsInputAllowed(InputType.Move)) OnMove?.Invoke(GetVector2Value(context)); }, (context) => OnMove?.Invoke(Vector2.zero));
 
-        InitializeAction("CursorPositionChanged", (context) => CursorPositionChanged(GetVector2Value(context)));
+        InitializeAction("MouseLeftButton", (context) => { if (IsInputAllowed(InputType.Mouse)) OnMouseLeftButton?.Invoke(true, cursorScreenPosition, cursorWorldPosition); }, (context) => { if (IsInputAllowed(InputType.Mouse)) OnMouseLeftButton?.Invoke(false, cursorScreenPosition, cursorWorldPosition); });
 
-        InitializeAction("Move", (context) => OnMove?.Invoke(GetVector2Value(context))
-                               , (context) => OnMove?.Invoke(Vector2.zero));
+        InitializeAction("MouseRightButton", (context) => { if (IsInputAllowed(InputType.Mouse)) OnMouseRightButton?.Invoke(true, cursorScreenPosition, cursorWorldPosition); }, (context) => { if (IsInputAllowed(InputType.Mouse)) OnMouseRightButton?.Invoke(false, cursorScreenPosition, cursorWorldPosition); });
 
-        InitializeAction("MouseLeftButton", (context) => OnMouseLeftButton?.Invoke(true, cursorScreenPosition, cursorWorldPosition)
-                                          , (context) => OnMouseLeftButton?.Invoke(false, cursorScreenPosition, cursorWorldPosition));
+        InitializeAction("MouseWheel", (context) => { if (IsInputAllowed(InputType.Mouse)) OnMouseWheel?.Invoke(GetVector2Value(context).y); });
 
-        InitializeAction("MouseRightButton", (context) => OnMouseRightButton?.Invoke(true, cursorScreenPosition, cursorWorldPosition)
-                                           , (context) => OnMouseRightButton?.Invoke(false, cursorScreenPosition, cursorWorldPosition));
+        InitializeAction("SpaceBar", (context) => { if (IsInputAllowed(InputType.Roll)) OnRoll?.Invoke(true); });
 
-        InitializeAction("MouseWheel",       (context) => OnMouseWheel?.Invoke(GetVector2Value(context).y ));
+        InitializeAction("ShowStatusButton", (context) => { if (IsInputAllowed(InputType.Interaction)) OnShowStatus?.Invoke(true); }, (context) => { if (IsInputAllowed(InputType.Interaction)) OnShowStatus?.Invoke(false); });
 
-        InitializeAction("SpaceBar",         (context) => OnRoll?.Invoke(true));
+        InitializeAction("Interaction", (context) => { if (IsInputAllowed(InputType.Interaction)) OnInteraction?.Invoke(true); });
 
-        InitializeAction("ShowStatusButton", (context) => OnShowStatus?.Invoke(true)
-                                           , (context) => OnShowStatus?.Invoke(false));
+        InitializeAction("Cancel", (context) => { if (IsInputAllowed(InputType.Cancel)) OnCancel?.Invoke(true); });
 
-        InitializeAction("Interaction"     , (context) =>OnInteraction?.Invoke(true));
+        InitializeAction("Inventory", (context) => { if (IsInputAllowed(InputType.Inventory)) OnInventory?.Invoke(true); });
 
-        InitializeAction("Cancel",          (context) => OnCancel?.Invoke(true));
-        InitializeAction("Inventory",       (context) => OnInventory?.Invoke(true));
-        InitializeAction("AnyKey",          (context) => OnAnyKey?.Invoke());
+        InitializeAction("AnyKey", (context) => OnAnyKey?.Invoke());
 
-        InitializeAction("Shift",           (context) => OnShift?.Invoke(true)
-                                ,           (context) => OnShift?.Invoke(false));
-
+        InitializeAction("Shift", (context) => { if (IsInputAllowed(InputType.Shift)) { IsShift = true; OnShift?.Invoke(true); } else IsShift = false; }, (context) => { IsShift = false; if (IsInputAllowed(InputType.Shift)) OnShift?.Invoke(false); });
     }
 
     void InitializeAction(string actionName, Action<InputAction.CallbackContext> actionMethod, Action<InputAction.CallbackContext> cancelMethod = null)
@@ -192,5 +191,27 @@ public class InputManager : ManagerBase
     {
         RefreshGameObjectUnderCursor(screenPosition);
         OnMouseMove?.Invoke(cursorScreenPosition, cursorWorldPosition);
+    }
+    bool IsInputAllowed(InputType inputType)
+    {
+        if (IsInputLocked)
+            return false;
+
+        UI_InputBlocker[] blockers =
+            FindObjectsByType<UI_InputBlocker>(
+                FindObjectsInactive.Exclude,
+                FindObjectsSortMode.None
+            );
+
+        if (blockers.Length == 0)
+            return true;
+
+        foreach (UI_InputBlocker blocker in blockers)
+        {
+            if (!blocker.IsAllowed(inputType))
+                return false;
+        }
+
+        return true;
     }
 }

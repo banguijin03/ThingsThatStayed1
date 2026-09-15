@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class OpenableUIBase : UIBase, IOpenable
 {
+    [Header("UI Settings")]
     [SerializeField] bool pauseGame;
     [SerializeField] bool closeByCancel;
 
