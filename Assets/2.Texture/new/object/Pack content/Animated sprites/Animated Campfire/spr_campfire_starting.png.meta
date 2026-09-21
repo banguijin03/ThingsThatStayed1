@@ -79,7 +79,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -117,7 +117,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -158,12 +158,12 @@ TextureImporter:
       name: spr_campfire_starting_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 1
+        x: 0
+        y: 0
         width: 32
-        height: 56
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -180,12 +180,12 @@ TextureImporter:
       name: spr_campfire_starting_1
       rect:
         serializedVersion: 2
-        x: 161
-        y: 49
-        width: 11
-        height: 11
+        x: 32
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: spr_campfire_starting_2
       rect:
         serializedVersion: 2
-        x: 178
-        y: 48
-        width: 11
-        height: 11
+        x: 64
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -224,12 +224,12 @@ TextureImporter:
       name: spr_campfire_starting_3
       rect:
         serializedVersion: 2
-        x: 193
-        y: 53
-        width: 11
-        height: 8
+        x: 96
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -246,12 +246,12 @@ TextureImporter:
       name: spr_campfire_starting_4
       rect:
         serializedVersion: 2
-        x: 210
-        y: 52
-        width: 11
-        height: 8
+        x: 128
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: spr_campfire_starting_5
       rect:
         serializedVersion: 2
-        x: 225
-        y: 55
-        width: 11
-        height: 6
+        x: 160
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -290,12 +290,12 @@ TextureImporter:
       name: spr_campfire_starting_6
       rect:
         serializedVersion: 2
-        x: 243
-        y: 54
-        width: 10
-        height: 6
+        x: 192
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -312,12 +312,12 @@ TextureImporter:
       name: spr_campfire_starting_7
       rect:
         serializedVersion: 2
-        x: 161
-        y: 1
-        width: 31
-        height: 46
+        x: 224
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -330,165 +330,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: spr_campfire_starting_8
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 43
-        width: 17
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7f6343b46d8906f30800000000000000
-      internalID: 4566818068305819383
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_campfire_starting_9
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 1
-        width: 31
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1ed46e7721d3ec210800000000000000
-      internalID: 1355087687415385569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_campfire_starting_10
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 1
-        width: 31
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7562f46d4d2e5a9d0800000000000000
-      internalID: -2763553392565475753
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_campfire_starting_11
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 1
-        width: 31
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf1b333edc9efde70800000000000000
-      internalID: 9142282839074779643
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_campfire_starting_12
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 1
-        width: 31
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a03c9708dac0ee920800000000000000
-      internalID: 3021366339336520458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_campfire_starting_13
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 1
-        width: 31
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 130eb1c1b3b31dde0800000000000000
-      internalID: -1310200891527405519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_campfire_starting_14
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 1
-        width: 31
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 930c3d43378c08f70800000000000000
-      internalID: 9187563636968898617
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ba8ffab64d01bbd419e4040c0c30088b
     internalID: 0
     vertices: []
     indices: 
@@ -496,23 +342,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       spr_campfire_starting_0: -7039471698337443871
       spr_campfire_starting_1: -991302946883996958
-      spr_campfire_starting_10: -2763553392565475753
-      spr_campfire_starting_11: 9142282839074779643
-      spr_campfire_starting_12: 3021366339336520458
-      spr_campfire_starting_13: -1310200891527405519
-      spr_campfire_starting_14: 9187563636968898617
       spr_campfire_starting_2: -589167035911013444
       spr_campfire_starting_3: 1325019443179663218
       spr_campfire_starting_4: 7223624961342029909
       spr_campfire_starting_5: 5636132180683419264
       spr_campfire_starting_6: 3190394640807194871
       spr_campfire_starting_7: 4358877344596352557
-      spr_campfire_starting_8: 4566818068305819383
-      spr_campfire_starting_9: 1355087687415385569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
