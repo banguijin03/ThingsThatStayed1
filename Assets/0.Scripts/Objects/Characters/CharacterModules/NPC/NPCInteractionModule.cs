@@ -4,16 +4,27 @@ public class NPCInteractionModule : NPCModule
 {
     [SerializeField] PlayerController playerCharacter;
     [SerializeField] NPCDialogueModule Dialogue;
+    [SerializeField] InteractionCondition interactionCondition;
+
     bool interactionLock;
+
+    // 현재 대화를 시작한 NPC
+    static NPCInteractionModule currentDialogueNPC;
 
     public override void OnRegistration(CharacterBase newOwner)
     {
         base.OnRegistration(newOwner);
 
-        playerCharacter = FindAnyObjectByType<PlayerController>(FindObjectsInactive.Include);
+        playerCharacter = FindAnyObjectByType<PlayerController>(
+            FindObjectsInactive.Include
+        );
 
-        // 현재 NPC의 DialogueModule 가져오기
+        // 현재 NPC의 DialogueModule
         Dialogue = newOwner.GetComponent<NPCDialogueModule>();
+
+        // 현재 NPC의 InteractionCondition
+        interactionCondition =
+            newOwner.GetComponent<InteractionCondition>();
 
         InputManager.OnInteraction -= InteractionNPC;
         InputManager.OnInteraction += InteractionNPC;
@@ -23,6 +34,11 @@ public class NPCInteractionModule : NPCModule
     {
         InputManager.OnInteraction -= InteractionNPC;
 
+        if (currentDialogueNPC == this)
+        {
+            currentDialogueNPC = null;
+        }
+
         UIManager.ClaimCloseUI(UIType.Dialogue);
 
         base.OnUnregistration(oldOwner);
@@ -30,54 +46,53 @@ public class NPCInteractionModule : NPCModule
 
     public void InteractionNPC(bool value)
     {
-        if (!value) return;
-        if (playerCharacter == null) return;
-        if (!Owner) return;
-
-        Vector2 npcPosition = Owner.transform.position;
-        Vector2 playerPosition =
-            playerCharacter.Character.transform.position;
-
-        // 거리 확인
-        float distance = Vector2.Distance(
-            npcPosition,
-            playerPosition
-        );
-
-
-        // 멀리 있으면 여기서 끝
-        if (distance > 2f) return; 
-
-        // 가까운 NPC만 대화 상태 확인
-        if (GameManager.Instance.Dialogue.IsDialogue)
+        // F키를 뗐을 때
+        if (!value)
         {
-            GameManager.Instance.Dialogue.NextDialogue();
+            interactionLock = false;
             return;
         }
 
-        // 바라보는 방향 확인
-        Vector2 directionToNPC =
-            (npcPosition - playerPosition).normalized;
+        if (playerCharacter == null) return;
+        if (!Owner) return;
+        if (Dialogue == null) return;
 
-        Vector2 playerDirection =
-            playerCharacter.Character.LookRotation.normalized;
-
-        float dot = Vector2.Dot(
-            playerDirection,
-            directionToNPC
-        ); 
-
-        if (dot > 0.5f)
+        // 이미 대화 중
+        if (GameManager.Instance.Dialogue.IsDialogue)
         {
-            Dialogue.StartDialogue();
+            // 현재 대화를 시작한 NPC만 다음 대사를 진행
+            if (currentDialogueNPC != this)
+                return;
+
+            GameManager.Instance.Dialogue.NextDialogue();
+
+            return;
         }
+
+        // 대화 종료 직후
+        // 같은 F 입력으로 재시작 방지
+        if (interactionLock)
+            return;
+
+        if (interactionCondition == null)
+            return;
+
+        // 거리 + 바라보는 방향 확인
+        if (!interactionCondition.CanInteract())
+            return;
+
+        // 이번 F 입력으로 대화 시작
+        interactionLock = true;
+
+        // 현재 대화를 시작한 NPC로 등록
+        currentDialogueNPC = this;
+
+        Dialogue.StartDialogue();
     }
 
     public void InteractionObject(bool value)
     {
-        // 현재 들고 있는 것이 무엇인지,
-        // 어떤 오브젝트를 클릭했는지,
-        // 거리가 어느 정도인지에 따라 실행할 것
+        // 오브젝트 상호작용
     }
 
     public void CommendStart()

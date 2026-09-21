@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,14 +12,9 @@ public class UI_InventoryWindow : OpenableUIBase
     {
         base.Registration(manager);
 
-        targetInventory = FindAnyObjectByType<Inventory>(
-            FindObjectsInactive.Include
-        );
+        targetInventory = FindAnyObjectByType<Inventory>(FindObjectsInactive.Include);
 
-        if (targetInventory == null)
-        {
-            return;
-        }
+        if (targetInventory == null) return;
 
         ConnectInventory(targetInventory);
     }
@@ -28,45 +22,31 @@ public class UI_InventoryWindow : OpenableUIBase
     public override void Unregistration(UIManager manager)
     {
         base.Unregistration(manager);
-
         DisconnectInventory();
     }
 
     public void ConnectInventory(Inventory newInventory)
     {
         if (!newInventory) return;
-
         targetInventory = newInventory;
-
         if (!layout) return;
 
+        DisconnectInventory();
+
         if (layout is GridLayoutGroup asGridLayout)
-        {
             asGridLayout.constraintCount = targetInventory.columns;
-        }
 
         foreach (ItemSlot currentSlot in newInventory.GetAllSlot())
         {
             if (currentSlot is null) continue;
 
-            GameObject instance =
-                ObjectManager.CreateObject(
-                    itemSlotPrefabName,
-                    layout.transform
-                );
-
+            GameObject instance = ObjectManager.CreateObject(itemSlotPrefabName, layout.transform);
             if (!instance) continue;
 
-            if (instance.TryGetComponent(
-                out UI_ItemSlotInfo createdSlot))
-            {
-                createdSlot.ConnectSlot(currentSlot);
-            }
-        }
+            Debug.Log($"[InventorySlot »ý¼º] {instance.name} / Parent: {instance.transform.parent.name} / Layer: {instance.layer}");
 
-        if (trashCan)
-        {
-            trashCan.ConnectSlot(new TrashCanSlot());
+            if (instance.TryGetComponent(out UI_ItemSlotInfo createdSlot))
+                createdSlot.ConnectSlot(currentSlot);
         }
     }
 
@@ -77,9 +57,7 @@ public class UI_InventoryWindow : OpenableUIBase
         while (layout.transform.childCount > 0)
         {
             Transform targetChild = layout.transform.GetChild(0);
-
             targetChild.SetParent(null);
-
             ObjectManager.DestroyObject(targetChild.gameObject);
         }
     }
@@ -87,17 +65,13 @@ public class UI_InventoryWindow : OpenableUIBase
     public void ClaimSort()
     {
         if (targetInventory)
-        {
             targetInventory.SortByType();
-        }
     }
 
     public override void Toggle()
     {
         if (IsOpen)
-        {
             ReturnCursorItem();
-        }
 
         base.Toggle();
     }
@@ -105,9 +79,7 @@ public class UI_InventoryWindow : OpenableUIBase
     void ReturnCursorItem()
     {
         ItemSlot cursorSlot = Inventory.cursorSlot;
-
-        if (cursorSlot == null || cursorSlot.GetIsEmpty())
-            return;
+        if (cursorSlot == null || cursorSlot.GetIsEmpty()) return;
 
         foreach (ItemSlot slot in targetInventory.GetAllSlot())
         {
@@ -116,7 +88,6 @@ public class UI_InventoryWindow : OpenableUIBase
             if (slot.Containable(cursorSlot.GetItem()))
             {
                 cursorSlot.GiveItem(slot);
-
                 slot.NoticeChanged();
                 cursorSlot.NoticeChanged();
 

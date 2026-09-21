@@ -8,8 +8,7 @@ public enum UIType
 {
     None, Loading, Title, Option, Movable, Info, Inside, GameQuit,
     naga,
-    InventoryWindow, StatShow, InsideOption, InsideSetting, Dialogue,
-    CharacterCustomization,
+    InventoryWindow, StatShow, InsideOption, InsideSetting, Dialogue, Chest,
     ItemHoverInfo, ItemClickInfo, ActionHoverInfo, ActionClickInfo, ItemCursorSlot,
     _Length
 }
@@ -35,8 +34,8 @@ public class UIManager : ManagerBase
         new(UIType.naga,                            "nagaWindow"),
         new(UIType.StatShow,                        "StatShowPage"),
         new(UIType.InventoryWindow,                 "InventoryWindow"),
-        new(UIType.CharacterCustomization,          "CharacterCustomizationScreen"),
         new(UIType.Dialogue,                        "DialogueWindow"),
+        new(UIType.Chest,                           "ChestWindow"),
     };
 
     Canvas _mainCanvas;

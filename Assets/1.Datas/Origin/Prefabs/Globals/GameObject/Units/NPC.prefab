@@ -16,10 +16,8 @@ GameObject:
   - component: {fileID: 248184298640979997}
   - component: {fileID: 8809256895671528765}
   - component: {fileID: 3387859857749139130}
-  - component: {fileID: 3850077342940818404}
   - component: {fileID: 5767721524979859486}
   - component: {fileID: 6314498740795625853}
-  - component: {fileID: 2577350255158705776}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -173,20 +171,6 @@ MonoBehaviour:
   npcName: "\uC54C\uB9AC\uC544"
   playerCharacter: {fileID: 0}
   Dialogue: {fileID: 0}
---- !u!114 &3850077342940818404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390930887697430841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f178a8f7b485fdf4289dabe0cd4c3dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NpcModule
-  npcID: 
-  npcName: 
 --- !u!114 &5767721524979859486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,20 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542165f1498421f4fa992a82430f0325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementModule
---- !u!114 &2577350255158705776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390930887697430841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef6df6720089c774baca4b3844e70cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationModule
-  anim: {fileID: 0}
-  isRotationByMovement: 0
+  rollSpeed: 10
+  rollDuration: 0.3
+  rollCooldown: 1
 --- !u!1 &1570949502662293473
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,6 +58,14 @@ public class UI_MovableScreen : UI_ScreenBase
 
         if (UIManager.CurrentScreen != UIType.Inside) return;
 
+        UIBase chest = UIManager.ClaimGetUI(UIType.Chest);
+
+        if (chest != null && chest.gameObject.activeSelf)
+        {
+            UIManager.ClaimCloseUI(UIType.Chest);
+            return;
+        }
+
         UIBase inventory = UIManager.ClaimGetUI(UIType.InventoryWindow);
 
         if (inventory != null && inventory.gameObject.activeSelf)

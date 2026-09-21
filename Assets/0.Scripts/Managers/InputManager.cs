@@ -78,16 +78,49 @@ public class InputManager : ManagerBase
 
     public void UpdateEvent(float deltaTime)
     {
-        RefreshGameObjectUnderCursor(cursorScreenPosition);
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+
+        RefreshGameObjectUnderCursor(mousePosition);
+
+        OnMouseMove?.Invoke(cursorScreenPosition, cursorWorldPosition);
     }
 
     void RefreshGameObjectUnderCursor(Vector2 screenPosition)
     {
         cursorHitList.Clear();
-        GameManager.Instance.Camera.GetRaycastResult(screenPosition, cursorHitList);
 
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+        GameManager.Instance.Camera.GetRaycastResult(
+            screenPosition,
+            cursorHitList
+        );
+
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(
+            new Vector3(
+                screenPosition.x,
+                screenPosition.y,
+                -Camera.main.transform.position.z
+            )
+        );
+
+        worldPosition.z = 0;
+
         GameObject firstObject = null;
+
+        Debug.Log($"===== Raycast °á°ú {cursorHitList.Count}°³ =====");
+
+        foreach (RaycastResult target in cursorHitList)
+        {
+            if (target.gameObject == null) continue;
+
+            UI_ItemSlotInfo slotInfo =
+                target.gameObject.GetComponentInParent<UI_ItemSlotInfo>();
+
+            Debug.Log(
+                $"Raycast: {target.gameObject.name} / " +
+                $"UI_ItemSlotInfo: {slotInfo} / " +
+                $"SortingOrder: {target.sortingOrder}"
+            );
+        }
 
         if (cursorHitList.Count > 0 && cursorHitList[0].element != null)
         {
@@ -96,13 +129,32 @@ public class InputManager : ManagerBase
 
         if (GameManager.is2D)
         {
-            worldPosition.z = 0;
-            float GetValue(RaycastResult target)
+            foreach (RaycastResult target in cursorHitList)
             {
-                return target.sortingOrder + target.sortingLayer * 100000;
+                if (target.gameObject == null) continue;
+
+                UI_ItemSlotInfo slotInfo =
+                    target.gameObject.GetComponentInParent<UI_ItemSlotInfo>();
+
+                if (slotInfo != null)
+                {
+                    firstObject = target.gameObject;
+                    break;
+                }
             }
-            RaycastResult nearest = cursorHitList.GetMaximum<RaycastResult>(GetValue);
-            firstObject = nearest.gameObject;
+
+            if (firstObject == null)
+            {
+                float GetValue(RaycastResult target)
+                {
+                    return target.sortingOrder + target.sortingLayer * 100000;
+                }
+
+                RaycastResult nearest =
+                    cursorHitList.GetMaximum<RaycastResult>(GetValue);
+
+                firstObject = nearest.gameObject;
+            }
         }
         else
         {
@@ -110,10 +162,14 @@ public class InputManager : ManagerBase
             {
                 return target.distance;
             }
-            RaycastResult nearest = cursorHitList.GetMinimum<RaycastResult>(GetDistance);
+
+            RaycastResult nearest =
+                cursorHitList.GetMinimum<RaycastResult>(GetDistance);
+
             firstObject = nearest.gameObject;
             worldPosition = nearest.worldPosition;
         }
+
         GameObject lastHoverObject = _cursorHoverObject;
         ISelectable lastHoverSelectable = _cursorHoverSelectable;
 
@@ -121,19 +177,26 @@ public class InputManager : ManagerBase
         cursorWorldPosition = worldPosition;
 
         _cursorHoverObject = firstObject;
-        _cursorHoverSelectable = _cursorHoverObject?.GetComponent<ISelectable>();
+        _cursorHoverSelectable =
+            _cursorHoverObject?.GetComponent<ISelectable>();
 
         if (lastHoverObject != _cursorHoverObject)
         {
-            OnMouseHover?.Invoke(_cursorHoverObject, lastHoverObject);
+            OnMouseHover?.Invoke(
+                _cursorHoverObject,
+                lastHoverObject
+            );
         }
     }
 
     public GameObject GetGameObjectUnderCursor()
     {
-        if (cursorHitList.Count == 0) return null;
+        if (cursorHitList.Count == 0)
+            return null;
+
         return cursorHitList[0].gameObject;
     }
+
 
     void LoadAllActions()
     {
@@ -158,7 +221,8 @@ public class InputManager : ManagerBase
 
         InitializeAction("ShowStatusButton", (context) => { if (IsInputAllowed(InputType.Interaction)) OnShowStatus?.Invoke(true); }, (context) => { if (IsInputAllowed(InputType.Interaction)) OnShowStatus?.Invoke(false); });
 
-        InitializeAction("Interaction", (context) => { if (IsInputAllowed(InputType.Interaction)) OnInteraction?.Invoke(true); });
+        InitializeAction("Interaction", (context) => { if (IsInputAllowed(InputType.Interaction)) OnInteraction?.Invoke(true); }, 
+                                        (context) => { if (IsInputAllowed(InputType.Interaction)) OnInteraction?.Invoke(false); });
 
         InitializeAction("Cancel", (context) => { if (IsInputAllowed(InputType.Cancel)) OnCancel?.Invoke(true); });
 
