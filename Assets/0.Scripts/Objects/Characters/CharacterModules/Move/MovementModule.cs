@@ -28,13 +28,34 @@ public class MovementModule : CharacterModule, IRunnable
 
     Animator animator;
 
+    // Roll 충돌 검사
+    Collider2D characterCollider;
+    ContactFilter2D rollContactFilter;
+    RaycastHit2D[] rollHits = new RaycastHit2D[4];
 
-    //이동 및 Shift, Roll 입력 이벤트를 등록
+
+    // =========================
+    // Registration
+    // =========================
+
+    // 이동 및 Shift, Roll 입력 이벤트를 등록
     public override void OnRegistration(CharacterBase newOwner)
     {
         base.OnRegistration(newOwner);
 
         animator = GetComponentInChildren<Animator>();
+
+        characterCollider = GetComponent<Collider2D>();
+
+        // Roll 충돌 검사 설정
+        rollContactFilter = new ContactFilter2D();
+
+        rollContactFilter.SetLayerMask(
+            Physics2D.GetLayerCollisionMask(gameObject.layer)
+        );
+
+        rollContactFilter.useTriggers = false;
+
 
         GameManager.OnPhysicsCharacter -= MovementUpdate;
         GameManager.OnPhysicsCharacter += MovementUpdate;
@@ -46,7 +67,8 @@ public class MovementModule : CharacterModule, IRunnable
         InputManager.OnRoll += RollInput;
     }
 
-    //등록했던 이벤트를 해제
+
+    // 등록했던 이벤트를 해제
     public override void OnUnregistration(CharacterBase oldOwner)
     {
         base.OnUnregistration(oldOwner);
@@ -58,7 +80,11 @@ public class MovementModule : CharacterModule, IRunnable
     }
 
 
-    //실제 이동을 처리하고 이동 결과를 캐릭터에게 알림
+    // =========================
+    // Movement
+    // =========================
+
+    // 실제 이동을 처리하고 이동 결과를 캐릭터에게 알림
     public void MovementUpdate(float deltaTime)
     {
         Vector3 originPosition = transform.position;
@@ -66,11 +92,12 @@ public class MovementModule : CharacterModule, IRunnable
         PhysicsUpdate(deltaTime);
 
         Vector3 positionDelta = transform.position - originPosition;
+
         Owner.MovementNotify(positionDelta);
     }
 
 
-    //방향 이동과 목적지 이동 중 알맞은 이동 방식을 실행
+    // 방향 이동과 목적지 이동 중 알맞은 이동 방식을 실행
     public void PhysicsUpdate(float deltaTime)
     {
         // Roll 중이면 일반 이동을 하지 않음
@@ -90,25 +117,30 @@ public class MovementModule : CharacterModule, IRunnable
     }
 
 
-    //현재 이동 상태에 따른 이동 속도를 반환
+    // =========================
+    // Normal Movement
+    // =========================
+
+    // 현재 이동 상태에 따른 이동 속도를 반환
     public virtual float GetMoveSpeed()
     {
         return isShift ? 7.0f : 5.0f;
     }
 
-    //이동 속도에 deltaTime을 적용해 실제 이동량을 계산
+
+    // 이동 속도에 deltaTime을 적용해 실제 이동량을 계산
     public virtual float GetMoveSpeed(float deltaTime)
         => GetMoveSpeed() * deltaTime;
 
 
-    //캐릭터의 위치를 실제로 이동
+    // 캐릭터의 위치를 실제로 이동
     public virtual void Translate(Vector3 delta)
     {
         transform.position += delta;
     }
 
 
-    //지정된 방향으로 캐릭터를 이동
+    // 지정된 방향으로 캐릭터를 이동
     public virtual void UpdateToDirection(float deltaTime)
     {
         float currentMoveSpeed = GetMoveSpeed(deltaTime);
@@ -117,7 +149,7 @@ public class MovementModule : CharacterModule, IRunnable
     }
 
 
-    //지정된 목적지를 향해 캐릭터를 이동
+    // 지정된 목적지를 향해 캐릭터를 이동
     public virtual void UpdateToDestination(float deltaTime)
     {
         Vector3 currentMoveDirection =
@@ -139,7 +171,7 @@ public class MovementModule : CharacterModule, IRunnable
     }
 
 
-    //이동할 목적지와 허용 거리를 설정
+    // 이동할 목적지와 허용 거리를 설정
     public virtual void MoveToDestination(
         Vector3 destination,
         float tolerance)
@@ -150,7 +182,7 @@ public class MovementModule : CharacterModule, IRunnable
     }
 
 
-    //이동방향 설정 및 해당 방향 바라봄
+    // 이동방향 설정 및 해당 방향 바라봄
     public virtual void MoveToDirection(Vector3 direction)
     {
         targetDestination = null;
@@ -163,7 +195,7 @@ public class MovementModule : CharacterModule, IRunnable
     }
 
 
-    //shift로 달리기 상태인지 확인
+    // Shift로 달리기 상태인지 확인
     public void ShiftMove(bool value)
     {
         isShift = value;
@@ -176,42 +208,130 @@ public class MovementModule : CharacterModule, IRunnable
 
     void RollInput(bool value)
     {
-        if (!value) return;
+        if (!value)
+            return;
 
-        if (isRolling) return;
+        if (isRolling)
+            return;
 
-        if (rollCooldownTimer > 0f) return;
+        if (rollCooldownTimer > 0f)
+            return;
 
-        if (targetDirection is null) return;
+        if (targetDirection is null)
+            return;
 
-        if (targetDirection.Value == Vector3.zero) return;
+        if (targetDirection.Value == Vector3.zero)
+            return;
 
+
+        // 현재 이동 방향 저장
         rollDirection = targetDirection.Value.normalized;
 
         isRolling = true;
+
         rollTimer = rollDuration;
+
         rollCooldownTimer = rollCooldown;
 
+
+        // 기존 이동 중단
         StopMovement();
 
         animator?.SetTrigger("RollOn");
     }
 
+
     void RollUpdate(float deltaTime)
     {
-        Translate(rollDirection * rollSpeed * deltaTime);
+        float moveDistance = rollSpeed * deltaTime;
+
+
+        // =========================
+        // Roll 충돌 검사
+        // =========================
+
+        if (characterCollider != null)
+        {
+            int hitCount = characterCollider.Cast(
+                rollDirection,
+                rollContactFilter,
+                rollHits,
+                moveDistance
+            );
+
+
+            float closestDistance = moveDistance;
+
+            bool blocked = false;
+
+
+            for (int i = 0; i < hitCount; i++)
+            {
+                if (rollHits[i].collider == null)
+                    continue;
+
+
+                if (rollHits[i].distance < closestDistance)
+                {
+                    closestDistance = rollHits[i].distance;
+
+                    blocked = true;
+                }
+            }
+
+
+            // 앞에 벽이나 맵 경계가 있는 경우
+            if (blocked)
+            {
+                // 벽에 딱 붙지 않도록 약간의 여유를 둠
+                float safeDistance =
+                    Mathf.Max(0f, closestDistance - 0.02f);
+
+
+                if (safeDistance > 0f)
+                {
+                    Translate(
+                        rollDirection * safeDistance
+                    );
+                }
+
+
+                // 벽에 닿으면 구르기 종료
+                rollTimer = 0f;
+
+                isRolling = false;
+
+                return;
+            }
+        }
+
+
+        // =========================
+        // 정상 Roll 이동
+        // =========================
+
+        Translate(
+            rollDirection * moveDistance
+        );
+
 
         rollTimer -= deltaTime;
+
 
         if (rollTimer <= 0f)
         {
             rollTimer = 0f;
+
             isRolling = false;
         }
     }
 
 
-    //이동 중단
+    // =========================
+    // Movement Stop
+    // =========================
+
+    // 이동 중단
     public virtual void StopMovement()
     {
         targetDestination = null;

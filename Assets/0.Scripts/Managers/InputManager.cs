@@ -106,7 +106,6 @@ public class InputManager : ManagerBase
 
         GameObject firstObject = null;
 
-        Debug.Log($"===== Raycast °á°ú {cursorHitList.Count}°³ =====");
 
         foreach (RaycastResult target in cursorHitList)
         {
@@ -114,12 +113,6 @@ public class InputManager : ManagerBase
 
             UI_ItemSlotInfo slotInfo =
                 target.gameObject.GetComponentInParent<UI_ItemSlotInfo>();
-
-            Debug.Log(
-                $"Raycast: {target.gameObject.name} / " +
-                $"UI_ItemSlotInfo: {slotInfo} / " +
-                $"SortingOrder: {target.sortingOrder}"
-            );
         }
 
         if (cursorHitList.Count > 0 && cursorHitList[0].element != null)

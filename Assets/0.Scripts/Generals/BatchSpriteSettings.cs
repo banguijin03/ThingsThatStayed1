@@ -38,6 +38,6 @@ public class BatchSpriteSettings
             count++;
         }
 
-        Debug.Log($"¿Ï·á : {count}°³");
+        Debug.Log($"ï¿½Ï·ï¿½ : {count}ï¿½ï¿½");
     }
 }*/

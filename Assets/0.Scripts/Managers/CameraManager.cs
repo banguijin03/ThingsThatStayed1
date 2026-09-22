@@ -36,8 +36,6 @@ public class CameraManager : ManagerBase
         foreach (RaycastResult result in outResult)
         {
             if (result.gameObject == null) continue;
-
-            Debug.Log($"[CameraManager Raycast] {result.gameObject.name}");
         }
     }
 }

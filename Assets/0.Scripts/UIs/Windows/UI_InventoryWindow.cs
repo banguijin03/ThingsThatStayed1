@@ -43,7 +43,6 @@ public class UI_InventoryWindow : OpenableUIBase
             GameObject instance = ObjectManager.CreateObject(itemSlotPrefabName, layout.transform);
             if (!instance) continue;
 
-            Debug.Log($"[InventorySlot »ý¼º] {instance.name} / Parent: {instance.transform.parent.name} / Layer: {instance.layer}");
 
             if (instance.TryGetComponent(out UI_ItemSlotInfo createdSlot))
                 createdSlot.ConnectSlot(currentSlot);

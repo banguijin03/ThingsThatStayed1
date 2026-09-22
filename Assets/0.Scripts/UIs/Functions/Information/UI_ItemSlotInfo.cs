@@ -91,8 +91,6 @@ public class UI_ItemSlotInfo : UIBase
     // 퀵슬롯 클릭
     public void SelectSlot()
     {
-        Debug.Log($"[슬롯 클릭] {_connectedSlot} / Empty : {_connectedSlot?.GetIsEmpty()}");
-
         if (_connectedSlot == null) return;
 
         OnSlotSelected?.Invoke(this);

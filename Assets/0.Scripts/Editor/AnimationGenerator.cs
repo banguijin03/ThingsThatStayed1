@@ -12,11 +12,9 @@ public class AnimationGenerator
             .OrderBy(s => s.name)
             .ToArray();
 
-        Debug.Log($"선택된 Sprite : {sprites.Length}");
 
         foreach (Sprite sprite in sprites)
         {
-            Debug.Log(sprite.name);
         }
     }
 }

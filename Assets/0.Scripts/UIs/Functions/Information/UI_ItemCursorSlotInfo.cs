@@ -33,33 +33,19 @@ public class UI_ItemCursorSlotInfo : UI_ItemSlotInfo
     {
         if (!value) return;
 
-        Debug.Log($"[CursorSlot] 클릭됨 / Hover: {InputManager.CursorHoverObject}");
-
         GameObject currentHover = InputManager.CursorHoverObject;
-        if (!currentHover)
-        {
-            Debug.Log("[CursorSlot] Hover 없음");
-            return;
-        }
+        if (!currentHover) return;
 
         UI_ItemSlotInfo currentSlotInfo = currentHover.GetComponentInParent<UI_ItemSlotInfo>();
 
-        Debug.Log($"[CursorSlot] SlotInfo: {currentSlotInfo}");
 
-        if (currentSlotInfo == null)
-        {
-            Debug.Log("[CursorSlot] UI_ItemSlotInfo를 찾지 못함");
-            return;
-        }
+        if (currentSlotInfo == null)  return;
 
         ItemSlot targetSlot = currentSlotInfo.ConnectedSlot;
 
-        Debug.Log($"[CursorSlot] TargetSlot: {targetSlot}");
 
         if (targetSlot == null) return;
         if (ConnectedSlot == null) return;
-
-        Debug.Log("[CursorSlot] LeftClick 실행");
 
         ConnectedSlot.LeftClick(targetSlot);
     }
