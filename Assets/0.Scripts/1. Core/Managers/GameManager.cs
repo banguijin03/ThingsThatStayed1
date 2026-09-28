@@ -47,7 +47,13 @@ public class GameManager : MonoBehaviour
     ScenarioManager _scenario;
     public ScenarioManager Scenario => _scenario;
 
-    IEnumerator initializing; 
+    MapManager _map;
+    public MapManager Map => _map;
+
+    GameObject _player;
+    public GameObject Player => _player;
+
+    IEnumerator initializing;
 
     public static event InitializeEvent OnInitializeManager;
     public static event InitializeEvent OnInitializeController;
@@ -75,29 +81,30 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) 
+        if (Instance == null)
         {
             _instance = this;
         }
-        else 
+        else
         {
             Destroy(this);
             return;
         }
+
         initializing = InitializeManagers();
-
         StartCoroutine(initializing);
-
     }
 
-    void OnDestroy() 
+    void OnDestroy()
     {
         if (initializing != null) StopCoroutine(initializing);
-        DeleteManagers(); 
+        DeleteManagers();
     }
+
     IEnumerator InitializeManagers()
     {
         int totalLoadCount = 0;
+
         totalLoadCount += CreateManager(ref _ui).LoadCount;
         totalLoadCount += CreateManager(ref _db).LoadCount;
         totalLoadCount += CreateManager(ref _data).LoadCount;
@@ -110,41 +117,73 @@ public class GameManager : MonoBehaviour
         totalLoadCount += CreateManager(ref _input).LoadCount;
         totalLoadCount += CreateManager(ref _dialogue).LoadCount;
         totalLoadCount += CreateManager(ref _scenario).LoadCount;
+        totalLoadCount += CreateManager(ref _map).LoadCount;
 
         yield return UI.Initialize(this);
-        UIBase loadingUI = UIManager.ClaimOpenScreen(UIType.Loading); 
+
+        UIBase loadingUI = UIManager.ClaimOpenScreen(UIType.Loading);
         IProgress<int> loadingProgress = loadingUI as IProgress<int>;
 
         loadingProgress?.Set(0, totalLoadCount);
+
         yield return DB.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return Data.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return ObjectM.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return UI.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return Save.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return Setting.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return Language.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return Audio.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return Camera.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return Input.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return Dialogue.Connect(this);
         loadingProgress?.AddCurrent(1);
+
         yield return Scenario.Connect(this);
         loadingProgress?.AddCurrent(1);
+
+        yield return Map.Connect(this);
+        loadingProgress?.AddCurrent(1);
+
         yield return null;
 
         loadingProgress.SetComplete(startScreen, ScreenChangeType.ScreenChanger);
 
         isLoading = false;
+
+        StartGame();
+    }
+
+    public void StartGame()
+    {
+        Map.LoadMap(MapType.Forest);
+
+        _player = ObjectM.CreatePlayer();
+
+        if (_player != null)
+        {
+            Camera.SetTarget(_player.transform);
+        }
     }
 
     void DeleteManagers()
@@ -161,8 +200,12 @@ public class GameManager : MonoBehaviour
         DB?.Disconnect();
         Dialogue?.Disconnect();
         Scenario?.Disconnect();
+        Map?.Disconnect();
     }
-    ManagerType CreateManager<ManagerType>(ref ManagerType targetVariable) where ManagerType : ManagerBase
+
+    ManagerType CreateManager<ManagerType>(
+        ref ManagerType targetVariable
+    ) where ManagerType : ManagerBase
     {
         if (targetVariable == null)
         {
@@ -177,7 +220,7 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-		Application.Quit();
+        Application.Quit();
 #endif
     }
 
@@ -193,25 +236,28 @@ public class GameManager : MonoBehaviour
 
     void InvokeInitializeEvent(ref InitializeEvent OriginEvent)
     {
-        if (OriginEvent != null) 
+        if (OriginEvent != null)
         {
             InitializeEvent CurrentEvent = OriginEvent;
             OriginEvent = null;
-            CurrentEvent.Invoke(); 
+            CurrentEvent.Invoke();
         }
     }
+
     void InvokeDestroyEvent(ref DestroyEvent OriginEvent)
     {
-        if (OriginEvent != null) 
+        if (OriginEvent != null)
         {
-            DestroyEvent CurrentEvent = OriginEvent; 
-            OriginEvent = null; 
-            CurrentEvent.Invoke(); 
+            DestroyEvent CurrentEvent = OriginEvent;
+            OriginEvent = null;
+            CurrentEvent.Invoke();
         }
     }
+
     void Update()
     {
-        if (isLoading) return;
+        if (isLoading)
+            return;
 
         InvokeInitializeEvent(ref OnInitializeManager);
         InvokeInitializeEvent(ref OnInitializeCharacter);
@@ -221,25 +267,23 @@ public class GameManager : MonoBehaviour
         if (isPlaying)
         {
             float deltaTime = Time.deltaTime;
+
             OnUpdateManager?.Invoke(deltaTime);
             OnUpdateController?.Invoke(deltaTime);
             OnUpdateCharacter?.Invoke(deltaTime);
             OnUpdateObject?.Invoke(deltaTime);
         }
 
-        //������Ʈ�� �����Ѵ�
         InvokeDestroyEvent(ref OnDestroyObject);
-        //��Ʈ�ѷ��� �����Ѵ�
         InvokeDestroyEvent(ref OnDestroyController);
-        //ĳ���͸� �����Ѵ�
         InvokeDestroyEvent(ref OnDestroyCharacter);
-        //�Ŵ����� �����Ѵ�
         InvokeDestroyEvent(ref OnDestroyManager);
     }
 
     void FixedUpdate()
     {
-        if (isLoading || !isPlaying) return;
+        if (isLoading || !isPlaying)
+            return;
 
         float deltaTime = Time.fixedDeltaTime;
 

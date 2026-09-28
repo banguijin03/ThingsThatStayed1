@@ -14,14 +14,26 @@ public class ScenarioManager : ManagerBase
 
     public bool IsScenario => isScenario;
 
+
     protected override IEnumerator OnConnected(GameManager gameManager)
     {
         yield break;
     }
 
+
     protected override void OnDisconnected()
     {
     }
+
+
+    // 새로운 게임 시작
+    public void StartNewGame()
+    {
+        Debug.Log("===== 새로운 게임 시작 =====");
+
+        GameManager.Instance.Map.LoadMap(MapType.Forest);
+    }
+
 
     // 시나리오 시작
     public void StartScenario(ScenarioData data)
