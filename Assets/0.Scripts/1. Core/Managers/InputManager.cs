@@ -28,7 +28,6 @@ public class InputManager : ManagerBase
     public static event ButtonEvent OnRoll;
     public static event ButtonEvent OnInteraction;
 
-
     public static bool IsShift { get; private set; } = false;
     public static bool IsInputLocked { get; private set; }
 
@@ -103,22 +102,9 @@ public class InputManager : ManagerBase
         );
 
         worldPosition.z = 0;
-
         GameObject firstObject = null;
 
-
-        foreach (RaycastResult target in cursorHitList)
-        {
-            if (target.gameObject == null) continue;
-
-            UI_ItemSlotInfo slotInfo =
-                target.gameObject.GetComponentInParent<UI_ItemSlotInfo>();
-        }
-
-        if (cursorHitList.Count > 0 && cursorHitList[0].element != null)
-        {
-            firstObject = cursorHitList[0].gameObject;
-        }
+        if (cursorHitList.Count > 0 && cursorHitList[0].element != null) firstObject = cursorHitList[0].gameObject;
 
         if (GameManager.is2D)
         {
@@ -126,8 +112,7 @@ public class InputManager : ManagerBase
             {
                 if (target.gameObject == null) continue;
 
-                UI_ItemSlotInfo slotInfo =
-                    target.gameObject.GetComponentInParent<UI_ItemSlotInfo>();
+                UI_ItemSlotInfo slotInfo = target.gameObject.GetComponentInParent<UI_ItemSlotInfo>();
 
                 if (slotInfo != null)
                 {
@@ -143,8 +128,7 @@ public class InputManager : ManagerBase
                     return target.sortingOrder + target.sortingLayer * 100000;
                 }
 
-                RaycastResult nearest =
-                    cursorHitList.GetMaximum<RaycastResult>(GetValue);
+                RaycastResult nearest = cursorHitList.GetMaximum<RaycastResult>(GetValue);
 
                 firstObject = nearest.gameObject;
             }
@@ -156,8 +140,7 @@ public class InputManager : ManagerBase
                 return target.distance;
             }
 
-            RaycastResult nearest =
-                cursorHitList.GetMinimum<RaycastResult>(GetDistance);
+            RaycastResult nearest = cursorHitList.GetMinimum<RaycastResult>(GetDistance);
 
             firstObject = nearest.gameObject;
             worldPosition = nearest.worldPosition;
@@ -170,8 +153,7 @@ public class InputManager : ManagerBase
         cursorWorldPosition = worldPosition;
 
         _cursorHoverObject = firstObject;
-        _cursorHoverSelectable =
-            _cursorHoverObject?.GetComponent<ISelectable>();
+        _cursorHoverSelectable = _cursorHoverObject?.GetComponent<ISelectable>();
 
         if (lastHoverObject != _cursorHoverObject)
         {
@@ -184,12 +166,10 @@ public class InputManager : ManagerBase
 
     public GameObject GetGameObjectUnderCursor()
     {
-        if (cursorHitList.Count == 0)
-            return null;
+        if (cursorHitList.Count == 0) return null;
 
         return cursorHitList[0].gameObject;
     }
-
 
     void LoadAllActions()
     {
@@ -214,8 +194,7 @@ public class InputManager : ManagerBase
 
         InitializeAction("ShowStatusButton", (context) => { if (IsInputAllowed(InputType.Interaction)) OnShowStatus?.Invoke(true); }, (context) => { if (IsInputAllowed(InputType.Interaction)) OnShowStatus?.Invoke(false); });
 
-        InitializeAction("Interaction", (context) => { if (IsInputAllowed(InputType.Interaction)) OnInteraction?.Invoke(true); }, 
-                                        (context) => { if (IsInputAllowed(InputType.Interaction)) OnInteraction?.Invoke(false); });
+        InitializeAction("Interaction", (context) => { if (IsInputAllowed(InputType.Interaction)) OnInteraction?.Invoke(true); }, (context) => { if (IsInputAllowed(InputType.Interaction)) OnInteraction?.Invoke(false); });
 
         InitializeAction("Cancel", (context) => { if (IsInputAllowed(InputType.Cancel)) OnCancel?.Invoke(true); });
 
@@ -229,6 +208,7 @@ public class InputManager : ManagerBase
     void InitializeAction(string actionName, Action<InputAction.CallbackContext> actionMethod, Action<InputAction.CallbackContext> cancelMethod = null)
     {
         if (actionDictionary == null) return;
+
         if (actionDictionary.TryGetValue(actionName, out InputAction currentInput))
         {
             if (actionMethod is not null) currentInput.performed += actionMethod;
@@ -239,6 +219,7 @@ public class InputManager : ManagerBase
     T GetInputValue<T>(InputAction.CallbackContext context) where T : struct
     {
         if (context.valueType != typeof(T)) return default;
+
         return context.ReadValue<T>();
     }
 
@@ -249,19 +230,17 @@ public class InputManager : ManagerBase
         RefreshGameObjectUnderCursor(screenPosition);
         OnMouseMove?.Invoke(cursorScreenPosition, cursorWorldPosition);
     }
+
     bool IsInputAllowed(InputType inputType)
     {
-        if (IsInputLocked)
-            return false;
+        if (IsInputLocked) return false;
 
-        UI_InputBlocker[] blockers =
-            FindObjectsByType<UI_InputBlocker>(
-                FindObjectsInactive.Exclude,
-                FindObjectsSortMode.None
-            );
+        UI_InputBlocker[] blockers = FindObjectsByType<UI_InputBlocker>(
+            FindObjectsInactive.Exclude,
+            FindObjectsSortMode.None
+        );
 
-        if (blockers.Length == 0)
-            return true;
+        if (blockers.Length == 0) return true;
 
         foreach (UI_InputBlocker blocker in blockers)
         {

@@ -1,0 +1,210 @@
+using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class UI_MovableScreen : UI_ScreenBase
+{
+    [SerializeField] List<UIBase> popUpList = new();
+    Vector3 popupPosition = Vector3.zero;
+    Vector3 popupShift = new(20.0f, -20.0f);
+
+    UI_DraggableWindow currentDragTarget = null;
+
+    public override void Registration(UIManager manager)
+    {
+        base.Registration(manager);
+
+        InputManager.OnInventory -= Inventory;
+        InputManager.OnInventory += Inventory;
+
+        InputManager.OnCancel -= Cancel;
+        InputManager.OnCancel += Cancel;
+
+        InputManager.OnMouseMove -= MouseMove;
+        InputManager.OnMouseMove += MouseMove;
+
+        InputManager.OnMouseLeftButton -= MouseLeft;
+        InputManager.OnMouseLeftButton += MouseLeft;
+
+        UIManager.OnPopUp -= PopUp;
+        UIManager.OnPopUp += PopUp;
+    }
+
+    public override void Unregistration(UIManager manager)
+    {
+        base.Unregistration(manager);
+
+        InputManager.OnInventory -= Inventory;
+        InputManager.OnCancel -= Cancel;
+        InputManager.OnMouseMove -= MouseMove;
+        InputManager.OnMouseLeftButton -= MouseLeft;
+        UIManager.OnPopUp -= PopUp;
+    }
+
+    void Inventory(bool value)
+    {
+        if (!value) return;
+
+        if (UIManager.CurrentScreen == UIType.Inside)
+        {
+            UIManager.ClaimToggleUI(UIType.InventoryWindow);
+        }
+    }
+
+    void Cancel(bool value)
+    {
+        if (!value) return;
+
+        if (UIManager.CurrentScreen != UIType.Inside) return;
+
+        UIBase chest = UIManager.ClaimGetUI(UIType.Chest);
+
+        if (chest != null && chest.gameObject.activeSelf)
+        {
+            UIManager.ClaimCloseUI(UIType.Chest);
+            return;
+        }
+
+        UIBase inventory = UIManager.ClaimGetUI(UIType.InventoryWindow);
+
+        if (inventory != null && inventory.gameObject.activeSelf)
+        {
+            UIManager.ClaimToggleUI(UIType.InventoryWindow);
+            return;
+        }
+
+        UIBase option = UIManager.ClaimGetUI(UIType.InsideOption);
+
+        if (option != null && option.gameObject.activeSelf)
+        {
+            UIManager.ClaimCloseUI(UIType.InsideOption);
+            return;
+        }
+
+        UIManager.ClaimToggleUI(UIType.InsideOption);
+    }
+
+    protected override GameObject OnSetChild(GameObject newChild)
+    {
+        UIManager.ClaimSetUI(newChild);
+
+        if (newChild)
+        {
+            UI_DraggableWindow asDraggable =
+                newChild.GetComponentInChildren<UI_DraggableWindow>();
+
+            if (asDraggable)
+            {
+                asDraggable.OnDragStart -= SetDragTarget;
+                asDraggable.OnDragStart += SetDragTarget;
+            }
+        }
+
+        return base.OnSetChild(newChild);
+    }
+
+    protected override void OnUnsetChild(GameObject oldChild)
+    {
+        UIManager.ClaimUnsetUI(oldChild);
+
+        if (oldChild)
+        {
+            UI_DraggableWindow asDraggable =
+                oldChild.GetComponentInChildren<UI_DraggableWindow>();
+
+            if (asDraggable)
+            {
+                asDraggable.OnDragStart -= SetDragTarget;
+            }
+        }
+
+        base.OnUnsetChild(oldChild);
+    }
+
+    void SetDragTarget(UI_DraggableWindow dragTarget, Vector2 startPosition)
+    {
+        currentDragTarget = dragTarget;
+
+        if (currentDragTarget)
+        {
+            currentDragTarget.SetMouseStartPosition(startPosition);
+        }
+    }
+
+    void MouseLeft(bool value, Vector2 screenPosition, Vector3 worldPosition)
+    {
+        if (!value)
+            currentDragTarget = null;
+    }
+
+    void MouseMove(Vector2 screenPosition, Vector3 worldPosition)
+    {
+        if (currentDragTarget)
+        {
+            currentDragTarget.SetMouseCurrentPosition(screenPosition);
+        }
+    }
+
+    void PopUp(string title, string context, string confirm)
+    {
+        GameObject newChild =
+            SetChild(ObjectManager.CreateObject("PopUp"));
+
+        if (newChild)
+        {
+            newChild.transform.localPosition =
+                GetNextPopUpPosition();
+
+            if (newChild.TryGetComponent(out UIBase newUI))
+            {
+                if (!popUpList.Contains(newUI))
+                    popUpList.Add(newUI);
+            }
+
+            if (newChild.TryGetComponent(
+                out ISystemMessagePossible target))
+            {
+                target.SetSystemMessage(
+                    title,
+                    context,
+                    confirm);
+            }
+
+            if (newChild.TryGetComponent(
+                out IConfirmable confirmTarget))
+            {
+                confirmTarget.SetConfirmAction(() =>
+                {
+                    if (newUI)
+                        popUpList.Remove(newUI);
+
+                    UnsetChild(newChild);
+                    ObjectManager.DestroyObject(newChild);
+                });
+            }
+        }
+    }
+
+    public Vector3 GetNextPopUpPosition()
+    {
+        Vector3 bestScore = Vector3.zero;
+
+        if (popUpList.Count == 0)
+            return bestScore;
+
+        foreach (UIBase currentPopup in popUpList)
+        {
+            Vector3 currentScore =
+                currentPopup.transform.localPosition;
+
+            if (bestScore.x < currentScore.x)
+                bestScore.x = currentScore.x;
+
+            if (bestScore.y > currentScore.y)
+                bestScore.y = currentScore.y;
+        }
+
+        return bestScore + popupShift;
+    }
+}

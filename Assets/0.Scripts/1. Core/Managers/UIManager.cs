@@ -19,6 +19,7 @@ public enum ScreenChangeType
     ScreenChanger, SlideChanger,
     _Length
 }
+
 public delegate void PopUpEvent(string title, string context, string confirm);
 
 public class UIManager : ManagerBase
@@ -27,15 +28,15 @@ public class UIManager : ManagerBase
 
     readonly KeyValuePair<UIType, string>[] globalScreenArray =
     {
-        new(UIType.Title,                           "TitleScreen"),
-        new(UIType.Option,                          "OptionScreen"),
-        new(UIType.Inside,                          "InsideScreen"),
-        new(UIType.InsideOption,                    "InsideOptionWindow"),
-        new(UIType.naga,                            "nagaWindow"),
-        new(UIType.StatShow,                        "StatShowPage"),
-        new(UIType.InventoryWindow,                 "InventoryWindow"),
-        new(UIType.Dialogue,                        "DialogueWindow"),
-        new(UIType.Chest,                           "ChestWindow"),
+        new(UIType.Title, "TitleScreen"),
+        new(UIType.Option, "OptionScreen"),
+        new(UIType.Inside, "InsideScreen"),
+        new(UIType.InsideOption, "InsideOptionWindow"),
+        new(UIType.naga, "nagaWindow"),
+        new(UIType.StatShow, "StatShowPage"),
+        new(UIType.InventoryWindow, "InventoryWindow"),
+        new(UIType.Dialogue, "DialogueWindow"),
+        new(UIType.Chest, "ChestWindow"),
     };
 
     Canvas _mainCanvas;
@@ -51,7 +52,6 @@ public class UIManager : ManagerBase
     public GraphicRaycaster Raycaster => _raycaster;
 
     Dictionary<UIType, UIBase> uiDictionary = new();
-
     Dictionary<ScreenChangeType, UI_ScreenChanger> screenChangerDictionary = new();
 
     Rect _uiBoundary;
@@ -64,15 +64,14 @@ public class UIManager : ManagerBase
 
     float _uiScale = 1.0f;
     public static float UIScale => GameManager.Instance?.UI?._uiScale ?? 1.0f;
+
     public static bool ClaimIsOpenUI(UIType type)
     {
         UIBase ui = GameManager.Instance.UI.GetUI(type);
-
-        if (ui == null)
-            return false;
-
+        if (ui == null) return false;
         return ui.gameObject.activeSelf;
     }
+
     public IEnumerator Initialize(GameManager newManager)
     {
         SetMainCanvas(GetComponentInChildren<Canvas>());
@@ -98,7 +97,6 @@ public class UIManager : ManagerBase
     {
         createdTransform = CreateFullScreen("CreatedUI");
         _movableScreen = CreateUI(UIType.Movable, "MovableScreen", MainCanvas?.transform);
-
         switcherTransform = CreateFullScreen("ScreenSwitcher");
 
         foreach (var currentPair in globalScreenArray)
@@ -113,16 +111,13 @@ public class UIManager : ManagerBase
         overlayTransform = CreateFullScreen("OverlayTransform");
         overlayTransform.SetAsLastSibling();
 
-
-        for (ScreenChangeType currentChanger = (ScreenChangeType)1;
-            currentChanger < ScreenChangeType._Length;
-            currentChanger++)
+        for (ScreenChangeType currentChanger = (ScreenChangeType)1; currentChanger < ScreenChangeType._Length; currentChanger++)
         {
             GameObject instance = ObjectManager.CreateObject(currentChanger.ToString(), changerTransform);
+
             if (instance?.TryGetComponent(out UI_ScreenChanger asChanger) ?? false)
-            {
                 screenChangerDictionary.Add(currentChanger, asChanger);
-            }
+
             instance?.SetActive(false);
         }
 
@@ -137,6 +132,7 @@ public class UIManager : ManagerBase
     protected void SetMainCanvas(Canvas newCanvas)
     {
         _mainCanvas = newCanvas;
+
         if (MainCanvas)
         {
             _raycaster = MainCanvas.GetComponent<GraphicRaycaster>();
@@ -162,17 +158,17 @@ public class UIManager : ManagerBase
     protected UIBase CreateUI(UIType wantType, string wantName, Transform parent)
     {
         GameObject instance = ObjectManager.CreateObject(wantName, parent);
-
         UIBase result = instance?.GetComponent<UIBase>();
         return SetUI(wantType, result);
     }
+
     protected UIBase CreateUI(UIType wantType, string wantName)
     {
         UIBase result = CreateUI(wantType, wantName, createdTransform ?? MainCanvas.transform);
+
         if (result?.GetComponentInChildren<UI_DraggableWindow>())
-        {
             _movableScreen?.SetChild(result.gameObject);
-        }
+
         return result;
     }
 
@@ -181,11 +177,11 @@ public class UIManager : ManagerBase
     protected void UnSetAllUI()
     {
         foreach (UIBase ui in uiDictionary.Values)
-        {
             UnsetUI(ui);
-        }
+
         uiDictionary.Clear();
     }
+
     protected void UnsetUI(UIType wantType)
     {
         if (uiDictionary.TryGetValue(wantType, out UIBase found))
@@ -194,12 +190,13 @@ public class UIManager : ManagerBase
             uiDictionary.Remove(wantType);
         }
     }
+
     protected void UnsetUI(UIBase wantUI)
     {
         if (!wantUI) return;
-
         wantUI.Unregistration(this);
     }
+
     public static void ClaimUnsetUI(UIBase wantUI) => GameManager.Instance?.UI?.UnsetUI(wantUI);
     public static void ClaimUnsetUI(GameObject wantObject) => ClaimUnsetUI(wantObject?.GetComponent<UIBase>());
 
@@ -214,13 +211,12 @@ public class UIManager : ManagerBase
         if (wantUI == null) return null;
 
         if (uiDictionary.TryGetValue(wantType, out UIBase origin))
-        {
             return origin;
-        }
 
         uiDictionary.Add(wantType, wantUI);
         return SetUI(wantUI);
     }
+
     public static UIBase ClaimSetUI(UIBase wantUI) => GameManager.Instance?.UI?.SetUI(wantUI);
     public static UIBase ClaimSetUI(GameObject wantObject) => ClaimSetUI(wantObject?.GetComponent<UIBase>());
     public static UIBase ClaimSetUI(UIType wantType, UIBase wantUI) => GameManager.Instance?.UI?.SetUI(wantType, wantUI);
@@ -230,20 +226,16 @@ public class UIManager : ManagerBase
         if (uiDictionary.TryGetValue(wantType, out UIBase result)) return result;
         else return null;
     }
+
     public static UIBase ClaimGetUI(UIType wantType) => GameManager.Instance?.UI?.GetUI(wantType);
 
     protected UIBase OpenUI(UIType wantType)
     {
         UIBase result = GetUI(wantType);
 
-        if (result is IOpenable asOpenable)
-            asOpenable.Open();
+        if (result is IOpenable asOpenable) asOpenable.Open();
 
-        if (result is OpenableUIBase window && window.PauseGame)
-            GameManager.Pause();
-
-        if (result)
-            EventSystem.current.SetSelectedGameObject(result.gameObject);
+        if (result) EventSystem.current.SetSelectedGameObject(result.gameObject);
 
         return result;
     }
@@ -254,48 +246,18 @@ public class UIManager : ManagerBase
     {
         UIBase result = GetUI(wantType);
 
-        if (result is IOpenable asOpenable)
-            asOpenable.Close();
-
-        if (!HasPauseUI())
-            GameManager.Unpause();
+        if (result is IOpenable asOpenable) asOpenable.Close();
 
         return result;
     }
 
     public static UIBase ClaimCloseUI(UIType wantType) => GameManager.Instance?.UI?.CloseUI(wantType);
-    bool HasPauseUI()
-    {
-        foreach (UIBase ui in uiDictionary.Values)
-        {
-            if (!ui) continue;
-            if (!ui.gameObject.activeSelf) continue;
 
-            if (ui is OpenableUIBase window && window.PauseGame)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
     protected UIBase ToggleUI(UIType wantType)
     {
         UIBase result = GetUI(wantType);
 
-        if (result is OpenableUIBase window)
-        {
-            window.Toggle();
-
-            if (window.IsOpen && window.PauseGame)
-            {
-                GameManager.Pause();
-            }
-            else if (!HasPauseUI())
-            {
-                GameManager.Unpause();
-            }
-        }
+        if (result is OpenableUIBase window) window.Toggle();
 
         return result;
     }
@@ -309,21 +271,19 @@ public class UIManager : ManagerBase
         return OpenUI(wantType);
     }
 
-    //ClaimOpenScreen
     public static UIBase ClaimOpenScreen(UIType wantType) => GameManager.Instance?.UI?.OpenScreen(wantType);
+
     protected void OpenScreen(UIType wantScreen, ScreenChangeType changeType)
     {
         ClaimScreenChangeEffect(changeType, () => OpenScreen(wantScreen));
     }
-    public static void ClaimOpenScreen(UIType wantScreen, ScreenChangeType changeType)
-        => GameManager.Instance?.UI?.OpenScreen(wantScreen, changeType);
 
+    public static void ClaimOpenScreen(UIType wantScreen, ScreenChangeType changeType) => GameManager.Instance?.UI?.OpenScreen(wantScreen, changeType);
 
-    //ScreenChangeEffect
     protected void ScreenChangeEffectStart(ScreenChangeType wantType, System.Action endFunction = null)
     {
         if (currentScreenChanger) return;
-        //��ũ�� ü������ ������
+
         if (screenChangerDictionary.TryGetValue(wantType, out UI_ScreenChanger result))
         {
             if (!result)
@@ -331,8 +291,8 @@ public class UIManager : ManagerBase
                 endFunction?.Invoke();
                 return;
             }
+
             result.gameObject.SetActive(true);
-            //Ŵ
             result.ChangeStart(endFunction);
             currentScreenChanger = result;
         }
@@ -341,18 +301,19 @@ public class UIManager : ManagerBase
             endFunction?.Invoke();
         }
     }
-    public static void ClaimScreenChangeEffectStart(ScreenChangeType wantType, System.Action endFunction = null)
-        => GameManager.Instance?.UI?.ScreenChangeEffectStart(wantType, endFunction);
-    public static void ClaimScreenChangeEffect(ScreenChangeType wantType, System.Action endFunction = null)
-        => GameManager.Instance?.UI?.ScreenChangeEffectStart(wantType, endFunction + ClaimScreenChangeEffectEnd);
+
+    public static void ClaimScreenChangeEffectStart(ScreenChangeType wantType, System.Action endFunction = null) => GameManager.Instance?.UI?.ScreenChangeEffectStart(wantType, endFunction);
+
+    public static void ClaimScreenChangeEffect(ScreenChangeType wantType, System.Action endFunction = null) => GameManager.Instance?.UI?.ScreenChangeEffectStart(wantType, endFunction + ClaimScreenChangeEffectEnd);
+
     protected void ScreenChangeEffectEnd()
     {
         if (currentScreenChanger == null) return;
+
         GameObject targetObject = currentScreenChanger.gameObject;
         currentScreenChanger.ChangeEnd(() => targetObject.SetActive(false));
         currentScreenChanger = null;
     }
-
 
     public static void ClaimScreenChangeEffectEnd() => GameManager.Instance?.UI?.ScreenChangeEffectEnd();
 
@@ -360,6 +321,7 @@ public class UIManager : ManagerBase
     {
         OnPopUp?.Invoke(title, context, confirm);
     }
+
     public static void ClaimErrorMessage(string context)
     {
         OnPopUp?.Invoke("Error", context, "Confirm");

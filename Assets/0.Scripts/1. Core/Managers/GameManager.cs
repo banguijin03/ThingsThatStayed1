@@ -13,40 +13,30 @@ public class GameManager : MonoBehaviour
 
     UIManager _ui;
     public UIManager UI => _ui;
-
     DBManager _db;
     public DBManager DB => _db;
-
     DataManager _data;
     public DataManager Data => _data;
-
     ObjectManager _objectM;
     public ObjectManager ObjectM => _objectM;
-
     SaveManager _save;
     public SaveManager Save => _save;
-
     SettingManager _setting;
     public SettingManager Setting => _setting;
-
     LanguageManager _language;
     public LanguageManager Language => _language;
-
     AudioManager _audio;
     public AudioManager Audio => _audio;
-
     CameraManager _camera;
     public CameraManager Camera => _camera;
-
     InputManager _input;
     public InputManager Input => _input;
-
+    ItemUseManager _itemUse;
+    public ItemUseManager ItemUse => _itemUse;
     DialogueManager _dialogue;
     public DialogueManager Dialogue => _dialogue;
-
     ScenarioManager _scenario;
     public ScenarioManager Scenario => _scenario;
-
     MapManager _map;
     public MapManager Map => _map;
 
@@ -115,6 +105,7 @@ public class GameManager : MonoBehaviour
         totalLoadCount += CreateManager(ref _audio).LoadCount;
         totalLoadCount += CreateManager(ref _camera).LoadCount;
         totalLoadCount += CreateManager(ref _input).LoadCount;
+        totalLoadCount += CreateManager(ref _itemUse).LoadCount;
         totalLoadCount += CreateManager(ref _dialogue).LoadCount;
         totalLoadCount += CreateManager(ref _scenario).LoadCount;
         totalLoadCount += CreateManager(ref _map).LoadCount;
@@ -156,6 +147,9 @@ public class GameManager : MonoBehaviour
         yield return Input.Connect(this);
         loadingProgress?.AddCurrent(1);
 
+        yield return ItemUse.Connect(this);
+        loadingProgress?.AddCurrent(1);
+
         yield return Dialogue.Connect(this);
         loadingProgress?.AddCurrent(1);
 
@@ -181,14 +175,13 @@ public class GameManager : MonoBehaviour
         _player = ObjectM.CreatePlayer();
 
         if (_player != null)
-        {
             Camera.SetTarget(_player.transform);
-        }
     }
 
     void DeleteManagers()
     {
         Input?.Disconnect();
+        ItemUse?.Disconnect();
         ObjectM?.Disconnect();
         Audio?.Disconnect();
         Language?.Disconnect();
@@ -203,14 +196,10 @@ public class GameManager : MonoBehaviour
         Map?.Disconnect();
     }
 
-    ManagerType CreateManager<ManagerType>(
-        ref ManagerType targetVariable
-    ) where ManagerType : ManagerBase
+    ManagerType CreateManager<ManagerType>(ref ManagerType targetVariable) where ManagerType : ManagerBase
     {
         if (targetVariable == null)
-        {
             targetVariable = this.TryAddComponent<ManagerType>();
-        }
 
         return targetVariable;
     }

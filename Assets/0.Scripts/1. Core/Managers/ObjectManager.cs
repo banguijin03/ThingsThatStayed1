@@ -45,14 +45,21 @@ public class ObjectManager : ManagerBase
     public GameObject CreatePlayer()
     {
         if (playerPrefab == null) return null;
-
         if (Camera.main == null) return null;
 
         Vector3 startPosition = Camera.main.transform.position;
         startPosition.z = 0f;
 
-        GameObject player = CreateObject( playerPrefab, startPosition);
+        GameObject player = CreateObject(playerPrefab, startPosition);
 
+        if (player && player.TryGetComponent(out Inventory inventory))
+        {
+            UI_InventoryWindow inventoryWindow = FindAnyObjectByType<UI_InventoryWindow>(FindObjectsInactive.Include);
+            if (inventoryWindow) inventoryWindow.ConnectInventory(inventory);
+
+            UI_QuickSlotBackground quickSlot = FindAnyObjectByType<UI_QuickSlotBackground>(FindObjectsInactive.Include);
+            if (quickSlot) quickSlot.ConnectInventory(inventory);
+        }
         return player;
     }
 

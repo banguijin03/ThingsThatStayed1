@@ -40,9 +40,8 @@ public class FillValue
 
     public int SetCurrent(int value) => Current = value;
 
-    public float SetPercent(float value) =>
-        Current = Mathf.CeilToInt(
-            Mathf.Lerp(Min, Max, Mathf.Clamp(value, 0.0f, 1.0f)));
+    public float SetPercent(float value) 
+        => Current = Mathf.CeilToInt( Mathf.Lerp(Min, Max, Mathf.Clamp(value, 0.0f, 1.0f)));
 
     public void SetMax(int value)
     {
