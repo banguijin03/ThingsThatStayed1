@@ -174,8 +174,20 @@ public class GameManager : MonoBehaviour
 
         _player = ObjectM.CreatePlayer();
 
-        if (_player != null)
-            Camera.SetTarget(_player.transform);
+        if (_player == null) return;
+
+        Camera.SetTarget(_player.transform);
+
+        CharacterBase character = _player.GetComponent<CharacterBase>();
+        if (character == null) return;
+
+        StatModule statModule = character.GetModule<StatModule>();
+        if (statModule == null) return;
+
+        UI_StatPage statPage = FindAnyObjectByType<UI_StatPage>(FindObjectsInactive.Include);
+        if (statPage == null) return;
+
+        statPage.ConnectStat(statModule);
     }
 
     void DeleteManagers()

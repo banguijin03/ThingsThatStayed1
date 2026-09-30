@@ -168,6 +168,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2b49fe835893f4d89261a22e9164ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatModule
+  maxHP: 100
+  maxHunger: 100
+  maxThirst: 100
+  maxStability: 100
+  decreaseInterval: 10
+  hungerDecrease: 1
+  thirstDecrease: 1
+  stabilityDecrease: 1
 --- !u!114 &2104313812551471557
 MonoBehaviour:
   m_ObjectHideFlags: 0

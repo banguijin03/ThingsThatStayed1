@@ -8,7 +8,7 @@ public class Item_Consumable_Food : Item_Consumable
 
     public virtual bool IsUsable(CharacterBase from, CharacterBase to) => true;
 
-    public override bool OnUse(CharacterBase from, CharacterBase to)
+    /*public override bool OnUse(CharacterBase from, CharacterBase to)
     {
         if (to == null) return false;
 
@@ -19,7 +19,7 @@ public class Item_Consumable_Food : Item_Consumable
         statModule.Thirst.IncreaseCurrent(ThirstyChange);
 
         return true;
-    }
+    }*/
 
     public virtual bool IsUsable(CharacterBase from, Vector3 position) => true;
 
