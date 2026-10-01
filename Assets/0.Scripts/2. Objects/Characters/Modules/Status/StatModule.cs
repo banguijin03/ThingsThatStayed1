@@ -22,18 +22,22 @@ public class StatModule : CharacterModule
     public StatValue Thirst { get; private set; }
     public StatValue Stability { get; private set; }
 
+    public event Action<int, int> OnHPChanged;
+
     float timer;
+    float hpTimer;
 
     public override void OnRegistration(CharacterBase newOwner)
     {
         base.OnRegistration(newOwner);
 
-        HP = new StatValue(maxHP, maxHP);
-        Hunger = new StatValue(maxHunger, maxHunger);
-        Thirst = new StatValue(maxThirst, maxThirst);
+        HP        = new StatValue(maxHP, maxHP);
+        Hunger    = new StatValue(maxHunger, maxHunger);
+        Thirst    = new StatValue(maxThirst, maxThirst);
         Stability = new StatValue(maxStability, maxStability);
 
-        timer = 0f;
+        timer     = 0f;
+        hpTimer   = 0f;
 
         GameManager.OnUpdateCharacter -= UpdateStat;
         GameManager.OnUpdateCharacter += UpdateStat;
@@ -43,10 +47,10 @@ public class StatModule : CharacterModule
     {
         GameManager.OnUpdateCharacter -= UpdateStat;
 
-        HP = null;
-        Hunger = null;
-        Thirst = null;
-        Stability = null;
+        HP          = null;
+        Hunger      = null;
+        Thirst      = null;
+        Stability   = null;
 
         base.OnUnregistration(oldOwner);
     }
@@ -54,15 +58,46 @@ public class StatModule : CharacterModule
     void UpdateStat(float deltaTime)
     {
         timer += deltaTime;
+        hpTimer += deltaTime;
 
-        if (timer < decreaseInterval) return;
+        if (timer >= decreaseInterval)
+        {
+            timer -= decreaseInterval;
 
-        timer -= decreaseInterval;
+            bool hungerWasEmpty = Hunger.IsEmpty;
+            bool thirstWasEmpty = Thirst.IsEmpty;
 
-        Hunger.Decrease(hungerDecrease);
-        Thirst.Decrease(thirstDecrease);
-        Stability.Decrease(stabilityDecrease);
+            Hunger.Decrease(hungerDecrease);
+            Thirst.Decrease(thirstDecrease);
+            Stability.Decrease(stabilityDecrease);
 
-        Debug.Log($"Hunger: {Hunger.Current}, Thirst: {Thirst.Current}, Stability: {Stability.Current}");
+            bool hungerBecameEmpty = !hungerWasEmpty && Hunger.IsEmpty;
+            bool thirstBecameEmpty = !thirstWasEmpty && Thirst.IsEmpty;
+
+            if (hungerBecameEmpty) DecreaseHP(1);
+            if (thirstBecameEmpty) DecreaseHP(1);
+            if (hungerBecameEmpty || thirstBecameEmpty) hpTimer = 0f;
+        }
+
+        if (hpTimer >= 1f)
+        {
+            hpTimer -= 1f;
+            if (Hunger.IsEmpty) DecreaseHP(1);
+            if (Thirst.IsEmpty) DecreaseHP(1);
+        }
+    }
+
+    void DecreaseHP(int amount)
+    {
+        int previousHP = HP.Current;
+
+        HP.Decrease(amount);
+
+        int currentHP = HP.Current;
+
+        if (previousHP != currentHP)
+        {
+            OnHPChanged?.Invoke(previousHP, currentHP);
+        }
     }
 }

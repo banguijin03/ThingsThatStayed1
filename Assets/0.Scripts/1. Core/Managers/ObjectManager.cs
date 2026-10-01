@@ -7,7 +7,6 @@ public class ObjectManager : ManagerBase
     [Header("플레이어")]
     [SerializeField] GameObject playerPrefab;
 
-
     readonly string[] globalPoolSettings =
     {
         "GlobalCharacterPool",
@@ -17,11 +16,9 @@ public class ObjectManager : ManagerBase
         "GlobalUIPool",
     };
 
-
     List<PoolRequest> loadedPoolRequests = new();
 
     static Dictionary<string, ObjectPoolModule> poolDictionary = new();
-
 
     protected override IEnumerator OnConnected(GameManager newManager)
     {
@@ -32,11 +29,9 @@ public class ObjectManager : ManagerBase
         yield return null;
     }
 
-
     protected override void OnDisconnected()
     {
     }
-
 
     // =========================
     // Player 생성
@@ -60,9 +55,17 @@ public class ObjectManager : ManagerBase
             UI_QuickSlotBackground quickSlot = FindAnyObjectByType<UI_QuickSlotBackground>(FindObjectsInactive.Include);
             if (quickSlot) quickSlot.ConnectInventory(inventory);
         }
+
+        if (player && player.TryGetComponent(out StatModule statModule))
+        {
+            UI_HeartPage heartPage = FindAnyObjectByType<UI_HeartPage>(FindObjectsInactive.Include);
+
+            if (heartPage)
+                heartPage.Initialize(statModule);
+        }
+
         return player;
     }
-
 
     // =========================
     // Object 생성
@@ -93,7 +96,6 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-
     public static GameObject CreateObject(GameObject prefab, Transform parent = null)
     {
         if (prefab == null) return null;
@@ -104,7 +106,6 @@ public class ObjectManager : ManagerBase
 
         return result;
     }
-
 
     public static GameObject CreateObject(string wantName, Vector3 position)
     {
@@ -118,7 +119,6 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-
     public static GameObject CreateObject(GameObject prefab, Vector3 position)
     {
         GameObject result = CreateObject(prefab);
@@ -130,7 +130,6 @@ public class ObjectManager : ManagerBase
 
         return result;
     }
-
 
     public static GameObject CreateObject(string wantName, Vector3 position, Quaternion rotation)
     {
@@ -145,7 +144,6 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-
     public static GameObject CreateObject(GameObject prefab, Vector3 position, Quaternion rotation)
     {
         GameObject result = CreateObject(prefab);
@@ -158,7 +156,6 @@ public class ObjectManager : ManagerBase
 
         return result;
     }
-
 
     public static GameObject CreateObject(string wantName, Vector3 position, Quaternion rotation, Vector3 scale)
     {
@@ -174,7 +171,6 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-
     public static GameObject CreateObject(GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale)
     {
         GameObject result = CreateObject(prefab);
@@ -188,7 +184,6 @@ public class ObjectManager : ManagerBase
 
         return result;
     }
-
 
     public static GameObject CreateObject(string wantName, Transform parent, Vector3 position, Space space = Space.Self)
     {
@@ -211,7 +206,6 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-
     public static GameObject CreateObject(GameObject prefab, Transform parent, Vector3 position, Space space = Space.Self)
     {
         GameObject result = CreateObject(prefab, parent);
@@ -232,7 +226,6 @@ public class ObjectManager : ManagerBase
 
         return result;
     }
-
 
     public static GameObject CreateObject(string wantName, Transform parent, Vector3 position, Quaternion rotation, Space space = Space.Self)
     {
@@ -257,8 +250,7 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-
-    public static GameObject CreateObject(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation,  Space space = Space.Self)
+    public static GameObject CreateObject(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation, Space space = Space.Self)
     {
         GameObject result = CreateObject(prefab, parent);
 
@@ -280,7 +272,6 @@ public class ObjectManager : ManagerBase
 
         return result;
     }
-
 
     public static GameObject CreateObject(string wantName, Transform parent, Vector3 position, Quaternion rotation, Vector3 scale, Space space = Space.Self)
     {
@@ -307,7 +298,6 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-
     public static GameObject CreateObject(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation, Vector3 scale, Space space = Space.Self)
     {
         GameObject result = CreateObject(prefab, parent);
@@ -333,7 +323,6 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-
     // =========================
     // Object 등록 / 삭제
     // =========================
@@ -348,7 +337,6 @@ public class ObjectManager : ManagerBase
             }
         }
     }
-
 
     public static void DestroyObject(GameObject target)
     {
@@ -366,7 +354,6 @@ public class ObjectManager : ManagerBase
         }
     }
 
-
     public static void UnregistrationObject(GameObject target)
     {
         if (!target) return;
@@ -376,7 +363,6 @@ public class ObjectManager : ManagerBase
             current.UnregistrationFunctions();
         }
     }
-
 
     public void RegistrationInHierarchy()
     {
@@ -388,7 +374,6 @@ public class ObjectManager : ManagerBase
             }
         }
     }
-
 
     public void RegistrationPool(string poolName)
     {
@@ -404,22 +389,16 @@ public class ObjectManager : ManagerBase
 
         foreach (PoolSetting currentSetting in currentRequest.settings)
         {
-            string currentName =
-                currentSetting.poolName.ToLower();
+            string currentName = currentSetting.poolName.ToLower();
 
-            GameObject currentPrefab =
-                currentSetting.target;
+            GameObject currentPrefab = currentSetting.target;
 
             if (currentPrefab == null) continue;
             if (poolDictionary.ContainsKey(currentName)) continue;
 
-            poolDictionary.Add(
-                currentName,
-                new(currentSetting)
-            );
+            poolDictionary.Add(currentName, new(currentSetting));
         }
     }
-
 
     public void RegistrationPool(params string[] poolNames)
     {
@@ -428,7 +407,6 @@ public class ObjectManager : ManagerBase
             RegistrationPool(poolName);
         }
     }
-
 
     public void InitializePool()
     {

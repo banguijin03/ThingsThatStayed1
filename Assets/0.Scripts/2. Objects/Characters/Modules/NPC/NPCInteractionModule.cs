@@ -13,7 +13,6 @@ public class NPCInteractionModule : NPCModule
     {
         base.OnRegistration(newOwner);
 
-        playerCharacter = GameManager.Instance.Player.GetComponent<PlayerController>();
         Dialogue = newOwner.GetComponent<NPCDialogueModule>();
         interactionCondition = newOwner.GetComponent<InteractionCondition>();
 
@@ -37,11 +36,15 @@ public class NPCInteractionModule : NPCModule
 
     public void InteractionNPC(bool value)
     {
-        if (!value)
+            if (!value)
         {
             interactionLock = false;
             return;
         }
+
+        if (GameManager.Instance.Player == null) return;
+
+        playerCharacter = GameManager.Instance.Player.GetComponent<PlayerController>();
 
         if (playerCharacter == null) return;
         if (!Owner) return;
@@ -69,6 +72,7 @@ public class NPCInteractionModule : NPCModule
 
     public void InteractionObject(bool value)
     {
+
     }
 
     public void CommendStart()

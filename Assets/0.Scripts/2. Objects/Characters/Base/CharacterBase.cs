@@ -56,8 +56,7 @@ public class CharacterBase : MonoBehaviour
 
     public void RemoveModule(System.Type wantType)
     {
-        if (!moduleDictionary.TryGetValue(wantType, out List<CharacterModule> list))
-            return;
+        if (!moduleDictionary.TryGetValue(wantType, out List<CharacterModule> list)) return;
 
         foreach (CharacterModule module in list)
         {
@@ -119,8 +118,7 @@ public class CharacterBase : MonoBehaviour
 
     public void Unpossessed()
     {
-        if (Controller)
-            OnUnpossessed(Controller);
+        if (Controller) OnUnpossessed(Controller);
 
         RemoveAllModule();
         _controller = null;
@@ -128,8 +126,7 @@ public class CharacterBase : MonoBehaviour
 
     public bool Unpossessed(ControllerBase oldController)
     {
-        if (Controller != oldController)
-            return false;
+        if (Controller != oldController) return false;
 
         Unpossessed();
         return true;

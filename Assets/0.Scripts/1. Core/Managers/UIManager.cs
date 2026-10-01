@@ -115,8 +115,7 @@ public class UIManager : ManagerBase
         {
             GameObject instance = ObjectManager.CreateObject(currentChanger.ToString(), changerTransform);
 
-            if (instance?.TryGetComponent(out UI_ScreenChanger asChanger) ?? false)
-                screenChangerDictionary.Add(currentChanger, asChanger);
+            if (instance?.TryGetComponent(out UI_ScreenChanger asChanger) ?? false) screenChangerDictionary.Add(currentChanger, asChanger);
 
             instance?.SetActive(false);
         }
@@ -166,8 +165,7 @@ public class UIManager : ManagerBase
     {
         UIBase result = CreateUI(wantType, wantName, createdTransform ?? MainCanvas.transform);
 
-        if (result?.GetComponentInChildren<UI_DraggableWindow>())
-            _movableScreen?.SetChild(result.gameObject);
+        if (result?.GetComponentInChildren<UI_DraggableWindow>()) _movableScreen?.SetChild(result.gameObject);
 
         return result;
     }
@@ -176,9 +174,7 @@ public class UIManager : ManagerBase
 
     protected void UnSetAllUI()
     {
-        foreach (UIBase ui in uiDictionary.Values)
-            UnsetUI(ui);
-
+        foreach (UIBase ui in uiDictionary.Values) UnsetUI(ui);
         uiDictionary.Clear();
     }
 
@@ -302,9 +298,11 @@ public class UIManager : ManagerBase
         }
     }
 
-    public static void ClaimScreenChangeEffectStart(ScreenChangeType wantType, System.Action endFunction = null) => GameManager.Instance?.UI?.ScreenChangeEffectStart(wantType, endFunction);
+    public static void ClaimScreenChangeEffectStart(ScreenChangeType wantType, System.Action endFunction = null) 
+        => GameManager.Instance?.UI?.ScreenChangeEffectStart(wantType, endFunction);
 
-    public static void ClaimScreenChangeEffect(ScreenChangeType wantType, System.Action endFunction = null) => GameManager.Instance?.UI?.ScreenChangeEffectStart(wantType, endFunction + ClaimScreenChangeEffectEnd);
+    public static void ClaimScreenChangeEffect(ScreenChangeType wantType, System.Action endFunction = null) 
+        => GameManager.Instance?.UI?.ScreenChangeEffectStart(wantType, endFunction + ClaimScreenChangeEffectEnd);
 
     protected void ScreenChangeEffectEnd()
     {

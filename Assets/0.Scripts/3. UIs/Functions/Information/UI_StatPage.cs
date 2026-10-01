@@ -36,17 +36,13 @@ public class UI_StatPage : UIBase
     {
         if (statModule == null) return;
 
-        if (statModule.HP != null)
-            statModule.HP.OnValueChanged -= UpdateHP;
+        if (statModule.HP != null) statModule.HP.OnValueChanged -= UpdateHP;
 
-        if (statModule.Hunger != null)
-            statModule.Hunger.OnValueChanged -= UpdateHunger;
+        if (statModule.Hunger != null) statModule.Hunger.OnValueChanged -= UpdateHunger;
 
-        if (statModule.Thirst != null)
-            statModule.Thirst.OnValueChanged -= UpdateThirst;
+        if (statModule.Thirst != null) statModule.Thirst.OnValueChanged -= UpdateThirst;
 
-        if (statModule.Stability != null)
-            statModule.Stability.OnValueChanged -= UpdateStability;
+        if (statModule.Stability != null) statModule.Stability.OnValueChanged -= UpdateStability;
 
         statModule = null;
     }
@@ -96,14 +92,12 @@ public class UI_StatPage : UIBase
         if (hpImage == null || hpSprites == null || hpSprites.Length == 0 || max <= 0) return;
 
         float percent = (float)current / max;
-        int index = Mathf.RoundToInt(percent * (hpSprites.Length - 1));
+        int index = Mathf.RoundToInt((1f - percent) * (hpSprites.Length - 1));
 
         index = Mathf.Clamp(index, 0, hpSprites.Length - 1);
-
-        hpImage.sprite = hpSprites[index];
-    }
-
-    void UpdateHunger(int current, int max)
+        hpImage.sprite = hpSprites[index];                                                                                     
+    }                                                                 
+    void UpdateHunger(int current, int max)                     
     {
         UpdateSlider(hungerSlider, current, max);
     }

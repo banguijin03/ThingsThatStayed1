@@ -157,17 +157,13 @@ public class InputManager : ManagerBase
 
         if (lastHoverObject != _cursorHoverObject)
         {
-            OnMouseHover?.Invoke(
-                _cursorHoverObject,
-                lastHoverObject
-            );
+            OnMouseHover?.Invoke(_cursorHoverObject, lastHoverObject);
         }
     }
 
     public GameObject GetGameObjectUnderCursor()
     {
         if (cursorHitList.Count == 0) return null;
-
         return cursorHitList[0].gameObject;
     }
 
@@ -235,10 +231,7 @@ public class InputManager : ManagerBase
     {
         if (IsInputLocked) return false;
 
-        UI_InputBlocker[] blockers = FindObjectsByType<UI_InputBlocker>(
-            FindObjectsInactive.Exclude,
-            FindObjectsSortMode.None
-        );
+        UI_InputBlocker[] blockers = FindObjectsByType<UI_InputBlocker>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
 
         if (blockers.Length == 0) return true;
 

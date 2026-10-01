@@ -40,11 +40,9 @@ public class MapManager : ManagerBase
 
     public void LoadMap(MapType mapType)
     {
-
         MapBase mapPrefab = maps.Find(map => map != null && map.MapType == mapType);
-
         if (mapPrefab == null) return;
-        
+
         if (currentMap != null)
         {
             Destroy(currentMap.gameObject);
@@ -52,6 +50,6 @@ public class MapManager : ManagerBase
         }
 
         currentMap = Instantiate(mapPrefab);
-
+        ObjectManager.RegistrationObject(currentMap.gameObject);
     }
 }
