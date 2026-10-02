@@ -122,13 +122,11 @@ public class UI_QuickSlotBackground : UIBase
 
         CharacterBase character = target.GetComponentInParent<CharacterBase>();
         if (character == null) return;
-
-        if (CurrentItem is Item_Consumable_Food food) food.OnUse(null, character);
     }
 
     void MouseWheel(float value)
     {
-        if (value > 0)      SelectSlot(currentIndex - 1);
+        if      (value > 0)      SelectSlot(currentIndex - 1);
         else if (value < 0) SelectSlot(currentIndex + 1);
     }
 }
