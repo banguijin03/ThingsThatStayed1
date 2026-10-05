@@ -100,4 +100,63 @@ public class StatModule : CharacterModule
             OnHPChanged?.Invoke(previousHP, currentHP);
         }
     }
+
+    public bool IncreaseHP(int amount)
+    {
+        if (amount <= 0) return false;
+        if (HP == null) return false;
+        if (HP.IsMax) return false;
+
+        int previousHP = HP.Current;
+
+        HP.Increase(amount);
+
+        int currentHP = HP.Current;
+
+        if (previousHP == currentHP)
+            return false;
+
+        OnHPChanged?.Invoke(previousHP, currentHP);
+
+        return true;
+    }
+
+    public bool IncreaseHunger(int amount)
+    {
+        if (amount <= 0) return false;
+        if (Hunger == null) return false;
+        if (Hunger.IsMax) return false;
+
+        int previous = Hunger.Current;
+
+        Hunger.Increase(amount);
+
+        return previous != Hunger.Current;
+    }
+
+    public bool IncreaseThirst(int amount)
+    {
+        if (amount <= 0) return false;
+        if (Thirst == null) return false;
+        if (Thirst.IsMax) return false;
+
+        int previous = Thirst.Current;
+
+        Thirst.Increase(amount);
+
+        return previous != Thirst.Current;
+    }
+
+    public bool IncreaseStability(int amount)
+    {
+        if (amount <= 0) return false;
+        if (Stability == null) return false;
+        if (Stability.IsMax) return false;
+
+        int previous = Stability.Current;
+
+        Stability.Increase(amount);
+
+        return previous != Stability.Current;
+    }
 }

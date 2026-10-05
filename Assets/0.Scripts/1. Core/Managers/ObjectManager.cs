@@ -7,6 +7,10 @@ public class ObjectManager : ManagerBase
     [Header("플레이어")]
     [SerializeField] GameObject playerPrefab;
 
+    GameObject currentPlayer;
+
+    public GameObject CurrentPlayer => currentPlayer;
+
     readonly string[] globalPoolSettings =
     {
         "GlobalCharacterPool",
@@ -31,6 +35,7 @@ public class ObjectManager : ManagerBase
 
     protected override void OnDisconnected()
     {
+        currentPlayer = null;
     }
 
     // =========================
@@ -47,18 +52,29 @@ public class ObjectManager : ManagerBase
 
         GameObject player = CreateObject(playerPrefab, startPosition);
 
-        if (player && player.TryGetComponent(out Inventory inventory))
-        {
-            UI_InventoryWindow inventoryWindow = FindAnyObjectByType<UI_InventoryWindow>(FindObjectsInactive.Include);
-            if (inventoryWindow) inventoryWindow.ConnectInventory(inventory);
+        if (!player) return null;
 
-            UI_QuickSlotBackground quickSlot = FindAnyObjectByType<UI_QuickSlotBackground>(FindObjectsInactive.Include);
-            if (quickSlot) quickSlot.ConnectInventory(inventory);
+        currentPlayer = player;
+
+        if (player.TryGetComponent(out Inventory inventory))
+        {
+            UI_InventoryWindow inventoryWindow =
+                FindAnyObjectByType<UI_InventoryWindow>(FindObjectsInactive.Include);
+
+            if (inventoryWindow)
+                inventoryWindow.ConnectInventory(inventory);
+
+            UI_QuickSlotBackground quickSlot =
+                FindAnyObjectByType<UI_QuickSlotBackground>(FindObjectsInactive.Include);
+
+            if (quickSlot)
+                quickSlot.ConnectInventory(inventory);
         }
 
-        if (player && player.TryGetComponent(out StatModule statModule))
+        if (player.TryGetComponent(out StatModule statModule))
         {
-            UI_HeartPage heartPage = FindAnyObjectByType<UI_HeartPage>(FindObjectsInactive.Include);
+            UI_HeartPage heartPage =
+                FindAnyObjectByType<UI_HeartPage>(FindObjectsInactive.Include);
 
             if (heartPage)
                 heartPage.Initialize(statModule);
@@ -88,7 +104,8 @@ public class ObjectManager : ManagerBase
 
         if (!result)
         {
-            UIManager.ClaimErrorMessage(SystemMessage.ObjectNameNotFound(wantName));
+            UIManager.ClaimErrorMessage(
+                SystemMessage.ObjectNameNotFound(wantName));
         }
 
         RegistrationObject(result);
@@ -131,7 +148,10 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-    public static GameObject CreateObject(string wantName, Vector3 position, Quaternion rotation)
+    public static GameObject CreateObject(
+        string wantName,
+        Vector3 position,
+        Quaternion rotation)
     {
         GameObject result = CreateObject(wantName);
 
@@ -144,7 +164,10 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-    public static GameObject CreateObject(GameObject prefab, Vector3 position, Quaternion rotation)
+    public static GameObject CreateObject(
+        GameObject prefab,
+        Vector3 position,
+        Quaternion rotation)
     {
         GameObject result = CreateObject(prefab);
 
@@ -157,7 +180,11 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-    public static GameObject CreateObject(string wantName, Vector3 position, Quaternion rotation, Vector3 scale)
+    public static GameObject CreateObject(
+        string wantName,
+        Vector3 position,
+        Quaternion rotation,
+        Vector3 scale)
     {
         GameObject result = CreateObject(wantName);
 
@@ -171,7 +198,11 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-    public static GameObject CreateObject(GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale)
+    public static GameObject CreateObject(
+        GameObject prefab,
+        Vector3 position,
+        Quaternion rotation,
+        Vector3 scale)
     {
         GameObject result = CreateObject(prefab);
 
@@ -185,7 +216,11 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-    public static GameObject CreateObject(string wantName, Transform parent, Vector3 position, Space space = Space.Self)
+    public static GameObject CreateObject(
+        string wantName,
+        Transform parent,
+        Vector3 position,
+        Space space = Space.Self)
     {
         GameObject result = CreateObject(wantName, parent);
 
@@ -206,7 +241,11 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-    public static GameObject CreateObject(GameObject prefab, Transform parent, Vector3 position, Space space = Space.Self)
+    public static GameObject CreateObject(
+        GameObject prefab,
+        Transform parent,
+        Vector3 position,
+        Space space = Space.Self)
     {
         GameObject result = CreateObject(prefab, parent);
 
@@ -227,7 +266,12 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-    public static GameObject CreateObject(string wantName, Transform parent, Vector3 position, Quaternion rotation, Space space = Space.Self)
+    public static GameObject CreateObject(
+        string wantName,
+        Transform parent,
+        Vector3 position,
+        Quaternion rotation,
+        Space space = Space.Self)
     {
         GameObject result = CreateObject(wantName, parent);
 
@@ -250,7 +294,12 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-    public static GameObject CreateObject(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation, Space space = Space.Self)
+    public static GameObject CreateObject(
+        GameObject prefab,
+        Transform parent,
+        Vector3 position,
+        Quaternion rotation,
+        Space space = Space.Self)
     {
         GameObject result = CreateObject(prefab, parent);
 
@@ -273,7 +322,13 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-    public static GameObject CreateObject(string wantName, Transform parent, Vector3 position, Quaternion rotation, Vector3 scale, Space space = Space.Self)
+    public static GameObject CreateObject(
+        string wantName,
+        Transform parent,
+        Vector3 position,
+        Quaternion rotation,
+        Vector3 scale,
+        Space space = Space.Self)
     {
         GameObject result = CreateObject(wantName, parent);
 
@@ -298,7 +353,13 @@ public class ObjectManager : ManagerBase
         return result;
     }
 
-    public static GameObject CreateObject(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation, Vector3 scale, Space space = Space.Self)
+    public static GameObject CreateObject(
+        GameObject prefab,
+        Transform parent,
+        Vector3 position,
+        Quaternion rotation,
+        Vector3 scale,
+        Space space = Space.Self)
     {
         GameObject result = CreateObject(prefab, parent);
 
@@ -366,7 +427,9 @@ public class ObjectManager : ManagerBase
 
     public void RegistrationInHierarchy()
     {
-        foreach (MonoBehaviour current in FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
+        foreach (MonoBehaviour current in FindObjectsByType<MonoBehaviour>(
+            FindObjectsInactive.Exclude,
+            FindObjectsSortMode.None))
         {
             if (current is IFunctionable currentFunctionable)
             {
