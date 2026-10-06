@@ -159,8 +159,7 @@ public class MovementModule : CharacterModule, IRunnable
     //지정된 목적지를 향해 캐릭터를 이동
     public virtual void UpdateToDestination(float deltaTime)
     {
-        Vector3 currentMoveDirection =
-            (targetDestination.Value - transform.position);
+        Vector3 currentMoveDirection = (targetDestination.Value - transform.position);
 
         float distance = currentMoveDirection.magnitude;
 
@@ -171,8 +170,7 @@ public class MovementModule : CharacterModule, IRunnable
 
             float currentMoveSpeed = GetMoveSpeed(deltaTime);
 
-            float resultMoveSpeed =
-                Mathf.Min(currentMoveSpeed, distance);
+            float resultMoveSpeed = Mathf.Min(currentMoveSpeed, distance);
 
             Translate(resultMoveSpeed * currentMoveDirection);
         }
@@ -180,9 +178,7 @@ public class MovementModule : CharacterModule, IRunnable
 
 
     //이동할 목적지와 허용 거리를 설정
-    public virtual void MoveToDestination(
-        Vector3 destination,
-        float tolerance)
+    public virtual void MoveToDestination(Vector3 destination, float tolerance)
     {
         targetDirection = null;
         targetDestination = destination;
@@ -216,20 +212,15 @@ public class MovementModule : CharacterModule, IRunnable
 
     void RollInput(bool value)
     {
-        if (!value)
-            return;
+        if (!value) return;
 
-        if (isRolling)
-            return;
+        if (isRolling) return;
 
-        if (rollCooldownTimer > 0f)
-            return;
+        if (rollCooldownTimer > 0f) return;
 
-        if (targetDirection is null)
-            return;
+        if (targetDirection is null) return;
 
-        if (targetDirection.Value == Vector3.zero)
-            return;
+        if (targetDirection.Value == Vector3.zero) return;
 
 
         rollDirection = targetDirection.Value.normalized;
@@ -260,7 +251,7 @@ public class MovementModule : CharacterModule, IRunnable
         {
             Translate(rollDirection * moveDistance);
 
-            rollTimer -= deltaTime;
+            rollTimer -= deltaTime;             
 
             if (rollTimer <= 0f)
             {
@@ -276,12 +267,7 @@ public class MovementModule : CharacterModule, IRunnable
         // 앞으로 충돌하는지 검사
         // =========================
 
-        int hitCount = characterCollider.Cast(
-            rollDirection,
-            rollContactFilter,
-            rollHits,
-            moveDistance
-        );
+        int hitCount = characterCollider.Cast( rollDirection, rollContactFilter, rollHits, moveDistance);
 
 
         // 이동 가능한 최대 거리
@@ -290,9 +276,7 @@ public class MovementModule : CharacterModule, IRunnable
 
         for (int i = 0; i < hitCount; i++)
         {
-            if (rollHits[i].collider == null)
-                continue;
-
+            if (rollHits[i].collider == null) continue;
 
             if (rollHits[i].distance < allowedDistance)
             {
@@ -308,17 +292,12 @@ public class MovementModule : CharacterModule, IRunnable
         if (allowedDistance < moveDistance)
         {
             // 벽에 너무 딱 붙지 않도록 약간 빼줌
-            allowedDistance = Mathf.Max(
-                0f,
-                allowedDistance - rollSkin
-            );
+            allowedDistance = Mathf.Max(0f, allowedDistance - rollSkin);
 
 
             if (allowedDistance > 0f)
             {
-                Translate(
-                    rollDirection * allowedDistance
-                );
+                Translate(rollDirection * allowedDistance);
             }
 
 
@@ -335,9 +314,7 @@ public class MovementModule : CharacterModule, IRunnable
         // 정상 Roll 이동
         // =========================
 
-        Translate(
-            rollDirection * moveDistance
-        );
+        Translate(rollDirection * moveDistance);
 
 
         rollTimer -= deltaTime;
