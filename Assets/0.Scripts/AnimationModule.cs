@@ -25,6 +25,7 @@ public class AnimationModule : CharacterModule
         oldOwner.OnMovement -= AnimationByMovement;
     }
 
+    //방향 처리
     public void AnimationByLookRotation(Vector3 lookRotation)
     {
         if (!anim) return;

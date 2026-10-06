@@ -116,15 +116,10 @@ public class MovementModule : CharacterModule, IRunnable
             return;
         }
 
-
-        if (rollCooldownTimer > 0f)
-            rollCooldownTimer -= deltaTime;
-
-
-        if (targetDirection is not null)
-            UpdateToDirection(deltaTime);
-        else if (targetDestination is not null)
-            UpdateToDestination(deltaTime);
+        if (rollCooldownTimer > 0f) rollCooldownTimer -= deltaTime;
+        
+        if (targetDirection is not null) UpdateToDirection(deltaTime);
+        else if (targetDestination is not null) UpdateToDestination(deltaTime);
     }
 
 
