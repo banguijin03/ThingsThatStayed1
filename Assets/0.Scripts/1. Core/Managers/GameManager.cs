@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour
     }
 
     void InvokeInitializeEvent(ref InitializeEvent OriginEvent)
-    {
+    { 
         if (OriginEvent != null)
         {
             InitializeEvent CurrentEvent = OriginEvent;
@@ -283,8 +283,7 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isLoading || !isPlaying)
-            return;
+        if (isLoading || !isPlaying) return;
 
         float deltaTime = Time.fixedDeltaTime;
 

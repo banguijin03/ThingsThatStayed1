@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e212e4e9c51f7641a200e7f8a01d3c6, type: 3}
   m_Name: Berry
   m_EditorClassIdentifier: Assembly-CSharp::Item_Consumable_Food
-  icon: {fileID: 1575823201377944393, guid: c1ac3455554a1cd498dc967c6eb78a67, type: 3}
+  icon: {fileID: 2778267843588853002, guid: 116e71671d17ecb41b39142c5a5e85f1, type: 3}
   displayName: "\uBCA0\uB9AC"
   explain: 
   id: 10000
   type: 50
+  useType: 0
   maxStack: 99
   hungerChange: 10
-  ThirstyChange: -5
+  thirstyChange: -5

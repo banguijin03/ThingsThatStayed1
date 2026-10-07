@@ -62,8 +62,6 @@ MonoBehaviour:
     isOpen: 0
     isOverlay: 0
   quickSlot: {fileID: 3523892023949922857}
-  heartPage: {fileID: 1432913416557087956}
-  statModule: {fileID: 0}
 --- !u!1 &2427067142790193466
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,12 +373,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 3235622569367905907}
     m_Modifications:
     - target: {fileID: 570910671377271370, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.455
+      objectReference: {fileID: 0}
+    - target: {fileID: 570910671377271370, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -12.139
+      objectReference: {fileID: 0}
+    - target: {fileID: 570910671377271370, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.97909546
+      value: 1.5530014
       objectReference: {fileID: 0}
     - target: {fileID: 570910671377271370, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.76348877
+      value: 0.86699677
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093831658370539332, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 1111506953900216692, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -494,6 +504,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 2.3666382
       objectReference: {fileID: 0}
+    - target: {fileID: 3584864439022332515, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 4394170107604779740, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.43300003
@@ -526,6 +540,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.000015258789
       objectReference: {fileID: 0}
+    - target: {fileID: 8459232679446483065, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459232679446483065, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459232679446483065, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8474213971232404990, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -533,6 +559,10 @@ PrefabInstance:
     - target: {fileID: 8474213971232404990, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474213971232404990, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 8916967556115941228, guid: 85bacb0e68e090e42b7e9e747c72ddc0, type: 3}
       propertyPath: hpSprites.Array.size
