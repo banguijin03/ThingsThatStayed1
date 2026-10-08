@@ -23,6 +23,9 @@ public class StatModule : CharacterModule
     public StatValue Stability { get; private set; }
 
     public event Action<int, int> OnHPChanged;
+    public event Action OnDeath;
+
+    private bool isDead;
 
     float timer;
     float hpTimer;
@@ -31,13 +34,14 @@ public class StatModule : CharacterModule
     {
         base.OnRegistration(newOwner);
 
-        HP        = new StatValue(maxHP, maxHP);
-        Hunger    = new StatValue(maxHunger, maxHunger);
-        Thirst    = new StatValue(maxThirst, maxThirst);
+        HP = new StatValue(maxHP, maxHP);
+        Hunger = new StatValue(maxHunger, maxHunger);
+        Thirst = new StatValue(maxThirst, maxThirst);
         Stability = new StatValue(maxStability, maxStability);
 
-        timer     = 0f;
-        hpTimer   = 0f;
+        timer = 0f;
+        hpTimer = 0f;
+        isDead = false;
 
         GameManager.OnUpdateCharacter -= UpdateStat;
         GameManager.OnUpdateCharacter += UpdateStat;
@@ -47,16 +51,20 @@ public class StatModule : CharacterModule
     {
         GameManager.OnUpdateCharacter -= UpdateStat;
 
-        HP          = null;
-        Hunger      = null;
-        Thirst      = null;
-        Stability   = null;
+        HP = null;
+        Hunger = null;
+        Thirst = null;
+        Stability = null;
 
         base.OnUnregistration(oldOwner);
     }
 
     void UpdateStat(float deltaTime)
     {
+        // 이미 죽었다면 스탯 감소를 더 이상 진행하지 않음
+        if (isDead)
+            return;
+
         timer += deltaTime;
         hpTimer += deltaTime;
 
@@ -71,24 +79,39 @@ public class StatModule : CharacterModule
             Thirst.Decrease(thirstDecrease);
             Stability.Decrease(stabilityDecrease);
 
+            // 안정도가 0이 되었는지 확인
+            CheckDeath();
+
             bool hungerBecameEmpty = !hungerWasEmpty && Hunger.IsEmpty;
             bool thirstBecameEmpty = !thirstWasEmpty && Thirst.IsEmpty;
 
-            if (hungerBecameEmpty) DecreaseHP(1);
-            if (thirstBecameEmpty) DecreaseHP(1);
-            if (hungerBecameEmpty || thirstBecameEmpty) hpTimer = 0f;
+            if (hungerBecameEmpty)
+                DecreaseHP(1);
+
+            if (thirstBecameEmpty)
+                DecreaseHP(1);
+
+            if (hungerBecameEmpty || thirstBecameEmpty)
+                hpTimer = 0f;
         }
 
         if (hpTimer >= 1f)
         {
             hpTimer -= 1f;
-            if (Hunger.IsEmpty) DecreaseHP(1);
-            if (Thirst.IsEmpty) DecreaseHP(1);
+
+            if (Hunger.IsEmpty)
+                DecreaseHP(1);
+
+            if (Thirst.IsEmpty)
+                DecreaseHP(1);
         }
     }
 
     void DecreaseHP(int amount)
     {
+        if (isDead)
+            return;
+
         int previousHP = HP.Current;
 
         HP.Decrease(amount);
@@ -99,6 +122,8 @@ public class StatModule : CharacterModule
         {
             OnHPChanged?.Invoke(previousHP, currentHP);
         }
+
+        CheckDeath();
     }
 
     public bool IncreaseHP(int amount)
@@ -106,6 +131,7 @@ public class StatModule : CharacterModule
         if (amount <= 0) return false;
         if (HP == null) return false;
         if (HP.IsMax) return false;
+        if (isDead) return false;
 
         int previousHP = HP.Current;
 
@@ -126,6 +152,7 @@ public class StatModule : CharacterModule
         if (amount <= 0) return false;
         if (Hunger == null) return false;
         if (Hunger.IsMax) return false;
+        if (isDead) return false;
 
         int previous = Hunger.Current;
 
@@ -139,6 +166,7 @@ public class StatModule : CharacterModule
         if (amount <= 0) return false;
         if (Thirst == null) return false;
         if (Thirst.IsMax) return false;
+        if (isDead) return false;
 
         int previous = Thirst.Current;
 
@@ -152,11 +180,33 @@ public class StatModule : CharacterModule
         if (amount <= 0) return false;
         if (Stability == null) return false;
         if (Stability.IsMax) return false;
+        if (isDead) return false;
 
         int previous = Stability.Current;
 
         Stability.Increase(amount);
 
         return previous != Stability.Current;
+    }
+
+    private void CheckDeath()
+    {
+        if (isDead)
+            return;
+
+        if (HP.Current <= 0 || Stability.Current <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        if (isDead)
+            return;
+
+        isDead = true;
+
+        OnDeath?.Invoke();
     }
 }

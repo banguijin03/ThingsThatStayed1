@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public enum UIType
 {
-    None, Loading, Title, Option, Movable, Info, Inside, GameQuit,
-    naga,
+    None, Loading, Title, Option, Movable, Info, Inside, GameQuit, juge,
+    naga, 
     InventoryWindow, StatShow, InsideOption, InsideSetting, Dialogue, Chest,
     ItemHoverInfo, ItemClickInfo, ActionHoverInfo, ActionClickInfo, ItemCursorSlot,
     _Length
@@ -37,6 +37,7 @@ public class UIManager : ManagerBase
         new(UIType.InventoryWindow, "InventoryWindow"),
         new(UIType.Dialogue, "DialogueWindow"),
         new(UIType.Chest, "ChestWindow"),
+        new(UIType.juge, "jugeScreen"),
     };
 
     Canvas _mainCanvas;
